@@ -2,6 +2,13 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S009**: The promotion-package workflow.
+  - `launch.md`: package structure (HN fact sheet with no prose; Reddit draft plus images), image rules, and the after-posting steps.
+  - New `tools/evidence.mjs`: owner screenshots are stored privately and their hashes are recorded in `channels.json`.
+  - `channels.json` gains the fields `promo`, `evidence`, and `owner_reported`.
+  - Added `history/promo/README.md`; `inbox/` is git-ignored; the outbox links packages.
+  - Reason: the owner will post on both venues and return screenshots as proof. Evidence: S009, including a scratch test of `evidence.mjs` (archive, duplicate skip, unknown-item refusal, BOM-prefixed JSON).
+
 - **2026-09-24 · S008**: Full audit.
   - **`tools/check.mjs`**: blocks Chinese text, secret-like strings, and the owner's emails (matched by hash); installed as pre-commit and commit-msg hooks.
   - **`tools/machine.mjs`**:

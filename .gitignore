@@ -4,7 +4,10 @@
 # Local experiments (summarize results in history/research or session logs)
 /lab/
 
-# Raw transcripts: private evidence (hashes are public in history/ledger.jsonl)
+# Owner drop folder for screenshots and files (ingested by tools/evidence.mjs, then cleared)
+/inbox/
+
+# Private evidence: raw transcripts and owner screenshots (hashes are public in history/ledger.jsonl and history/channels.json)
 /archive/
 
 # Local-only

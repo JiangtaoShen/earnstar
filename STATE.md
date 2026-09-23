@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S008 (admin)._
+_Last updated: 2026-09-24 by S009 (admin)._
 
 ## Program
 - **Program start**: — (set at the first `start work`)
@@ -39,7 +39,7 @@ Both are empty when no session is open.
 - Both accounts are new. Many subreddits gate posting on account age and karma, and Reddit is unreachable from the developer's environment (L-002), so the owner checks target subreddit rules when an outbox item asks. Genuine participation before launch helps; karma farming does not and is not advised. HN posts and comments must be written by the owner personally (L-001).
 
 ## Awaiting owner
-- **Reddit channel decision** (S008). Reddit is unreachable from the developer's environment (L-002), so every Reddit rule check, research lookup, and metric depends on the owner. Options: keep Reddit on these terms, or replace it with a platform the developer can reach. Not blocking until the P3 launch plan.
+- Nothing. The Reddit channel decision raised in S008 was resolved in S009: the owner posts on both HN and Reddit, checks the subreddit rules, and returns screenshots as proof and as the source of Reddit metrics.
 
 ## Session history
 | ID | Date (Asia/Shanghai) | Kind | Summary |
@@ -53,6 +53,7 @@ Both are empty when no session is open.
 | S006 | 2026-09-24 | admin | Owner handed over the workstation during sessions: local experiments, installs from trusted sources, web learning (§3A), with guardrails (§3C); `lab/` added; toolchain versions tracked |
 | S007 | 2026-09-24 | admin | Environment reuse policy (`playbook/workstation.md`), private env inventory (`tools/envs.mjs`), C: added to the free-space floor |
 | S008 | 2026-09-24 | admin | Full audit: repo made Chinese-free (owner order), `tools/check.mjs` and hooks, machine ID scheme v2 (`m-be80e7832908`), open-step ordering fix, HN rules verified (L-001), Reddit found unreachable (L-002) |
+| S009 | 2026-09-24 | admin | Promotion workflow: the owner posts on HN and Reddit; the developer prepares archived packages (`history/promo/`); owner screenshots are stored privately with public hashes (`tools/evidence.mjs`) |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

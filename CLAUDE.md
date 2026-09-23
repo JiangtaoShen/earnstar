@@ -38,7 +38,9 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 
 **B. Owner approval required.** Queue the request in `history/outbox.md`. Act only after the owner approves its ID in chat.
 - Any write to third-party repos or sites (e.g., awesome-list PRs, issues, comments).
-- Promotion happens only on **Hacker News** and **Reddit**. The developer drafts; the owner posts from their own accounts.
+- Promotion happens only on **Hacker News** and **Reddit**, and the owner posts from their own accounts.
+  - The developer prepares and archives a promotion package for each post (`playbook/launch.md`). For HN the package is a fact sheet, not prose, because HN forbids generated text.
+  - After posting, the owner sends screenshots as proof. They are stored privately, with their hashes recorded publicly.
 - The first publication of a package to a registry (npm, PyPI, …). The owner supplies accounts and tokens.
 - Any spending. The default budget is 0.
 - Changes to the owner's account or profile; public → private (this erases stars); archive, transfer, or delete.
@@ -56,7 +58,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 **D. AI disclosure**
 - Every project README states that it is built and maintained by Claude Code (Anthropic's AI coding agent) under @JiangtaoShen's supervision.
 - Every reply the developer posts ends with `— Claude Code (AI maintainer)`.
-- Drafts that the owner posts also disclose AI authorship.
+- Promotion packages that the owner posts also disclose AI authorship.
 
 ## 4. Session protocol
 Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock time; check the clock at every milestone.
@@ -107,8 +109,9 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 | `history/decisions/ADR-NNN-slug.md` | Significant decisions (`templates/adr.md`) |
 | `history/reports/` | Project final reports and the program final report |
 | `history/outbox.md` | B-class requests and their status |
-| `history/channels.json` | Registry of live promotion posts and PRs, snapshotted by `tools/metrics.mjs` |
-| `archive/` | Raw transcripts: private and git-ignored, with hashes in the ledger (`tools/archive.mjs --verify`) |
+| `history/promo/<project>/` | Promotion packages (fact sheets, drafts, images), one folder per outbox item |
+| `history/channels.json` | Registry of live promotion posts and PRs, snapshotted by `tools/metrics.mjs`, with hashes of the owner's screenshots |
+| `archive/` | Private and git-ignored: raw transcripts (hashes in the ledger; `tools/archive.mjs --verify`) and owner screenshots (hashes in `channels.json`; `tools/evidence.mjs`) |
 
 - **Measured, not estimated.** Durations, tokens, model, and effort come from Claude Code transcripts via tools. Missing data is recorded as `unavailable`.
 - **Machine.** Every session records its machine: a hardware profile ID, hashed from language-independent fields (CPU, GPU, RAM, board, disks, OS version), plus software versions (GPU driver, CUDA, OS patch, toolchains, free disk). No hostname, user name, serial number, or network identifier is stored.
