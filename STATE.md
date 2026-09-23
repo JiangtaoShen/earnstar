@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S000 (setup)._
+_Last updated: 2026-09-24 by S001 (admin)._
 
 ## Program
 - **Program start**: — (set at the first `start work`)
@@ -30,10 +30,13 @@ Both are empty when no session is open.
    - Begin P0 research (`playbook/research.md`).
 
 ## Awaiting owner
-- Create the repos `earnstar_1` … `earnstar_6`, preferably private. The developer switches each to public at launch.
 - Have Hacker News and Reddit accounts ready before project 1 launches (around day 21). Many subreddits require some account age and karma.
 
 ## Session history
 | ID | Date (Asia/Shanghai) | Kind | Summary |
 |---|---|---|---|
 | S000 | 2026-09-23 → 2026-09-24 | setup | Root project designed with the owner and built (ADR-001) |
+| S001 | 2026-09-24 | admin | Owner created `earnstar_1`…`earnstar_6` (public, empty); Constitution §3A amended: root never renamed |
+
+## Notes
+- `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

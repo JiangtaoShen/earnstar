@@ -7,7 +7,7 @@
 - [ ] The description carries the core keywords. The repo has 5–10 topics and a social preview image (1280×640).
 - [ ] CI is green. LICENSE, CONTRIBUTING, issue and PR templates, and SECURITY.md are present.
 - [ ] Real good-first-issues are open, and known limitations are stated.
-- [ ] AI disclosure is present. The repo has been switched from private to public.
+- [ ] AI disclosure is present. The repo is public.
 
 ## Channels (fixed for the program)
 - **Hacker News (Show HN)**

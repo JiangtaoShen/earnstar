@@ -152,6 +152,6 @@ if (o.gap) {
   }
   console.log(JSON.stringify(s, null, 2));
 } else {
-  console.error('usage: --since <ISO> [--until <ISO>] [--ledger --id SNNN --kind work|setup --project key --phase Pn] | --gap');
+  console.error('usage: --since <ISO> [--until <ISO>] [--ledger --id SNNN --kind work|setup|admin|reconstructed --project key --phase Pn] | --gap');
   process.exit(1);
 }

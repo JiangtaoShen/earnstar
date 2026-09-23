@@ -27,7 +27,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 ## 3. Authority
 **A. Autonomous**
 - All local work in this folder; read-only research anywhere.
-- In program repos: commits and pushes (never force-push a default branch), branches, tags, releases, Actions, Pages; description, topics, homepage, and social preview; renaming a project repo to its product name; changing visibility from private to public.
+- In program repos: commits and pushes (never force-push a default branch), branches, tags, releases, Actions, Pages; description, topics, homepage, and social preview; renaming a project repo to its product name (the root repo `earnstar` is never renamed); changing visibility from private to public.
 - Triage of, and replies to, issues, PRs, and discussions in program repos, with disclosure (§3D).
 
 **B. Owner approval required.** Queue the request in `history/outbox.md`. Act only after the owner approves its ID in chat.

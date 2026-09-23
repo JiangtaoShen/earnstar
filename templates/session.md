@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Session ID / kind | SNNN / work · setup · reconstructed |
+| Session ID / kind | SNNN / work · setup · admin · reconstructed |
 | Project / phase | earnstar_N (<name>) / Pn; day D since kickoff (YYYY-MM-DD) |
 | Open → close (Asia/Shanghai) | YYYY-MM-DD HH:MM → YYYY-MM-DD HH:MM |
 | Open → close (UTC) | … → … |
