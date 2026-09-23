@@ -37,7 +37,7 @@ function upsertTraffic(rows) {
   const header = ['date_utc', 'key', 'views', 'view_uniques', 'clones', 'clone_uniques'];
   const map = new Map();
   if (fs.existsSync(p)) {
-    for (const line of fs.readFileSync(p, 'utf8').trim().split('\n').slice(1)) {
+    for (const line of fs.readFileSync(p, 'utf8').trim().split(/\r?\n/).slice(1)) {
       const f = line.split(',');
       map.set(`${f[0]}|${f[1]}`, f);
     }
@@ -80,7 +80,7 @@ for (const r of tracked) {
     try {
       const out = gh(['api', '--paginate', '-H', 'Accept: application/vnd.github.star+json',
         `repos/${full}/stargazers?per_page=100`, '--jq', '.[].starred_at']);
-      const stamps = out.split('\n').filter(Boolean).sort();
+      const stamps = out.split(/\r?\n/).filter(Boolean).sort();
       fs.mkdirSync(path.join(OUT, 'stars'), { recursive: true });
       fs.writeFileSync(path.join(OUT, 'stars', `${r.key}.csv`), 'starred_at_utc\n' + stamps.join('\n') + '\n');
     } catch (e) { errors.push(`stargazers ${full}: ${String(e.stderr || e.message).trim()}`); }

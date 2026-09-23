@@ -54,7 +54,7 @@ export function summarize(since, until) {
   const stamps = [], requests = new Map(), sessions = new Set(), effort = {};
   let prompts = 0;
   for (const dir of transcriptDirs()) for (const file of walk(dir)) {
-    for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+    for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
       if (!line) continue;
       let o; try { o = JSON.parse(line); } catch { continue; }
       if (o.type !== 'user' && o.type !== 'assistant') continue;
@@ -122,7 +122,7 @@ export function summarize(since, until) {
 
 function lastLedger() {
   if (!fs.existsSync(LEDGER)) return null;
-  const lines = fs.readFileSync(LEDGER, 'utf8').trim().split('\n').filter(Boolean);
+  const lines = fs.readFileSync(LEDGER, 'utf8').trim().split(/\r?\n/).filter(Boolean);
   return lines.length ? JSON.parse(lines.at(-1)) : null;
 }
 
