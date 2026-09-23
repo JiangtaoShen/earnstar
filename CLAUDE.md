@@ -63,8 +63,8 @@ Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock t
 4. **Plan**: write the session goals into the session log (`templates/session.md`) before working.
 5. **Execute**: follow §5. Commit a checkpoint of the log and state at least every 45 min.
 6. **Close**: begin while ≥ 10 % of the budget remains.
-   - Complete the log.
-   - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`.
+   - Complete the log, including the owner's involvement.
+   - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
    - Update `STATE.md` and the playbook.
    - Commit and push every touched repo.
    - Reply to the owner in Chinese: a summary of ≤ 10 lines plus pending outbox items.
@@ -93,9 +93,18 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 | `history/decisions/ADR-NNN-slug.md` | Significant decisions (`templates/adr.md`) |
 | `history/reports/` | Project final reports and the program final report |
 | `history/outbox.md` | B-class requests and their status |
+| `history/channels.json` | Registry of live promotion posts and PRs, snapshotted by `tools/metrics.mjs` |
+| `archive/` | Raw transcripts: private and git-ignored, with hashes in the ledger (`tools/archive.mjs --verify`) |
 
 - **Measured, not estimated.** Durations, tokens, model, and effort come from Claude Code transcripts via tools. Missing data is recorded as `unavailable`.
 - **Machine.** Every session records its machine: a hardware profile ID (CPU, GPU, RAM, board, disks, OS) plus software versions (GPU driver, CUDA, runtimes). No hostname, user name, serial number, or network identifier is stored.
+- **Agent configuration.** Each ledger entry records the Claude Code version, entrypoint, permission mode, effort, and the Constitution commit in effect.
+- **Attribution.**
+  - Every developer commit carries a `Co-Authored-By: Claude …` trailer; commits without it count as human.
+  - Each session log lists the owner's involvement: instructions, approvals, and actions the owner performed, with URLs and the time spent if the owner reports it.
+- **Retention.**
+  - Raw transcripts are archived at every ledger write and kept locally, never published, because they contain system prompts and personal data.
+  - Claude Code's `cleanupPeriodDays` is set to 365.
 - **Evidence.** Every claim of work cites a commit SHA, release, or URL. Every research claim cites its source.
 - **Append-only.** Closed logs are never edited. Corrections are new `Erratum` entries that cite the original.
 - **Time.** ISO 8601, stored in UTC and shown in Asia/Shanghai.
@@ -107,6 +116,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **Quality**: tests and CI green on the default branch; SemVer tags; releases with a changelog.
 - **Benchmarks**: every performance claim states the hardware and software it was measured on, citing the machine profile, and is reproducible with a script in the repo.
 - **Community files**: CONTRIBUTING, issue and PR templates, and a SECURITY policy.
+- **Supply chain**: Dependabot alerts and secret scanning are enabled. A third-party license inventory (`THIRD_PARTY_NOTICES`) is updated at every release.
 - **Discoverability**: a descriptive name, a keyword-bearing description, topics, and a social preview image.
 - **Excluded**: secrets, telemetry without opt-in consent, and unverifiable claims.
 

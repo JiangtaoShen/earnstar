@@ -6,6 +6,8 @@
 - [ ] Release `v0.1.0` or later, with notes. A package is published if applicable; its first publication goes through the outbox.
 - [ ] The description carries the core keywords. The repo has 5–10 topics and a social preview image (1280×640).
 - [ ] CI is green. LICENSE, CONTRIBUTING, issue and PR templates, and SECURITY.md are present.
+- [ ] Dependabot alerts and secret scanning are enabled, and `THIRD_PARTY_NOTICES` is current.
+- [ ] Any published package is listed under `packages` in `repos.json`, so download tracking starts on day one.
 - [ ] Real good-first-issues are open, and known limitations are stated.
 - [ ] AI disclosure is present. The repo is public.
 
@@ -26,6 +28,8 @@
 - **Timing**: Tuesday to Thursday, 08:00–10:00 US Eastern, which is 20:00–22:00 Asia/Shanghai during US daylight time and 21:00–23:00 otherwise.
 - **Outbox launch items** contain: the exact target URL, title and body (or talking points), the recommended posting time in Asia/Shanghai, and prepared answers to likely questions.
 - **Reposts** follow each venue's own rules. Never post twice to the same venue within a week.
+- **Registration**: when an item goes live, add it to `history/channels.json` (with the approving outbox ID, the URL, `posted_utc`, `by`, and `owner_minutes` if the owner reports it). Snapshot it in each session for the first 7 days, then as usual.
+- **Reddit fallback**: Reddit often returns HTTP 403 to unauthenticated API calls, which `metrics.mjs` records as `unavailable`. In that case, read the post with the built-in browser and put the score and comment count in the session log, labeled `manual`.
 
 ## After launch
 - **First 72 h**: check referrers and issues every session. Fix reported bugs within the session and cut a patch release.

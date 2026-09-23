@@ -1,0 +1,14 @@
+{
+  "about": "Registry of promotion items (Constitution §3B, §6). One item per post or PR, added when it goes live. tools/metrics.mjs snapshots each item into history/metrics/channels.csv.",
+  "fields": {
+    "id": "C-NNN",
+    "outbox": "O-NNN that approved it",
+    "project": "repo key, e.g. earnstar_1",
+    "type": "hn | reddit | pr | other",
+    "url": "public URL of the post or PR",
+    "posted_utc": "ISO 8601",
+    "by": "owner | developer",
+    "owner_minutes": "owner-reported time spent, or null"
+  },
+  "items": []
+}

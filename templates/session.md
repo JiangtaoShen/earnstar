@@ -7,11 +7,14 @@
 | Open → close (Asia/Shanghai) | YYYY-MM-DD HH:MM → YYYY-MM-DD HH:MM |
 | Open → close (UTC) | … → … |
 | Budget / wall-clock / active / owner-wait | 2 h / … min / … min / … min |
-| Model / effort | from `tools/usage.mjs` (e.g., claude-opus-5-5 / xhigh) |
-| Machine | `m-…` (CPU / GPU / RAM); driver, CUDA, Node versions; profile `history/machines/m-….json` |
+| Model / effort | from the ledger (e.g., claude-opus-5-5 / xhigh) |
+| Agent | Claude Code version · entrypoint · permission mode · Constitution `sha` in effect |
+| Machine | `m-…` (CPU / GPU / RAM); driver, CUDA, and Node versions; profile `history/machines/m-….json` |
 | Tokens | input … · cache write … · cache read … · output … (of which thinking …) · total … |
+| Work composition | tool calls (top types) · subagents · compactions · web searches / URLs |
+| Git | per repo: commits (human …) · +… / −… lines |
 | Claude Code session IDs | … |
-| Commits | root `sha…`; project `sha…` |
+| Evidence | N transcripts archived (hashes in the ledger) |
 
 ## 1. Goals
 ## 2. Metrics at open
@@ -21,8 +24,15 @@ Time (Asia/Shanghai) — action — evidence (SHA / URL / file).
 Link the ADRs. Record minor decisions inline, with the reason for each.
 ## 5. Research notes
 Each note: claim — source URL.
-## 6. Results vs. goals
-## 7. Lessons
+## 6. Owner involvement
+- **Instructions**: each owner message, quoted (with any sensitive content redacted), and its effect.
+- **Approvals**: outbox IDs approved or rejected.
+- **Owner actions**: posts or other actions the owner performed (URL, time, owner-reported minutes).
+- **Human commits**: from the ledger. Explain any non-zero count.
+## 7. External actions by the developer
+Public actions taken under A-class authority: replies, merges, releases, renames, visibility changes (with URLs).
+## 8. Results vs. goals
+## 9. Lessons
 List the IDs added to or changed in `playbook/lessons.md`.
-## 8. Deviations, incidents, errata
-## 9. Next actions
+## 10. Deviations, incidents, errata
+## 11. Next actions

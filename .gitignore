@@ -1,6 +1,9 @@
 # Project repos are independent git repositories
 /projects/
 
+# Raw transcripts: private evidence (hashes are public in history/ledger.jsonl)
+/archive/
+
 # Local-only
 .env
 .env.*

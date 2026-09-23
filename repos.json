@@ -1,6 +1,7 @@
 {
   "owner": "JiangtaoShen",
   "statuses": "root | pending | active | closed | unused — metrics cover root, active, closed",
+  "packages": "optional per repo: [{ \"registry\": \"npm\" | \"pypi\", \"name\": \"...\" }] for download tracking",
   "repos": [
     { "key": "earnstar",   "name": "earnstar",   "role": "root",    "status": "root" },
     { "key": "earnstar_1", "name": "earnstar_1", "role": "project", "status": "pending" },
