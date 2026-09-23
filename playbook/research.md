@@ -19,7 +19,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
    - **Demand**: ≥ 3 independent signals of real pain (issues with many 👍, forum threads, repeated questions), each linked.
    - **Differentiation**: a one-sentence answer to "why this over X", checked against the top 3 alternatives.
    - **Distribution plan**:
-     - named subreddits whose rules have been checked for self-promotion, AI content, and account age/karma;
+     - named subreddits whose rules (self-promotion, AI content, account age/karma) the owner has checked (L-002), or a pending outbox request for that check;
      - an HN angle;
      - ≥ 2 awesome lists whose criteria the MVP would meet.
 5. **Feasibility spike** on the leading candidate: a throwaway prototype of the riskiest technical part, within the budget in `defaults.md`, run on this machine.
@@ -35,7 +35,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 - **GitHub search**, for fast risers by topic or language: `gh api -X GET search/repositories -f q="created:>YYYY-MM-DD stars:>200 topic:X" -f sort=stars`.
 - **GitHub Trending** (daily and weekly, per language) and OSS Insight collections.
 - **Hacker News**, via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn why a launch worked.
-- **Reddit**: top posts of the year in candidate subreddits, and recurring "is there a tool that…" questions. Use the built-in browser if the API returns 403.
+- **Reddit**: unreachable from this environment (`launch.md`). Use secondary sources that quote or summarize Reddit discussions, and ask the owner through the outbox to check specific subreddits when a decision depends on them.
 - **Issues of popular repos, sorted by 👍**: demand that the maintainers will not meet.
 - **Package download trends** (npm, PyPI), as demand evidence.
 - **Awesome lists in the domain**: gaps, and each list's inclusion criteria.
@@ -58,7 +58,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 **Archetype priors**: these are unverified until the foundational study or program data confirms them.
 - Developer tools with instant payoff (CLI, editor/terminal utilities)
 - AI/LLM tooling (agents, MCP servers, Claude Code skills and plugins)
-- Curated resources (awesome lists, roadmaps, "build your own X", cheat sheets)
+- Curated resources (awesome lists, roadmaps, "build your own X", cheat sheets). Note: lists and reading material are off topic for Show HN (L-001), so this archetype loses the program's main HN channel.
 - Self-hostable alternatives to paid SaaS
 - Templates and starter kits
 - Visual or playful projects with shareable output

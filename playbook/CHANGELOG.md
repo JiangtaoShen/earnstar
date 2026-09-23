@@ -2,6 +2,19 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S008**: Full audit.
+  - **`tools/check.mjs`**: blocks Chinese text, secret-like strings, and the owner's emails (matched by hash); installed as pre-commit and commit-msg hooks.
+  - **`tools/machine.mjs`**:
+    - ID scheme v2 hashes language-independent fields only; the OS name now comes from the registry (English).
+    - Records the OS patch level.
+    - The new ID `m-be80e7832908` supersedes `m-6da16b4278d0`.
+  - **Code-point logic instead of backslash-u escapes** in `check.mjs`, `machine.mjs`, and `metrics.mjs`. The tooling had silently turned the escapes into literal characters.
+  - **`launch.md`**: HN rules verified with quotes (the owner writes all HN text; lists are not eligible for Show HN). Reddit marked unreachable, with owner-reported metrics. The timing heuristic is labeled unverified (H-006).
+  - **`research.md`**: the Reddit source note; the list archetype caveat; subreddit rule checks go through the owner.
+  - **`lessons.md`**: L-001, L-002, H-006.
+  - **`workstation.md`**: tooling pitfalls.
+  - Reason: the owner's audit request and the rule "no Chinese in the repo". Evidence: S008.
+
 - **2026-09-24 · S007**:
   - Added `playbook/workstation.md`: an environment reuse policy (reuse as is → additive install checked by dry run → new `earnstar-*` env by clone or uv venv) and hardware notes.
   - Added `tools/envs.mjs`: a private environment inventory in `lab/envs.json`.

@@ -32,3 +32,9 @@ Review: at the project 1 close, check whether any audit field was missing or had
 
 ## Result
 Pending.
+
+## Amendments
+- **S001–S007**: later owner decisions (root never renamed, machine recording, the audit extension, research gate, workstation, environment reuse) are recorded in their session logs and in the Constitution.
+- **S008, decision #6 (Language)**: tightened by the owner's order to have no Chinese anywhere in the repo, commit messages included. Chat with the owner stays Chinese; reports stored in the repo are English. Enforced by `tools/check.mjs`.
+- **S008, decision #2 (Promotion)**: two constraints were found. HN forbids AI-generated or AI-edited text, so the owner writes all HN text (L-001). Reddit is unreachable from the developer's environment, so the owner checks rules and reports metrics (L-002). Whether to keep Reddit is put to the owner.
+- **S008, erratum to the baseline facts**: "Python is not installed" was wrong. Python was not on PATH, but Anaconda and a python.org 3.13 install were present, found in S007.

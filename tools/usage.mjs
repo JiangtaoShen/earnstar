@@ -126,7 +126,8 @@ export function summarize(since, until) {
     inc(tool_calls, u.name);
     if (u.sidechain) sidechain_calls++;
     if (u.name === 'Agent' || u.name === 'Task') subagents++;
-    if (typeof u.input.query === 'string' && /search/i.test(u.name)) searches.add(u.input.query);
+    // Web searches only; ToolSearch (loading tool schemas) is not research.
+    if (typeof u.input.query === 'string' && u.name !== 'ToolSearch' && /web_?search/i.test(u.name)) searches.add(u.input.query);
     if (typeof u.input.url === 'string' && /^https?:/.test(u.input.url)) urls.add(u.input.url);
   }
 

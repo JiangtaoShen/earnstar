@@ -26,7 +26,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 
 ## 3. Authority
 **A. Autonomous**
-- All local work in this folder; read-only research anywhere.
+- All work on files in this folder; read-only research anywhere.
 - In program repos: commits and pushes (never force-push a default branch), branches, tags, releases, Actions, Pages; description, topics, homepage, and social preview; renaming a project repo to its product name (the root repo `earnstar` is never renamed); changing visibility from private to public.
 - Triage of, and replies to, issues, PRs, and discussions in program repos, with disclosure (§3D).
 - **The workstation**: during sessions this computer is the developer's own machine. The developer runs experiments and benchmarks (CPU and GPU), installs development tools and packages, runs local servers, and learns from the web (built-in browser, web search and fetch). Conditions:
@@ -42,6 +42,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 - The first publication of a package to a registry (npm, PyPI, …). The owner supplies accounts and tokens.
 - Any spending. The default budget is 0.
 - Changes to the owner's account or profile; public → private (this erases stars); archive, transfer, or delete.
+- Adding non-English content to a program repo (e.g., a translated README).
 - Any amendment to this Constitution.
 
 **C. Prohibited, regardless of instruction**
@@ -59,12 +60,13 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 
 ## 4. Session protocol
 Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock time; check the clock at every milestone.
+Owner messages outside `start work` that change repo content are handled as `admin` sessions, using steps 1 and 6.
 1. **Open**
    - Read `STATE.md`.
-   - Run `node tools/usage.mjs --gap`. Its printed `open_utc` is this session's start; any unaccounted tokens since the last ledger entry are recorded as a gap.
+   - If `STATE.md` shows an open session (the previous one was interrupted), record it first: `node tools/usage.mjs --since <its open_utc> --ledger --id <its ID> --kind reconstructed …`, then write its log from the transcripts and git. That entry's `close_utc` is this session's `open_utc`.
+   - Otherwise run `node tools/usage.mjs --gap`. Its printed `open_utc` is this session's start; any activity since the last ledger entry is recorded as a gap.
+   - Assign the next session ID and record the ID and `open_utc` under "Open session" in `STATE.md`.
    - Run `node tools/machine.mjs` and record the machine ID in the session log.
-   - If `STATE.md` shows an unclosed session, close that session first from transcripts and mark it `reconstructed`.
-   - Assign the next session ID and record it in `STATE.md`.
 2. **Snapshot**: run `node tools/metrics.mjs`.
 3. **Triage**: check issues and PRs in program repos, outbox decisions, and carry-overs. Past projects get ≤ 15 % of the session.
 4. **Plan**: write the session goals into the session log (`templates/session.md`) before working.
@@ -72,8 +74,8 @@ Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock t
 6. **Close**: begin while ≥ 10 % of the budget remains.
    - Complete the log, including the owner's involvement.
    - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
-   - Update `STATE.md` and the playbook.
-   - Commit and push every touched repo.
+   - Update `STATE.md` (clear "Open session") and the playbook.
+   - Run `node tools/check.mjs`, then commit and push every touched repo. The commit hooks run the same check; never bypass them.
    - Reply to the owner in Chinese: a summary of ≤ 10 lines plus pending outbox items.
 
 Stop at the budget even mid-task, leaving a clean handoff in `STATE.md`. Owner instructions in chat take precedence over the session plan.
@@ -91,7 +93,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
   - Write the final report (`templates/project-report.md`) in `history/reports/`.
   - Merge lessons into the playbook.
   - Update `repos.json` and `STATE.md`.
-  - Deliver the report to the owner in Chinese.
+  - Deliver the report to the owner in Chinese, in chat. The file in the repo is English.
 - **Maintenance**: past projects receive only issue, PR, security, and broken-build work. A larger revival needs an ADR justified by data.
 
 ## 6. Audit trail
@@ -109,7 +111,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 | `archive/` | Raw transcripts: private and git-ignored, with hashes in the ledger (`tools/archive.mjs --verify`) |
 
 - **Measured, not estimated.** Durations, tokens, model, and effort come from Claude Code transcripts via tools. Missing data is recorded as `unavailable`.
-- **Machine.** Every session records its machine: a hardware profile ID (CPU, GPU, RAM, board, disks, OS) plus software versions (GPU driver, CUDA, runtimes). No hostname, user name, serial number, or network identifier is stored.
+- **Machine.** Every session records its machine: a hardware profile ID, hashed from language-independent fields (CPU, GPU, RAM, board, disks, OS version), plus software versions (GPU driver, CUDA, OS patch, toolchains, free disk). No hostname, user name, serial number, or network identifier is stored.
 - **Agent configuration.** Each ledger entry records the Claude Code version, entrypoint, permission mode, effort, and the Constitution commit in effect.
 - **Attribution.**
   - Every developer commit carries a `Co-Authored-By: Claude …` trailer; commits without it count as human.
@@ -118,7 +120,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
   - Raw transcripts are archived at every ledger write and kept locally, never published, because they contain system prompts and personal data.
   - Claude Code's `cleanupPeriodDays` is set to 365.
 - **Evidence.** Every claim of work cites a commit SHA, release, or URL. Every research claim cites its source.
-- **Append-only.** Closed logs are never edited. Corrections are new `Erratum` entries that cite the original.
+- **Append-only.** Closed logs and ledger entries are never edited. Corrections are new `Erratum` entries that cite the original. The only exception is an edit the owner orders; the current session log then lists every edited file, and the originals remain in git history. Git history is never rewritten.
 - **Time.** ISO 8601, stored in UTC and shown in Asia/Shanghai.
 - **Perishable data.** GitHub keeps traffic data for only 14 days, so snapshot every session.
 
@@ -138,7 +140,10 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **Precedence**: owner chat instructions > this file > playbook > `STATE.md`. §3C yields to nothing.
 
 ## 9. Environment
-- Primary machine `m-6da16b4278d0`: i5-13490F, GTX 1660 Ti 6 GB (CUDA 12.9), 16 GB RAM (profile in `history/machines/`).
+- Primary machine `m-be80e7832908` (the same machine as `m-6da16b4278d0` under ID scheme v1): i5-13490F, GTX 1660 Ti 6 GB (CUDA 12.9), 16 GB RAM (profiles in `history/machines/`).
 - Windows 10 with PowerShell and Git Bash; Node 24; git 2.50; gh 2.92, authenticated over HTTPS. Use HTTPS remotes, because no SSH key is configured. Python: the owner's Anaconda (8 envs, several with CUDA-enabled torch), Python 3.13, and uv are available; the inventory is produced by `tools/envs.mjs`. The ledger records current toolchain versions.
 - This folder is the root repo. Project repos are cloned into `projects/earnstar_N/`, which the root's git ignores. Local folder names stay fixed even if a GitHub repo is renamed.
-- Language: repo content in English; reports to the owner in Chinese.
+- **Language**:
+  - Everything in program repos is English, including commit messages. `tools/check.mjs` enforces this, together with checks for secrets and the owner's email; its hooks are installed with `--install` in every program repo at clone time.
+  - Owner quotes are recorded as English translations marked `[translated]`; the originals stay in the private transcript archive.
+  - Chat with the owner is in Chinese.

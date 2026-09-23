@@ -21,7 +21,7 @@
 | Current state and next steps | [STATE.md](STATE.md) |
 | Session logs, ledger, metrics, decisions, reports | [history/](history/) |
 | Methods, defaults, lessons learned | [playbook/](playbook/) |
-| Accounting tools (tokens, time, GitHub metrics) | [tools/](tools/) |
+| Tools: time and token accounting, GitHub metrics, machine profile, transcript archive, content check | [tools/](tools/) |
 
 ## License
 [MIT](LICENSE)

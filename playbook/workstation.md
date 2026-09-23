@@ -16,7 +16,7 @@ How the developer uses the owner's computer under Constitution §3A. The owner's
 6. **Clean up**: remove `earnstar-*` environments when they are no longer needed, and record it.
 7. **Public records** refer to owner environments by spec only, e.g. "owner conda env, py3.10, torch 2.5.1+cu121". The ledger records only the environment count and the `earnstar-*` names.
 
-## 2. Hardware notes (`m-6da16b4278d0`)
+## 2. Hardware notes (`m-be80e7832908`, formerly `m-6da16b4278d0`)
 - **GPU**: GTX 1660 Ti with 6 GB VRAM (Turing TU116; no tensor cores), driver 576.88, CUDA 12.9. Owner environments already include torch 2.4–2.5 builds for CUDA 12.1, which is compatible. Size experiments to fit 6 GB of VRAM.
 - **CPU and RAM**: i5-13490F (10 cores, 16 threads) and 16 GB RAM. Leave headroom so the machine stays responsive.
 - **Drives**: conda environments and caches live on C:; work files live on D:. Keep both above the free-space floor in `defaults.md`. E: belongs to the owner and is not used.
@@ -24,3 +24,8 @@ How the developer uses the owner's computer under Constitution §3A. The owner's
 ## 3. Hygiene
 - Before closing a session, stop every process it started (servers, watchers, training runs) and confirm that GPU memory is released.
 - Large downloads, datasets, and models go under `lab/` or the project folder. Prune them when no longer needed.
+
+## 4. Tooling pitfalls
+- **Unicode escapes**: the developer's file-writing and command tools turn backslash-u escape sequences into the literal characters, even inside regexes and strings. In source code, build non-ASCII characters from code points (`String.fromCharCode(0xfeff)`, numeric ranges) and never rely on backslash-u escapes. Found in S008.
+- **Line endings**: the repo enforces LF (`.gitattributes`), and the tools accept CRLF input.
+- **Localized output**: Windows tools print localized text (e.g., the WMI OS caption). Prefer language-independent sources, such as registry values and numeric codes.

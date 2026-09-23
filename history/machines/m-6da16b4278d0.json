@@ -1,5 +1,8 @@
 {
   "machine_id": "m-6da16b4278d0",
+  "id_scheme": "v1",
+  "superseded_by": "m-be80e7832908",
+  "note": "Same physical machine as m-be80e7832908. Scheme v1 hashed every field below, including the OS name as Windows reported it in Chinese (WMI Caption, localized). On 2026-09-24 (S008), on the owner's order that the repo contain no Chinese, that name was replaced by its English equivalent. As a result, this ID can no longer be reproduced from this file; the original bytes are in git history (commit a1c6023). Scheme v2 excludes display names from the hash.",
   "first_seen_utc": "2026-09-23T19:39:08.122Z",
   "hardware": {
     "board": "Gigabyte Technology Co., Ltd. B760M GAMING",
@@ -24,7 +27,7 @@
       }
     ],
     "os": {
-      "name": "Microsoft Windows 10 家庭中文版",
+      "name": "Microsoft Windows 10 Home China [translated from the localized caption]",
       "version": "10.0.19045",
       "build": "19045",
       "arch": "x64"

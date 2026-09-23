@@ -24,7 +24,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'history', 'metrics');
-const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^﻿/, '')); // tolerate BOM (e.g., Notepad)
+const BOM_RE = new RegExp('^' + String.fromCharCode(0xfeff)); // byte-order mark written by some editors
+const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8').replace(BOM_RE, '')); // tolerate BOM (e.g., Notepad)
 const reg = readJson(path.join(ROOT, 'repos.json'));
 const CHANNELS = path.join(ROOT, 'history', 'channels.json');
 const INTERNAL = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
