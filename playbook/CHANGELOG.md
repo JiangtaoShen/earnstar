@@ -2,6 +2,14 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S005**: Research became a hard gate.
+  - `research.md` rewritten into eight stages (foundational study, divergence, screening, deep dive, feasibility spike, decision and pre-mortem, independent critique, reflection), plus the Selection Gate, continuous learning, and the pivot review.
+  - `defaults.md`:
+    - The P0+P1 budget "≤ 7 days, ≤ 12 active hours" is replaced by a floor (≥ 8 active hours, ≥ 3 sessions, ≥ 2 calendar days) and a ceiling (≤ 14 days, overridable with a reason).
+    - First release moved from day 21 to day 35.
+    - Added: spike ≤ 4 active hours; pivot review at launch + 14 days; continuous research ≥ 10 %.
+  - Reason: owner directive that a ≥ 2-month project must not start without sufficient learning and research. Evidence: S005.
+
 - **2026-09-24 · S003**: Owner-approved audit extension (7 items).
   - `tools/archive.mjs`: transcript archive, with append-only prefix-hash verification.
   - `tools/usage.mjs`: agent configuration, work composition (tools, subagents, compactions, research trail), git activity with human-commit detection, the rules version, and evidence hashes; gap entries now also trigger on commits.

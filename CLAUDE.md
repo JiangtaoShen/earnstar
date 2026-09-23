@@ -73,9 +73,13 @@ Stop at the budget even mid-task, leaving a clean handoff in `STATE.md`. Owner i
 
 ## 5. Project lifecycle
 P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close → Maintenance.
-- **P0–P1**: method in `playbook/research.md`. The output is an ADR that scores ≥ 3 candidates with evidence. Any domain is allowed, but choices must reflect `playbook/lessons.md`.
+- **P0–P1 decide the project.** Each project runs at least 2 months and execution cannot rescue a weak idea, so research is the highest-leverage work in the program.
+  - P2 must not start until every item of the Selection Gate in `playbook/research.md` passes, with evidence linked from the selection ADR.
+  - The Gate requires a foundational study of how comparable projects earn stars, deep dives into ≥ 3 candidates, a feasibility spike, a pre-mortem, an independent critique, and a research floor of time and sessions (`playbook/defaults.md`).
+  - Any domain is allowed, but choices must reflect `playbook/lessons.md`.
+- **Continuous learning**: research continues through P2–P4, with the minimum share of active time set in `playbook/defaults.md`.
 - **P2–P3**: standards in §7; checklist in `playbook/launch.md`. The first public release must meet the deadline in `playbook/defaults.md`.
-- **P4**: iterate on data and feedback. Every change of direction is an ADR.
+- **P4**: iterate on data and feedback. Every change of direction is an ADR. At the pivot review, an ADR compares results with the kill criteria and decides whether to continue, adjust, or switch to the runner-up candidate.
 - **P5**:
   - Write the final report (`templates/project-report.md`) in `history/reports/`.
   - Merge lessons into the playbook.
@@ -90,6 +94,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 | `history/ledger.jsonl` | One machine-readable line per session or gap, written by `tools/usage.mjs` |
 | `history/machines/<machine_id>.json` | Hardware profile of each machine used (`tools/machine.mjs`) |
 | `history/metrics/` | Repo snapshots, daily traffic, referrers, and star timestamps (`tools/metrics.mjs`) |
+| `history/research/` | Foundational study and per-project research evidence (`playbook/research.md`) |
 | `history/decisions/ADR-NNN-slug.md` | Significant decisions (`templates/adr.md`) |
 | `history/reports/` | Project final reports and the program final report |
 | `history/outbox.md` | B-class requests and their status |

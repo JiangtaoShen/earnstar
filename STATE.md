@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S004 (admin)._
+_Last updated: 2026-09-24 by S005 (admin)._
 
 ## Program
 - **Program start**: — (set at the first `start work`)
@@ -27,7 +27,7 @@ Both are empty when no session is open.
    - Set the program and project dates here.
    - Mark `earnstar_1` as `active` in `repos.json`.
    - Clone it over HTTPS into `projects/earnstar_1/`.
-   - Begin P0 research (`playbook/research.md`).
+   - Begin P0 with the foundational study (`playbook/research.md` §1), then work through the stages to the Selection Gate. No building before the Gate passes.
 
 ## Owner promotion accounts
 | Platform | Status | Registered | Username |
@@ -49,6 +49,7 @@ Both are empty when no session is open.
 | S002 | 2026-09-24 | admin | Machine recording added (`tools/machine.mjs`, ledger field, §4/§6/§7/§9 amended); primary machine `m-6da16b4278d0` |
 | S003 | 2026-09-24 | admin | Audit extension (7 items): transcript archive + hashes, owner involvement, agent config, work composition, channels, community/adoption, supply chain; `cleanupPeriodDays` = 365 |
 | S004 | 2026-09-24 | admin | Owner reported HN and Reddit accounts ready; recorded without personal identifiers |
+| S005 | 2026-09-24 | admin | Research made a hard gate: Selection Gate, foundational study, spike, pre-mortem, independent critique, research floor, pivot review; Constitution §5/§6 amended |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.
