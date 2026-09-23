@@ -4,6 +4,8 @@ Tunable parameters referenced by the Constitution. Change them only with a `CHAN
 
 | Parameter | Value | Rationale |
 |---|---|---|
+| Monthly work-hour target | 60 h per calendar month, pro-rated for partial months (`TARGET_HOURS` in `tools/hours.mjs`) | Owner's decision (S010): 2 h/day on average, scheduled flexibly |
+| Project shortfall threshold | < 60 % of expected hours at the 2-month minimum (`SHORTFALL` in `tools/hours.mjs`) | Prevents closing an under-invested project |
 | Session budget if unspecified | 2 h wall-clock | Owner's stated average |
 | Checkpoint interval | ≤ 45 min | Limits loss if the machine stops abruptly |
 | Close-out reserve | ≥ 10 % of budget | Leaves time for the log, ledger, and push |

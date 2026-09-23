@@ -2,6 +2,12 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S010**: Monthly work-hour tracking.
+  - New `tools/hours.mjs`: month and project totals from the ledger, pro-rated targets, the shortfall flag, and `--write-state`.
+  - `defaults.md` gains the 60 h/month target and the 60 % shortfall threshold.
+  - The session template gains a month-to-date row; the report template gains hours vs. expected.
+  - Reason: owner decision to add a 60 h/month target, because the calendar-based timeline had no protection against under-investment. Evidence: S010, including a synthetic-ledger test (partial-month pro-rating, month attribution in Asia/Shanghai, gap/admin exclusion, shortfall flag).
+
 - **2026-09-24 · S009**: The promotion-package workflow.
   - `launch.md`: package structure (HN fact sheet with no prose; Reddit draft plus images), image rules, and the after-posting steps.
   - New `tools/evidence.mjs`: owner screenshots are stored privately and their hashes are recorded in `channels.json`.

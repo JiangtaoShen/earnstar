@@ -9,6 +9,7 @@ Five lines or fewer.
 | Repo | JiangtaoShen/<name> (was earnstar_N) |
 | Kickoff → close | YYYY-MM-DD → YYYY-MM-DD (D days) |
 | Sessions / active hours / wall-clock hours | … |
+| Work hours vs. expected | … h of … h expected (…%); shortfall extension used: yes / no |
 | Tokens (total; by type) | … |
 | Stars at close / +30 d / +90 d | … / (filled later) / (filled later) |
 | Forks, watchers, external contributors | … |

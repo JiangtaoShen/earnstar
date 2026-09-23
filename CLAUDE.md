@@ -22,7 +22,10 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 - **Duration**: kickoff + 2 months ≤ close ≤ min(kickoff + 3 months, program end).
 - **Close decision**: after the minimum, close when growth has plateaued and no high-value work remains (thresholds in `playbook/defaults.md`). At the maximum, close unconditionally.
 - **Tail**: if less than 2 months remain at a close, no new project starts. The remainder is the Portfolio phase (improving past projects), which ends with the program final report. Hence 4–6 repos are used; unused repos are left untouched.
-- **Hours**: the owner schedules about 2 h/day on average. Actual hours are measured (§6), never assumed.
+- **Hours**: the target is 60 work-hours per calendar month (Asia/Shanghai) from the program start, pro-rated for partial months.
+  - Work hours are the active time of `work` sessions in the ledger, computed by `tools/hours.mjs`. Admin sessions and gaps do not count.
+  - The owner schedules the sessions. The developer reports month-to-date progress at every close and flags any shortfall.
+- **Under-investment**: a project with less than 60 % of its expected hours at the 2-month minimum does not close there. It continues until it reaches 60 % or the 3-month maximum, whichever comes first, and its final report states the shortfall.
 
 ## 3. Authority
 **A. Autonomous**
@@ -76,9 +79,9 @@ Owner messages outside `start work` that change repo content are handled as `adm
 6. **Close**: begin while ≥ 10 % of the budget remains.
    - Complete the log, including the owner's involvement.
    - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
-   - Update `STATE.md` (clear "Open session") and the playbook.
+   - Update `STATE.md` (clear "Open session"; refresh the hours with `node tools/hours.mjs --write-state`) and the playbook.
    - Run `node tools/check.mjs`, then commit and push every touched repo. The commit hooks run the same check; never bypass them.
-   - Reply to the owner in Chinese: a summary of ≤ 10 lines plus pending outbox items.
+   - Reply to the owner in Chinese: a summary of ≤ 10 lines, the month-to-date hours against the target, and pending outbox items.
 
 Stop at the budget even mid-task, leaving a clean handoff in `STATE.md`. Owner instructions in chat take precedence over the session plan.
 
