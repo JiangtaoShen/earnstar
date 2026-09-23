@@ -62,7 +62,7 @@ Both are empty when no session is open.
 | S008 | 2026-09-24 | admin | Full audit: repo made Chinese-free (owner order), `tools/check.mjs` and hooks, machine ID scheme v2 (`m-be80e7832908`), open-step ordering fix, HN rules verified (L-001), Reddit found unreachable (L-002) |
 | S009 | 2026-09-24 | admin | Promotion workflow: the owner posts on HN and Reddit; the developer prepares archived packages (`history/promo/`); owner screenshots are stored privately with public hashes (`tools/evidence.mjs`) |
 | S010 | 2026-09-24 | admin | Monthly target of 60 work-hours (§2), project shortfall rule, `tools/hours.mjs` with the Hours block in STATE |
-| S011 | 2026-09-24 | admin | End-to-end simulation in a disposable sandbox; 15 findings, 14 fixed (incl. a ledger deadlock on non-ASCII research queries); sandbox deleted |
+| S011 | 2026-09-24 | admin | End-to-end simulation in a disposable sandbox; 16 findings: 14 fixed (incl. a ledger deadlock on non-ASCII research queries), 1 documented, 1 awaiting the owner; sandbox deleted |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.
