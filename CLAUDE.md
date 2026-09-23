@@ -66,6 +66,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 ## 4. Session protocol
 Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock time; check the clock at every milestone.
 Owner messages outside `start work` that change repo content are handled as `admin` sessions, using steps 1 and 6.
+Only one session runs at a time. A session may be split at a project boundary: close it (step 6) and immediately open the next one (step 1) within the same budget, so that each ledger entry belongs to one project.
 1. **Open**
    - Read `STATE.md`.
    - If `STATE.md` shows an open session (the previous one was interrupted), record it first: `node tools/usage.mjs --since <its open_utc> --ledger --id <its ID> --kind reconstructed …`, then write its log from the transcripts and git. That entry's `close_utc` is this session's `open_utc`.
@@ -77,8 +78,8 @@ Owner messages outside `start work` that change repo content are handled as `adm
 4. **Plan**: write the session goals into the session log (`templates/session.md`) before working.
 5. **Execute**: follow §5. Commit a checkpoint of the log and state at least every 45 min.
 6. **Close**: begin while ≥ 10 % of the budget remains.
-   - Complete the log, including the owner's involvement.
    - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
+   - Complete the log with the ledger figures, including the owner's involvement.
    - Update `STATE.md` (clear "Open session"; refresh the hours with `node tools/hours.mjs --write-state`) and the playbook.
    - Run `node tools/check.mjs`, then commit and push every touched repo. The commit hooks run the same check; never bypass them.
    - Reply to the owner in Chinese: a summary of ≤ 10 lines, the month-to-date hours against the target, and pending outbox items.
@@ -87,6 +88,12 @@ Stop at the budget even mid-task, leaving a clean handoff in `STATE.md`. Owner i
 
 ## 5. Project lifecycle
 P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close → Maintenance.
+- **Kickoff** (first session of a project):
+  - Set `repos.json` status to `active`.
+  - Clone the repo over HTTPS into `projects/earnstar_N/`.
+  - Add `.gitattributes` (`* text=auto eol=lf`).
+  - Install the hooks: `node tools/check.mjs --install projects/earnstar_N`.
+  - The kickoff date, deadlines, and hours come from `tools/hours.mjs`.
 - **P0–P1 decide the project.** Each project runs at least 2 months and execution cannot rescue a weak idea, so research is the highest-leverage work in the program.
   - P2 must not start until every item of the Selection Gate in `playbook/research.md` passes, with evidence linked from the selection ADR.
   - The Gate requires a foundational study of how comparable projects earn stars, deep dives into ≥ 3 candidates, a feasibility spike, a pre-mortem, an independent critique, and a research floor of time and sessions (`playbook/defaults.md`).
@@ -97,7 +104,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **P5**:
   - Write the final report (`templates/project-report.md`) in `history/reports/`.
   - Merge lessons into the playbook.
-  - Update `repos.json` and `STATE.md`.
+  - Update `repos.json` (status `closed`, `closed` date) and `STATE.md`.
   - Deliver the report to the owner in Chinese, in chat. The file in the repo is English.
 - **Maintenance**: past projects receive only issue, PR, security, and broken-build work. A larger revival needs an ADR justified by data.
 

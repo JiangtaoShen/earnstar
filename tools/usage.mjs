@@ -213,6 +213,11 @@ function lastLedger() {
   return lines.length ? JSON.parse(lines.at(-1)) : null;
 }
 
+// Ledger lines are pure printable ASCII. Any other character (e.g., a research query in Chinese) is written as a
+// JSON escape sequence, so the append-only ledger always passes tools/check.mjs and JSON.parse restores the text.
+const BACKSLASH = String.fromCharCode(92);
+const asciiJson = o => JSON.stringify(o).replace(/[^ -~]/g, c => BACKSLASH + 'u' + c.charCodeAt(0).toString(16).padStart(4, '0'));
+
 function record(meta, s, withMachine) {
   const { _files, ...summary } = s;
   const entry = { ...meta, open_utc: s.window.since, close_utc: s.window.until, recorded_utc: new Date().toISOString() };
@@ -226,7 +231,7 @@ function record(meta, s, withMachine) {
     evidence: archiveFiles(_files),
   });
   fs.mkdirSync(path.dirname(LEDGER), { recursive: true });
-  fs.appendFileSync(LEDGER, JSON.stringify(entry) + '\n');
+  fs.appendFileSync(LEDGER, asciiJson(entry) + '\n');
   return entry;
 }
 

@@ -109,4 +109,4 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 - Short, memorable, and searchable.
 - Free on GitHub and on the target package registry.
 - No trademark conflicts.
-- Rename `earnstar_N` at the start of P2 (Constitution §3A). The local folder name stays unchanged.
+- Rename `earnstar_N` at the start of P2 (Constitution §3A). The local folder name stays unchanged. After renaming, update `name` in `repos.json` and the clone's remote (`git remote set-url origin https://github.com/JiangtaoShen/<new name>.git`).

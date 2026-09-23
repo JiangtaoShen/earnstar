@@ -2,6 +2,20 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S011**: Fixes from an end-to-end simulation (findings F1–F15 in the S011 log).
+  - **`usage.mjs`**: ledger lines are pure ASCII, with JSON escapes. A Chinese research query had made the append-only ledger fail the content check, which would have blocked every commit.
+  - **`evidence.mjs`**: archived files are named by time and hash, because localized screenshot names broke the check.
+  - **`hours.mjs`**:
+    - timeline with month-end clamping, which replaces a month-overflow calculation;
+    - a closed project stops accruing expected hours at the `closed` date in `repos.json`;
+    - hours per phase;
+    - the shortfall flag only after 14 days.
+  - **`metrics.mjs`**: Reddit rows use the owner's latest reading instead of a request that always failed.
+  - **`check.mjs`**: silent on success in hook mode.
+  - **`defaults.md`**: research floor of ≥ 2 sessions (was 3); the note on measuring continuous research.
+  - **`launch.md`**: channel metrics; **`research.md`**: remote and registry update after a rename.
+  - Reason: the owner asked for a simulation. Evidence: S011.
+
 - **2026-09-24 · S010**: Monthly work-hour tracking.
   - New `tools/hours.mjs`: month and project totals from the ledger, pro-rated targets, the shortfall flag, and `--write-state`.
   - `defaults.md` gains the 60 h/month target and the 60 % shortfall threshold.

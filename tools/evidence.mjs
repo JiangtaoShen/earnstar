@@ -34,7 +34,9 @@ for (const src of files) {
   const buf = fs.readFileSync(src);
   const sha256 = crypto.createHash('sha256').update(buf).digest('hex');
   if (item.evidence.some(e => e.sha256 === sha256)) { console.log(`skip duplicate ${src}`); continue; }
-  const name = `${new Date().toISOString().replace(/[:.]/g, '-')}_${path.basename(src)}`;
+  // Name by time and hash only: source names (e.g., a localized screenshot tool's default) may be non-English.
+  const ext = (path.extname(src).toLowerCase().match(/^\.[a-z0-9]{1,5}$/) ?? [''])[0];
+  const name = `${new Date().toISOString().replace(/[:.]/g, '-')}_${sha256.slice(0, 12)}${ext}`;
   fs.writeFileSync(path.join(dir, name), buf);
   item.evidence.push({ file: path.relative(ROOT, path.join(dir, name)).replace(/\\/g, '/'), bytes: buf.length, sha256, added_utc: new Date().toISOString() });
   console.log(`archived ${src} -> ${name} (${sha256.slice(0, 12)})`);

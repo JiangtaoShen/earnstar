@@ -116,10 +116,11 @@ async function channel(c, utc) {
     if (j) { score = j.score ?? ''; comments = j.descendants ?? 0; state = j.dead ? 'dead' : j.deleted ? 'deleted' : 'live'; }
     else state = 'unavailable';
   } else if (c.type === 'reddit') {
-    const j = await getJson(c.url.replace(/\/?(\?.*)?$/, '/.json'));
-    const d = j?.[0]?.data?.children?.[0]?.data;
-    if (d) { score = d.score; comments = d.num_comments; state = d.removed_by_category ? `removed:${d.removed_by_category}` : `upvote_ratio:${d.upvote_ratio}`; }
-    else state = 'unavailable'; // Reddit often returns 403 to unauthenticated clients; see playbook/launch.md
+    // Reddit is unreachable from this environment (lessons L-002), so the series uses the owner's latest
+    // screenshot reading instead of a request that always fails.
+    const r = (c.owner_reported ?? []).slice().sort((a, b) => a.read_utc.localeCompare(b.read_utc)).at(-1);
+    if (r) { score = r.score ?? ''; comments = r.comments ?? ''; state = `owner-reported@${r.read_utc}`; }
+    else state = 'awaiting-owner-screenshot';
   } else if (c.type === 'pr' && pr) {
     const j = api(`repos/${pr[1]}/pulls/${pr[2]}`, null);
     if (j) { comments = (j.comments ?? 0) + (j.review_comments ?? 0); state = j.merged ? 'merged' : j.state; }

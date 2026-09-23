@@ -50,10 +50,9 @@ The owner posts on both HN and Reddit. The developer prepares a complete package
   2. The developer registers the item in `history/channels.json` (`url`, `posted_utc`, `by: owner`, `promo`, `owner_minutes` if reported).
   3. The developer runs `node tools/evidence.mjs --item C-NNN <files>`. The screenshots go into private storage (`archive/promo/`) and their SHA-256 hashes are recorded publicly.
   4. The developer clears `inbox/`.
-- **Metrics**:
-  - HN items are snapshotted automatically.
-  - Reddit items show `unavailable` in `metrics.mjs` (L-002). Readings taken from the owner's screenshots go into the item's `owner_reported` entries (read time, score, comments, source file).
-- **Registration timing**: snapshot each item in every session for the first 7 days, then as usual.
+- **Metrics**: `metrics.mjs` snapshots every item in every session into `channels.csv`.
+  - HN items are fetched automatically.
+  - Reddit items cannot be fetched (L-002). Each reading from an owner screenshot is added to the item's `owner_reported` entries (read time, score, comments, source file). The CSV row repeats the latest reading, marked `owner-reported@<time>`, or shows `awaiting-owner-screenshot` if there is none.
 
 ## After launch
 - **First 72 h**: check referrers and issues every session. Fix reported bugs within the session and cut a patch release.

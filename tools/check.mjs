@@ -46,8 +46,8 @@ function scan(label, text, out) {
   });
 }
 
-function report(findings) {
-  if (!findings.length) { console.log('check: ok'); return; }
+function report(findings, quiet = false) {
+  if (!findings.length) { if (!quiet) console.log('check: ok'); return; }
   console.error(`check: ${findings.length} finding(s)\n` + findings.map(f => `  ${f}`).join('\n'));
   process.exit(1);
 }
@@ -66,13 +66,13 @@ if (a.includes('--install')) {
   console.log(`hooks installed in ${hooks}`);
 } else if (a.includes('--msg')) {
   scan('commit message', fs.readFileSync(arg('--msg'), 'utf8').split(/\r?\n/).filter(l => !l.startsWith('#')).join('\n'), findings);
-  report(findings);
+  report(findings, true);
 } else if (a.includes('--staged')) {
   const repo = git('.', ['rev-parse', '--show-toplevel']).trim();
   for (const f of git(repo, ['diff', '--cached', '--name-only', '--diff-filter=ACMR', '-z']).split('\0').filter(Boolean)) {
     scan(f, git(repo, ['show', `:${f}`]), findings);
   }
-  report(findings);
+  report(findings, true);
 } else {
   const repo = path.resolve(arg('--repo') ?? git('.', ['rev-parse', '--show-toplevel']).trim());
   for (const f of git(repo, ['ls-files', '-co', '--exclude-standard', '-z']).split('\0').filter(Boolean)) {
