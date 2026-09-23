@@ -55,6 +55,7 @@ Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock t
 1. **Open**
    - Read `STATE.md`.
    - Run `node tools/usage.mjs --gap`. Its printed `open_utc` is this session's start; any unaccounted tokens since the last ledger entry are recorded as a gap.
+   - Run `node tools/machine.mjs` and record the machine ID in the session log.
    - If `STATE.md` shows an unclosed session, close that session first from transcripts and mark it `reconstructed`.
    - Assign the next session ID and record it in `STATE.md`.
 2. **Snapshot**: run `node tools/metrics.mjs`.
@@ -87,12 +88,14 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 |---|---|
 | `history/sessions/SNNN_YYYY-MM-DD.md` | One log per session |
 | `history/ledger.jsonl` | One machine-readable line per session or gap, written by `tools/usage.mjs` |
+| `history/machines/<machine_id>.json` | Hardware profile of each machine used (`tools/machine.mjs`) |
 | `history/metrics/` | Repo snapshots, daily traffic, referrers, and star timestamps (`tools/metrics.mjs`) |
 | `history/decisions/ADR-NNN-slug.md` | Significant decisions (`templates/adr.md`) |
 | `history/reports/` | Project final reports and the program final report |
 | `history/outbox.md` | B-class requests and their status |
 
 - **Measured, not estimated.** Durations, tokens, model, and effort come from Claude Code transcripts via tools. Missing data is recorded as `unavailable`.
+- **Machine.** Every session records its machine: a hardware profile ID (CPU, GPU, RAM, board, disks, OS) plus software versions (GPU driver, CUDA, runtimes). No hostname, user name, serial number, or network identifier is stored.
 - **Evidence.** Every claim of work cites a commit SHA, release, or URL. Every research claim cites its source.
 - **Append-only.** Closed logs are never edited. Corrections are new `Erratum` entries that cite the original.
 - **Time.** ISO 8601, stored in UTC and shown in Asia/Shanghai.
@@ -102,6 +105,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **README in English**: a one-line value proposition, a visual demo, a quick start that takes ≤ 60 s, features, why this over alternatives, roadmap, contributing, license, and AI disclosure.
 - **License**: OSI-approved (default MIT). Third-party code and assets only under compatible licenses, with attribution.
 - **Quality**: tests and CI green on the default branch; SemVer tags; releases with a changelog.
+- **Benchmarks**: every performance claim states the hardware and software it was measured on, citing the machine profile, and is reproducible with a script in the repo.
 - **Community files**: CONTRIBUTING, issue and PR templates, and a SECURITY policy.
 - **Discoverability**: a descriptive name, a keyword-bearing description, topics, and a social preview image.
 - **Excluded**: secrets, telemetry without opt-in consent, and unverifiable claims.
@@ -112,6 +116,7 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **Precedence**: owner chat instructions > this file > playbook > `STATE.md`. §3C yields to nothing.
 
 ## 9. Environment
+- Primary machine `m-6da16b4278d0`: i5-13490F, GTX 1660 Ti 6 GB (CUDA 12.9), 16 GB RAM (profile in `history/machines/`).
 - Windows 10 with PowerShell and Git Bash; Node 24 (no Python); git 2.50; gh 2.92, authenticated over HTTPS. Use HTTPS remotes, because no SSH key is configured.
 - This folder is the root repo. Project repos are cloned into `projects/earnstar_N/`, which the root's git ignores. Local folder names stay fixed even if a GitHub repo is renamed.
 - Language: repo content in English; reports to the owner in Chinese.

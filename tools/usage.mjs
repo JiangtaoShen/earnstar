@@ -6,6 +6,7 @@
 //   node tools/usage.mjs --gap                                          record tokens since the last ledger entry;
 //                                                                       prints open_utc for the new session
 //
+// Ledger entries also record the machine (tools/machine.mjs): hardware profile ID plus software versions.
 // Windows are half-open [since, until). Ledger windows are contiguous, so the ledger covers every token.
 // Assistant records are deduplicated by requestId (one API call is split across several transcript lines).
 // Active time sums gaps between consecutive records, except gaps that end at an owner prompt or an answered
@@ -15,6 +16,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { collectMachine, saveProfile } from './machine.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEDGER = path.join(ROOT, 'history', 'ledger.jsonl');
@@ -147,8 +149,11 @@ if (o.gap) {
   const s = summarize(o.since, until);
   if (o.ledger) {
     for (const k of ['id', 'kind']) if (typeof o[k] !== 'string') throw new Error(`--ledger requires --${k}`);
+    const m = collectMachine();
+    const machine = { id: m.machine_id, profile: saveProfile(m), software: m.software };
     append({ id: o.id, kind: o.kind, project: o.project ?? null, phase: o.phase ?? null,
-      open_utc: s.window.since, close_utc: s.window.until, recorded_utc: now, note: o.note ?? null, ...s });
+      open_utc: s.window.since, close_utc: s.window.until, recorded_utc: now, note: o.note ?? null, machine, ...s });
+    s.machine = machine;
   }
   console.log(JSON.stringify(s, null, 2));
 } else {

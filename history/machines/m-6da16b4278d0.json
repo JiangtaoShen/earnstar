@@ -1,0 +1,33 @@
+{
+  "machine_id": "m-6da16b4278d0",
+  "first_seen_utc": "2026-09-23T19:39:08.122Z",
+  "hardware": {
+    "board": "Gigabyte Technology Co., Ltd. B760M GAMING",
+    "cpu": {
+      "model": "13th Gen Intel(R) Core(TM) i5-13490F",
+      "cores": 10,
+      "threads": 16,
+      "base_mhz": 2500
+    },
+    "ram_gib": 15.8,
+    "gpus": [
+      {
+        "model": "NVIDIA GeForce GTX 1660 Ti",
+        "vram_mib": 6144
+      }
+    ],
+    "disks": [
+      {
+        "model": "Samsung SSD 980 1TB",
+        "media": "SSD",
+        "size_gb": 1000
+      }
+    ],
+    "os": {
+      "name": "Microsoft Windows 10 家庭中文版",
+      "version": "10.0.19045",
+      "build": "19045",
+      "arch": "x64"
+    }
+  }
+}

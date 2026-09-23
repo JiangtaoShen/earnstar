@@ -8,6 +8,7 @@
 | Open → close (UTC) | … → … |
 | Budget / wall-clock / active / owner-wait | 2 h / … min / … min / … min |
 | Model / effort | from `tools/usage.mjs` (e.g., claude-opus-5-5 / xhigh) |
+| Machine | `m-…` (CPU / GPU / RAM); driver, CUDA, Node versions; profile `history/machines/m-….json` |
 | Tokens | input … · cache write … · cache read … · output … (of which thinking …) · total … |
 | Claude Code session IDs | … |
 | Commits | root `sha…`; project `sha…` |

@@ -2,6 +2,8 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S002**: Added `tools/machine.mjs` (hardware profile + machine ID; software versions per session), recorded it in ledger entries, and added a Machine row to the session template. Reason: the owner requires every session to record its machine, because some projects are hardware-dependent. Evidence: S002.
+
 - **2026-09-24 · S001**: Added the session kind `admin` (owner messages outside `start work` that change repo content) to the session template and `tools/usage.mjs`. Reason: keep every change traceable to a logged session. Evidence: S001.
 
 - **2026-09-24 · S000**: Added `.gitattributes` (LF everywhere) and made both tools accept CRLF input. Reason: `core.autocrlf=true` on this machine would otherwise put `\r` into CSV fields after a fresh clone. Evidence: git's CRLF warnings on the initial commit.
