@@ -1,0 +1,13 @@
+{
+  "owner": "JiangtaoShen",
+  "statuses": "root | pending | active | closed | unused — metrics cover root, active, closed",
+  "repos": [
+    { "key": "earnstar",   "name": "earnstar",   "role": "root",    "status": "root" },
+    { "key": "earnstar_1", "name": "earnstar_1", "role": "project", "status": "pending" },
+    { "key": "earnstar_2", "name": "earnstar_2", "role": "project", "status": "pending" },
+    { "key": "earnstar_3", "name": "earnstar_3", "role": "project", "status": "pending" },
+    { "key": "earnstar_4", "name": "earnstar_4", "role": "project", "status": "pending" },
+    { "key": "earnstar_5", "name": "earnstar_5", "role": "project", "status": "pending" },
+    { "key": "earnstar_6", "name": "earnstar_6", "role": "project", "status": "pending" }
+  ]
+}

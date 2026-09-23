@@ -1,0 +1,9 @@
+# Project repos are independent git repositories
+/projects/
+
+# Local-only
+.env
+.env.*
+node_modules/
+.claude/settings.local.json
+*.tmp
