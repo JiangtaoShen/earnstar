@@ -1,6 +1,9 @@
 # Project repos are independent git repositories
 /projects/
 
+# Local experiments (summarize results in history/research or session logs)
+/lab/
+
 # Raw transcripts: private evidence (hashes are public in history/ledger.jsonl)
 /archive/
 

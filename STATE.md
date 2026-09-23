@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S005 (admin)._
+_Last updated: 2026-09-24 by S006 (admin)._
 
 ## Program
 - **Program start**: — (set at the first `start work`)
@@ -50,6 +50,7 @@ Both are empty when no session is open.
 | S003 | 2026-09-24 | admin | Audit extension (7 items): transcript archive + hashes, owner involvement, agent config, work composition, channels, community/adoption, supply chain; `cleanupPeriodDays` = 365 |
 | S004 | 2026-09-24 | admin | Owner reported HN and Reddit accounts ready; recorded without personal identifiers |
 | S005 | 2026-09-24 | admin | Research made a hard gate: Selection Gate, foundational study, spike, pre-mortem, independent critique, research floor, pivot review; Constitution §5/§6 amended |
+| S006 | 2026-09-24 | admin | Owner handed over the workstation during sessions: local experiments, installs from trusted sources, web learning (§3A), with guardrails (§3C); `lab/` added; toolchain versions tracked |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

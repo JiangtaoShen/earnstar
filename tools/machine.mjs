@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -90,7 +90,17 @@ export function collectMachine() {
     node: process.version,
     git: firstLine(run('git', ['--version'])),
     gh: firstLine(run('gh', ['--version'])),
-    python: firstLine(run('python', ['--version'])),
+    // Toolchains: an install or upgrade shows up as a version change between ledger entries.
+    toolchains: Object.fromEntries(Object.entries({
+      python: ['python', ['--version']], pip: ['pip', ['--version']], uv: ['uv', ['--version']], conda: ['conda', ['--version']],
+      rustc: ['rustc', ['--version']], go: ['go', ['version']], java: ['java', ['-version']], dotnet: ['dotnet', ['--version']],
+      docker: ['docker', ['--version']], cmake: ['cmake', ['--version']], nvcc: ['nvcc', ['--version']], winget: ['winget', ['--version']],
+    }).map(([k, [cmd, a]]) => {
+      // Some tools (e.g., java) print their version to stderr.
+      const r = spawnSync(cmd, a, { encoding: 'utf8', timeout: 30000, windowsHide: true });
+      const out = !r.error && r.status === 0 ? (r.stdout || r.stderr || '').trim() : null;
+      return [k, out ? (k === 'nvcc' ? out.match(/release [\d.]+[^\r\n]*/)?.[0] ?? firstLine(out) : firstLine(out)) : 'unavailable'];
+    })),
     work_drive: drive,
     work_drive_free_gib: disk_free_gib,
   };

@@ -2,6 +2,13 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S006**:
+  - `tools/machine.mjs` records toolchain versions (python, pip, uv, conda, rustc, go, java, dotnet, docker, cmake, nvcc, winget), reading stderr where tools print there.
+  - The session template gains an "Environment changes" section.
+  - `defaults.md` gains a free-space floor of 30 GB.
+  - `.gitignore` excludes `lab/`.
+  - Reason: the owner granted use of the workstation, so installs and resource use must be auditable. Evidence: S006; java 21.0.11 was detected only after the stderr fix.
+
 - **2026-09-24 · S005**: Research became a hard gate.
   - `research.md` rewritten into eight stages (foundational study, divergence, screening, deep dive, feasibility spike, decision and pre-mortem, independent critique, reflection), plus the Selection Gate, continuous learning, and the pivot review.
   - `defaults.md`:

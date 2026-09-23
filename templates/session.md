@@ -31,8 +31,12 @@ Each note: claim — source URL.
 - **Human commits**: from the ledger. Explain any non-zero count.
 ## 7. External actions by the developer
 Public actions taken under A-class authority: replies, merges, releases, renames, visibility changes (with URLs).
-## 8. Results vs. goals
-## 9. Lessons
+## 8. Environment changes
+- **Installs, upgrades, uninstalls**: name, version, source, scope (user or system), and reason. Cross-check against the toolchain versions in the ledger.
+- **Heavy resource use**: GPU hours, large downloads, and disk used or freed. Free space at close must meet the floor in `defaults.md`.
+- **Processes**: confirm that every process started in this session has been stopped.
+## 9. Results vs. goals
+## 10. Lessons
 List the IDs added to or changed in `playbook/lessons.md`.
-## 10. Deviations, incidents, errata
-## 11. Next actions
+## 11. Deviations, incidents, errata
+## 12. Next actions
