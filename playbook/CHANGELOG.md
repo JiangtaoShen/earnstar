@@ -2,6 +2,13 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S007**:
+  - Added `playbook/workstation.md`: an environment reuse policy (reuse as is → additive install checked by dry run → new `earnstar-*` env by clone or uv venv) and hardware notes.
+  - Added `tools/envs.mjs`: a private environment inventory in `lab/envs.json`.
+  - `tools/machine.mjs` finds conda outside PATH and records the env count, the `earnstar-*` envs, and free space on every drive.
+  - The free-space floor now covers C: as well.
+  - Reason: owner directive to reuse existing conda environments to save storage. Evidence: S007 inventory (10 environments; conda on C:, 108 GiB free).
+
 - **2026-09-24 · S006**:
   - `tools/machine.mjs` records toolchain versions (python, pip, uv, conda, rustc, go, java, dotnet, docker, cmake, nvcc, winget), reading stderr where tools print there.
   - The session template gains an "Environment changes" section.

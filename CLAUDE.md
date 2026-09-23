@@ -32,7 +32,8 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 - **The workstation**: during sessions this computer is the developer's own machine. The developer runs experiments and benchmarks (CPU and GPU), installs development tools and packages, runs local servers, and learns from the web (built-in browser, web search and fetch). Conditions:
   - Work files stay under `D:\earnstar`, with experiments in `lab/` (git-ignored). Tools install at user scope where possible.
   - Software comes only from trusted sources: official registries (npm, PyPI, …), official vendor sites, winget, and established GitHub projects. Read install scripts before running them.
-  - Keep the free space on the work drive at or above the floor in `playbook/defaults.md`. Stop every process started during a session before the session closes.
+  - Reuse existing environments (conda, Python) before creating new ones, and never alter or remove the owner's. Procedure: `playbook/workstation.md`.
+  - Keep the free space on every drive used at or above the floor in `playbook/defaults.md`. Stop every process started during a session before the session closes.
   - Record every install, uninstall, and heavy use of resources in the session log.
 
 **B. Owner approval required.** Queue the request in `history/outbox.md`. Act only after the owner approves its ID in chat.
@@ -138,6 +139,6 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 
 ## 9. Environment
 - Primary machine `m-6da16b4278d0`: i5-13490F, GTX 1660 Ti 6 GB (CUDA 12.9), 16 GB RAM (profile in `history/machines/`).
-- Windows 10 with PowerShell and Git Bash; Node 24; git 2.50; gh 2.92, authenticated over HTTPS. Use HTTPS remotes, because no SSH key is configured. Python was not installed at setup; `uv` can install it at user scope under §3A. The ledger records current toolchain versions.
+- Windows 10 with PowerShell and Git Bash; Node 24; git 2.50; gh 2.92, authenticated over HTTPS. Use HTTPS remotes, because no SSH key is configured. Python: the owner's Anaconda (8 envs, several with CUDA-enabled torch), Python 3.13, and uv are available; the inventory is produced by `tools/envs.mjs`. The ledger records current toolchain versions.
 - This folder is the root repo. Project repos are cloned into `projects/earnstar_N/`, which the root's git ignores. Local folder names stay fixed even if a GitHub repo is renamed.
 - Language: repo content in English; reports to the owner in Chinese.

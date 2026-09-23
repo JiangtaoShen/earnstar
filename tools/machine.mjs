@@ -69,7 +69,29 @@ function nvidia() {
   return { gpus, cuda };
 }
 
+// conda is often not on PATH; ~/.conda/environments.txt lists the root and every env.
+function condaInfo() {
+  const txt = path.join(os.homedir(), '.conda', 'environments.txt');
+  if (!fs.existsSync(txt)) return { exe: 'conda', envs: 0, earnstar_envs: [] };
+  const paths = fs.readFileSync(txt, 'utf8').replace(/^﻿/, '').split(/\r?\n/).map(s => s.trim()).filter(p => p && fs.existsSync(p));
+  const root = paths.find(p => !/[\\/]envs[\\/]/i.test(p));
+  const exe = root && fs.existsSync(path.join(root, 'Scripts', 'conda.exe')) ? path.join(root, 'Scripts', 'conda.exe') : 'conda';
+  const names = paths.filter(p => p !== root).map(p => path.basename(p));
+  // Owner env names stay private (tools/envs.mjs, lab/envs.json); only counts and earnstar-* names are recorded.
+  return { exe, envs: paths.length, earnstar_envs: names.filter(n => n.startsWith('earnstar-')) };
+}
+
+function drivesFree() {
+  if (process.platform !== 'win32') return {};
+  const out = {};
+  for (const l of 'CDEFGHIJ') {
+    try { const s = fs.statfsSync(`${l}:\\`); if (s.blocks > 0) out[`${l}:`] = GiB(s.bavail * s.bsize); } catch {}
+  }
+  return out;
+}
+
 export function collectMachine() {
+  const conda = condaInfo();
   const base = (process.platform === 'win32' && windows()) || generic();
   const nv = nvidia();
   // Stable hardware: GPU model and VRAM (NVIDIA VRAM from nvidia-smi; WMI caps it at 4 GiB).
@@ -92,7 +114,7 @@ export function collectMachine() {
     gh: firstLine(run('gh', ['--version'])),
     // Toolchains: an install or upgrade shows up as a version change between ledger entries.
     toolchains: Object.fromEntries(Object.entries({
-      python: ['python', ['--version']], pip: ['pip', ['--version']], uv: ['uv', ['--version']], conda: ['conda', ['--version']],
+      python: ['python', ['--version']], pip: ['pip', ['--version']], uv: ['uv', ['--version']], conda: [conda.exe, ['--version']],
       rustc: ['rustc', ['--version']], go: ['go', ['version']], java: ['java', ['-version']], dotnet: ['dotnet', ['--version']],
       docker: ['docker', ['--version']], cmake: ['cmake', ['--version']], nvcc: ['nvcc', ['--version']], winget: ['winget', ['--version']],
     }).map(([k, [cmd, a]]) => {
@@ -101,8 +123,10 @@ export function collectMachine() {
       const out = !r.error && r.status === 0 ? (r.stdout || r.stderr || '').trim() : null;
       return [k, out ? (k === 'nvcc' ? out.match(/release [\d.]+[^\r\n]*/)?.[0] ?? firstLine(out) : firstLine(out)) : 'unavailable'];
     })),
+    python_envs: { conda_envs_total: conda.envs, earnstar_envs: conda.earnstar_envs },
     work_drive: drive,
     work_drive_free_gib: disk_free_gib,
+    drives_free_gib: drivesFree(),
   };
   return { machine_id, hardware, software };
 }
