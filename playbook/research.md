@@ -19,9 +19,9 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
    - **Demand**: ≥ 3 independent signals of real pain (issues with many 👍, forum threads, repeated questions), each linked.
    - **Differentiation**: a one-sentence answer to "why this over X", checked against the top 3 alternatives.
    - **Distribution plan**:
-     - named subreddits whose rules (self-promotion, AI content, account age/karma) the owner has checked (L-002), or a pending outbox request for that check;
-     - an HN angle;
-     - ≥ 2 awesome lists whose criteria the MVP would meet.
+     - a DEV article angle that teaches something on its own (L-003), with candidate tags and evidence that those tags have active readers;
+     - ≥ 2 awesome lists whose criteria the MVP would meet;
+     - GitHub search keywords and topics.
 5. **Feasibility spike** on the leading candidate: a throwaway prototype of the riskiest technical part, within the budget in `defaults.md`, run on this machine.
 6. **Decision and pre-mortem**:
    - Score the candidates (§3).
@@ -34,8 +34,9 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 ## 2. Sources (cite every source used)
 - **GitHub search**, for fast risers by topic or language: `gh api -X GET search/repositories -f q="created:>YYYY-MM-DD stars:>200 topic:X" -f sort=stars`.
 - **GitHub Trending** (daily and weekly, per language) and OSS Insight collections.
-- **Hacker News**, via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn why a launch worked.
-- **Reddit**: unreachable from this environment (`launch.md`). Use secondary sources that quote or summarize Reddit discussions, and ask the owner through the outbox to check specific subreddits when a decision depends on them.
+- **Hacker News** (reading only; it is not a program channel), via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn what developers value.
+- **DEV**: top articles by tag (`dev.to/api/articles?tag=X&top=N`) show which topics and formats draw readers, and which articles link to GitHub repos.
+- **Reddit** is unreachable from this environment (L-002); use secondary sources only.
 - **Issues of popular repos, sorted by 👍**: demand that the maintainers will not meet.
 - **Package download trends** (npm, PyPI), as demand evidence.
 - **Awesome lists in the domain**: gaps, and each list's inclusion criteria.
@@ -48,7 +49,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 | Differentiation | 20 % | A clear one-sentence answer to "why this over X" |
 | Time-to-wow | 15 % | Understood in 10 s from the README; tried in ≤ 60 s |
 | Feasibility | 15 % | The spike succeeded; an MVP takes ≤ 40 active hours on this machine; the developer can test it fully |
-| Distribution fit | 15 % | The distribution plan is concrete, and the rules of every named venue have been checked |
+| Distribution fit | 15 % | A strong DEV article angle with active tags, ≥ 2 fitting awesome lists, and searchable keywords |
 | Sustainability | 10 % | Low maintenance; no hosted infrastructure and no cost |
 
 **Explore vs. exploit**:
@@ -58,14 +59,14 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 **Archetype priors**: these are unverified until the foundational study or program data confirms them.
 - Developer tools with instant payoff (CLI, editor/terminal utilities)
 - AI/LLM tooling (agents, MCP servers, Claude Code skills and plugins)
-- Curated resources (awesome lists, roadmaps, "build your own X", cheat sheets). Note: lists and reading material are off topic for Show HN (L-001), so this archetype loses the program's main HN channel.
+- Curated resources (awesome lists, roadmaps, "build your own X", cheat sheets)
 - Self-hostable alternatives to paid SaaS
 - Templates and starter kits
 - Visual or playful projects with shareable output
 
 ## 4. Knock-outs (any one rejects the idea)
 - It needs money or hosted services.
-- It needs owner accounts beyond HN and Reddit.
+- It needs owner accounts beyond GitHub and DEV.
 - It carries legal, ToS, or trademark risk.
 - It depends on a dominant incumbent and has no real angle against it.
 - The developer cannot test it.

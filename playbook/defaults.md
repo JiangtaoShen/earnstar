@@ -16,9 +16,7 @@ Tunable parameters referenced by the Constitution. Change them only with a `CHAN
 | First public release | ≤ day 35 after kickoff | Leaves ≥ 25 days of feedback before the 2-month minimum |
 | Pivot review | Launch + 14 days | Most launch-driven stars arrive in the first week |
 | Continuous research (P2–P4) | ≥ 10 % of active time | Learning continues after selection. Sessions are tagged with a single phase, so this share is reported in each session log and supported by the ledger's web searches and fetches; the ledger cannot measure it directly |
-| Launch concentration | HN and Reddit posts within the same 48 h | Hypothesis H-002: star velocity drives Trending |
-| Owner posting load | ≤ 4 HN/Reddit posts per project in total | Owner time is scarce |
-| DEV articles | ≤ 2 per project (a build write-up at launch, one technical deep dive later) | DEV forbids clout-driven posting; quality over volume |
+| DEV articles | ≤ 3 per project (a build write-up at launch, then up to two technical deep dives or milestone write-ups, ≥ 3 weeks apart) | DEV is the only social channel (S013), but it forbids clout-driven posting, so quality beats volume |
 | Plateau (close signal) | Stars gained in the last 14 days < max(10, 5 % of total) | Marginal return has flattened |
 | Idle cap for active time | 60 min | Used by `tools/usage.mjs` |
 | Free-space floor | ≥ 30 GB on each of C: (conda environments, caches) and D: (work files) | Keeps the owner's machine usable. Datasets and models go in `lab/` or project folders and are pruned when no longer needed |

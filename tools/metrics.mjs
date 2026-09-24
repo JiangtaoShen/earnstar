@@ -14,8 +14,8 @@
 //   releases.csv           per run and release: asset download count
 //   package_daily.csv      upserted per (date, key, registry, package): npm / PyPI downloads (repos.json "packages")
 //   security.csv           per run and repo: secret scanning, push protection, Dependabot alerts and updates
-//   channels.csv           per run and item in history/channels.json: score, comments, state (HN, Reddit from
-//                          owner readings, DEV via tools/devto.mjs, GitHub PRs)
+//   channels.csv           per run and item in history/channels.json: DEV articles (reactions, comments, views via
+//                          tools/devto.mjs) and awesome-list PRs (state, comments)
 // Privacy: no user logins are stored.
 
 import fs from 'node:fs';
@@ -122,19 +122,8 @@ async function devtoStats(id) {
 
 async function channel(c, utc) {
   let score = '', comments = '', state = '';
-  const hn = c.url.match(/news\.ycombinator\.com\/item\?id=(\d+)/);
   const pr = c.url.match(/github\.com\/([^/]+\/[^/]+)\/pull\/(\d+)/);
-  if (c.type === 'hn' && hn) {
-    const j = await getJson(`https://hacker-news.firebaseio.com/v0/item/${hn[1]}.json`);
-    if (j) { score = j.score ?? ''; comments = j.descendants ?? 0; state = j.dead ? 'dead' : j.deleted ? 'deleted' : 'live'; }
-    else state = 'unavailable';
-  } else if (c.type === 'reddit') {
-    // Reddit is unreachable from this environment (lessons L-002), so the series uses the owner's latest
-    // screenshot reading instead of a request that always fails.
-    const r = (c.owner_reported ?? []).slice().sort((a, b) => a.read_utc.localeCompare(b.read_utc)).at(-1);
-    if (r) { score = r.score ?? ''; comments = r.comments ?? ''; state = `owner-reported@${r.read_utc}`; }
-    else state = 'awaiting-owner-screenshot';
-  } else if (c.type === 'devto' && c.devto_id) {
+  if (c.type === 'devto' && c.devto_id) {
     const d = await devtoStats(c.devto_id);
     if (d) { score = d.public_reactions_count ?? ''; comments = d.comments_count ?? ''; state = d.page_views_count != null ? `views:${d.page_views_count}` : 'public'; }
     else state = 'unavailable';

@@ -2,6 +2,14 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S013**: DEV-only promotion.
+  - `launch.md` rewritten: channels are DEV and awesome lists; DEV packages and their workflow; HN, Reddit, and the screenshot flow removed.
+  - `research.md`: distribution plan and scoring based on DEV; HN kept as a reading-only research source.
+  - `defaults.md`: HN/Reddit rows removed; the DEV cap raised to 3 per project.
+  - `lessons.md`: HN/Reddit hypotheses retired.
+  - `metrics.mjs`: HN and Reddit branches removed; `tools/evidence.mjs` deleted; `inbox/` ignore rule removed.
+  - Reason: owner decision ("Delete the other two promotion methods. Only consider DEV." [translated]). Evidence: S013.
+
 - **2026-09-24 · S012**: The DEV channel.
   - New `tools/devto.mjs`: `whoami`, `stats`, and `post` with guards (the outbox item must be approved; content check; AI disclosure; at most 4 tags; `--validate`). The key is read from the user environment without a restart and is never printed.
   - `metrics.mjs` snapshots DEV items; `check.mjs` gains `--file`.

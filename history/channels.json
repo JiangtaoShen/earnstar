@@ -1,18 +1,16 @@
 {
-  "about": "Registry of promotion items (Constitution §3B, §6). One item per post or PR, added when it goes live. tools/metrics.mjs snapshots each item into history/metrics/channels.csv; tools/evidence.mjs records the owner's screenshots.",
+  "about": "Registry of promotion items (Constitution §3B, §6): published DEV articles and awesome-list PRs. tools/devto.mjs registers DEV articles; tools/metrics.mjs snapshots every item into history/metrics/channels.csv.",
   "fields": {
     "id": "C-NNN",
     "outbox": "O-NNN that approved it",
     "project": "repo key, e.g. earnstar_1",
-    "type": "hn | reddit | devto | pr | other",
+    "type": "devto | pr | other",
+    "url": "public URL of the article or PR",
     "devto_id": "DEV article ID (type devto only; set by tools/devto.mjs)",
-    "url": "public URL of the post or PR",
     "posted_utc": "ISO 8601",
-    "by": "owner | developer",
-    "promo": "path of the promotion package, e.g. history/promo/earnstar_1/O-003-hn/",
-    "owner_minutes": "owner-reported time spent, or null",
-    "evidence": "[{file, bytes, sha256, added_utc}]: owner screenshots, stored privately in archive/promo/ (tools/evidence.mjs)",
-    "owner_reported": "[{read_utc, score, comments, source}]: metrics read from owner screenshots when the API is unavailable (e.g., Reddit)"
+    "by": "developer | owner",
+    "promo": "path of the promotion package, e.g. history/promo/earnstar_1/O-003-devto/",
+    "owner_minutes": "owner-reported time spent, or null"
   },
   "items": []
 }
