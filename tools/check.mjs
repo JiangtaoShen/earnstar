@@ -4,6 +4,7 @@
 //   node tools/check.mjs [--repo <path>]    scan all tracked and untracked (non-ignored) files; exit 1 on findings
 //   node tools/check.mjs --staged           scan the staged version of staged files (pre-commit hook)
 //   node tools/check.mjs --msg <file>       scan a commit message file (commit-msg hook)
+//   node tools/check.mjs --file <file>      scan one file (e.g., an article before publishing)
 //   node tools/check.mjs --install <repo>   install pre-commit and commit-msg hooks into <repo>/.git/hooks
 //
 // Hooks must never be bypassed (--no-verify). Owner emails are matched by SHA-256, so they never appear here.
@@ -64,6 +65,9 @@ if (a.includes('--install')) {
   fs.writeFileSync(path.join(hooks, 'pre-commit'), `#!/bin/sh\nexec node "${node}" --staged\n`, { mode: 0o755 });
   fs.writeFileSync(path.join(hooks, 'commit-msg'), `#!/bin/sh\nexec node "${node}" --msg "$1"\n`, { mode: 0o755 });
   console.log(`hooks installed in ${hooks}`);
+} else if (a.includes('--file')) {
+  scan(path.basename(arg('--file')), fs.readFileSync(arg('--file'), 'utf8'), findings);
+  report(findings);
 } else if (a.includes('--msg')) {
   scan('commit message', fs.readFileSync(arg('--msg'), 'utf8').split(/\r?\n/).filter(l => !l.startsWith('#')).join('\n'), findings);
   report(findings, true);

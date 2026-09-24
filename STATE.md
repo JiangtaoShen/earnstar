@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S011 (admin)._
+_Last updated: 2026-09-24 by S012 (admin)._
 
 ## Program
 - **Program start / end**: see the Hours block (set by the first `work` session).
@@ -40,11 +40,13 @@ Both are empty when no session is open.
 |---|---|---|---|
 | Hacker News | ready (owner-reported) | 2026-09-24 | not provided; record it from the first post URL |
 | Reddit | ready (owner-reported) | 2026-09-24 | not provided; record it from the first post URL |
+| DEV (dev.to) | registered (owner-reported); API key pending | 2026-09-24 | recorded by `tools/devto.mjs whoami` once the key is set |
 
 - Credentials stay with the owner only (Constitution §3C). The registration email is intentionally not recorded in this public repo.
 - Both accounts are new. Many subreddits gate posting on account age and karma, and Reddit is unreachable from the developer's environment (L-002), so the owner checks target subreddit rules when an outbox item asks. Genuine participation before launch helps; karma farming does not and is not advised. HN posts and comments must be written by the owner personally (L-001).
 
 ## Awaiting owner
+- **DEV API key** (S012): create it at dev.to/settings/extensions and store it as the user environment variable `DEVTO_API_KEY` with the `Read-Host` command in `playbook/launch.md`. Never paste it into chat. Then say so, and the developer runs `node tools/devto.mjs whoami`.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
 - The Reddit channel decision raised in S008 was resolved in S009: the owner posts on both HN and Reddit, checks the subreddit rules, and returns screenshots as proof and as the source of Reddit metrics.
 
@@ -63,6 +65,7 @@ Both are empty when no session is open.
 | S009 | 2026-09-24 | admin | Promotion workflow: the owner posts on HN and Reddit; the developer prepares archived packages (`history/promo/`); owner screenshots are stored privately with public hashes (`tools/evidence.mjs`) |
 | S010 | 2026-09-24 | admin | Monthly target of 60 work-hours (§2), project shortfall rule, `tools/hours.mjs` with the Hours block in STATE |
 | S011 | 2026-09-24 | admin | End-to-end simulation in a disposable sandbox; 16 findings: 14 fixed (incl. a ledger deadlock on non-ASCII research queries), 1 documented, 1 awaiting the owner; sandbox deleted |
+| S012 | 2026-09-24 | admin | DEV (dev.to) added as a third channel, published by the developer via API after per-article owner approval (`tools/devto.mjs`, L-003); waiting for the owner's API key |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

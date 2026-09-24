@@ -41,9 +41,10 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 
 **B. Owner approval required.** Queue the request in `history/outbox.md`. Act only after the owner approves its ID in chat.
 - Any write to third-party repos or sites (e.g., awesome-list PRs, issues, comments).
-- Promotion happens only on **Hacker News** and **Reddit**, and the owner posts from their own accounts.
+- Promotion happens only on **Hacker News**, **Reddit**, and **DEV** (dev.to).
+  - HN and Reddit: the owner posts from their own accounts. After posting, the owner sends screenshots as proof; they are stored privately, with their hashes recorded publicly.
+  - DEV: the developer publishes through the API (`tools/devto.mjs`, using the owner's key), only after the owner approves the specific article in chat. The developer never comments on DEV, because DEV forbids AI-generated comments.
   - The developer prepares and archives a promotion package for each post (`playbook/launch.md`). For HN the package is a fact sheet, not prose, because HN forbids generated text.
-  - After posting, the owner sends screenshots as proof. They are stored privately, with their hashes recorded publicly.
 - The first publication of a package to a registry (npm, PyPI, …). The owner supplies accounts and tokens.
 - Any spending. The default budget is 0.
 - Changes to the owner's account or profile; public → private (this erases stars); archive, transfer, or delete.
@@ -61,7 +62,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 **D. AI disclosure**
 - Every project README states that it is built and maintained by Claude Code (Anthropic's AI coding agent) under @JiangtaoShen's supervision.
 - Every reply the developer posts ends with `— Claude Code (AI maintainer)`.
-- Promotion packages that the owner posts also disclose AI authorship.
+- Promotion packages also disclose AI authorship, including every DEV article, as DEV's guidelines require.
 
 ## 4. Session protocol
 Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock time; check the clock at every milestone.

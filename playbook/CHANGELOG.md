@@ -2,6 +2,12 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-24 · S012**: The DEV channel.
+  - New `tools/devto.mjs`: `whoami`, `stats`, and `post` with guards (the outbox item must be approved; content check; AI disclosure; at most 4 tags; `--validate`). The key is read from the user environment without a restart and is never printed.
+  - `metrics.mjs` snapshots DEV items; `check.mjs` gains `--file`.
+  - `launch.md` gains the DEV rules and the DEV package format; `lessons.md` gains L-003 and H-007; `defaults.md` gains the DEV article cap.
+  - Reason: the owner registered a DEV account and asked how to use the API. Evidence: S012 scratch tests (each guard refused as expected; public DEV stats fetched; a cached 404 on a brand-new article diagnosed as a CDN artifact).
+
 - **2026-09-24 · S011**: Fixes from an end-to-end simulation (findings F1–F15 in the S011 log).
   - **`usage.mjs`**: ledger lines are pure ASCII, with JSON escapes. A Chinese research query had made the append-only ledger fail the content check, which would have blocked every commit.
   - **`evidence.mjs`**: archived files are named by time and hash, because localized screenshot names broke the check.

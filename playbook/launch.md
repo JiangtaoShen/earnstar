@@ -24,6 +24,13 @@
   - The owner posts to 1–2 subreddits whose rules allow it, with text tailored to each subreddit. No cross-post spam.
   - **Access limit (verified in S008)**: Reddit is unreachable from the developer's environment. Unauthenticated API calls get HTTP 403, and the fetch tool, the built-in browser, and web search all block the domain.
   - The owner therefore checks the subreddit rules (self-promotion, AI content, flair, account age and karma), using the checklist in each package. The owner's screenshots provide the post's score and comment count.
+- **DEV (dev.to)**. Rules verified on 2026-09-24 (S012) against dev.to/guidelines-for-ai-assisted-articles-on-dev (L-003).
+  - **Allowed**: AI-assisted and AI-generated articles, if they disclose it, either with the tag `#ABotWroteThis` or anywhere in the text. The program's standard disclosure line names Claude Code, and `tools/devto.mjs` refuses articles without it.
+  - **Forbidden**:
+    - bot or AI comments, on any post including our own, so the developer never comments; the owner may reply personally;
+    - articles whose main purpose is building a brand, a social presence, or clout. Every article must teach something on its own (how it was built, a technique, benchmarks with method), with the project as the example rather than the pitch.
+  - **Mechanics**: `tools/devto.mjs` publishes Markdown with DEV front matter (`title`, `published`, `tags` ≤ 4, `canonical_url`, `series`). It refuses unless the outbox item is `approved`, passes `tools/check.mjs`, and carries the disclosure. `--validate` runs all checks without publishing.
+  - **Key**: the owner creates it at dev.to/settings/extensions ("DEV Community API Keys") and stores it as the user environment variable `DEVTO_API_KEY` with `Read-Host`, so it never appears in chat, logs, or history. The developer never sees or prints it. The owner can revoke it on the same page.
 - **Awesome lists**
   - One PR per list, through the outbox.
   - Only lists that are active (a merged PR within the last 90 days) and whose criteria the project meets.
@@ -40,6 +47,9 @@ The owner posts on both HN and Reddit. The developer prepares a complete package
 - **Reddit package**, only where the subreddit's rules allow it:
   - `draft.md`: title and body tailored to one subreddit, with the AI disclosure, plus facts for likely questions and a rules checklist for the owner (self-promotion, AI content, flair, account age and karma).
   - `images/`: the images to attach, captioned.
+- **DEV package**:
+  - `article.md`: the full article with front matter and the disclosure line; images are linked from the project repo (raw GitHub URLs) or uploaded by DEV.
+  - Workflow: the outbox item links the package → the owner approves it in chat → `node tools/devto.mjs post --item O-NNN <article.md>`. The tool publishes the article and registers it in `channels.json` (`by: developer`).
 - **Images**:
   - Real screenshots, terminal GIFs, or diagrams of the actual project, produced reproducibly by a script in the project repo, and named in `images/README.md` with the command that made them.
   - PNG or GIF, under 10 MB.
@@ -52,6 +62,7 @@ The owner posts on both HN and Reddit. The developer prepares a complete package
   4. The developer clears `inbox/`.
 - **Metrics**: `metrics.mjs` snapshots every item in every session into `channels.csv`.
   - HN items are fetched automatically.
+  - DEV items are fetched through `devto.mjs`: with the key, own-article stats include page views; without it, only the public reaction and comment counts. A just-published article can briefly return a cached 404 from DEV's CDN (seen in S012); it resolves on its own.
   - Reddit items cannot be fetched (L-002). Each reading from an owner screenshot is added to the item's `owner_reported` entries (read time, score, comments, source file). The CSV row repeats the latest reading, marked `owner-reported@<time>`, or shows `awaiting-owner-screenshot` if there is none.
 
 ## After launch

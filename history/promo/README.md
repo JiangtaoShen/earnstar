@@ -7,5 +7,6 @@ The workflow and the contents of each package are defined in [`playbook/launch.m
 |---|---|---|
 | HN | `brief.md`: fact sheet and title directions; no ready-to-post prose, because HN forbids generated text (L-001) | Owner, in their own words |
 | Reddit | `draft.md` and `images/`: title, body, and images for one subreddit, plus a rules checklist | Owner |
+| DEV | `article.md`: full article with front matter and the AI disclosure (L-003) | Developer, through `tools/devto.mjs`, after the owner approves it in chat |
 
 The owner's post screenshots are stored privately in `archive/promo/`. Their SHA-256 hashes are listed under each item in [`history/channels.json`](../channels.json).

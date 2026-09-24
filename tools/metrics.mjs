@@ -14,13 +14,15 @@
 //   releases.csv           per run and release: asset download count
 //   package_daily.csv      upserted per (date, key, registry, package): npm / PyPI downloads (repos.json "packages")
 //   security.csv           per run and repo: secret scanning, push protection, Dependabot alerts and updates
-//   channels.csv           per run and item in history/channels.json: score, comments, PR state
+//   channels.csv           per run and item in history/channels.json: score, comments, state (HN, Reddit from
+//                          owner readings, DEV via tools/devto.mjs, GitHub PRs)
 // Privacy: no user logins are stored.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { devtoKey, devto } from './devto.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'history', 'metrics');
@@ -107,6 +109,17 @@ async function packages(r) {
   if (rows.length) upsertCsv('package_daily.csv', ['date_utc', 'key', 'registry', 'package', 'downloads'], [0, 1, 2, 3], rows);
 }
 
+// DEV: with the key, own-article stats include page views; without it, public reaction/comment counts only.
+let devtoMine = null;
+async function devtoStats(id) {
+  const key = devtoKey();
+  if (key && devtoMine === null) {
+    try { devtoMine = new Map((await devto('GET', '/articles/me/all?per_page=1000', key)).map(x => [x.id, x])); }
+    catch (e) { errors.push(e.message); devtoMine = new Map(); }
+  }
+  return devtoMine?.get(id) ?? await getJson(`https://dev.to/api/articles/${id}`);
+}
+
 async function channel(c, utc) {
   let score = '', comments = '', state = '';
   const hn = c.url.match(/news\.ycombinator\.com\/item\?id=(\d+)/);
@@ -121,6 +134,10 @@ async function channel(c, utc) {
     const r = (c.owner_reported ?? []).slice().sort((a, b) => a.read_utc.localeCompare(b.read_utc)).at(-1);
     if (r) { score = r.score ?? ''; comments = r.comments ?? ''; state = `owner-reported@${r.read_utc}`; }
     else state = 'awaiting-owner-screenshot';
+  } else if (c.type === 'devto' && c.devto_id) {
+    const d = await devtoStats(c.devto_id);
+    if (d) { score = d.public_reactions_count ?? ''; comments = d.comments_count ?? ''; state = d.page_views_count != null ? `views:${d.page_views_count}` : 'public'; }
+    else state = 'unavailable';
   } else if (c.type === 'pr' && pr) {
     const j = api(`repos/${pr[1]}/pulls/${pr[2]}`, null);
     if (j) { comments = (j.comments ?? 0) + (j.review_comments ?? 0); state = j.merged ? 'merged' : j.state; }
