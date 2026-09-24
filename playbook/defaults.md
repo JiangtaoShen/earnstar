@@ -6,9 +6,9 @@ Tunable parameters referenced by the Constitution. Change them only with a `CHAN
 |---|---|---|
 | Monthly work-hour target | 60 h per calendar month, pro-rated for partial months (`TARGET_HOURS` in `tools/hours.mjs`) | Owner's decision (S010): 2 h/day on average, scheduled flexibly |
 | Project shortfall threshold | < 60 % of expected hours at the 2-month minimum (`SHORTFALL` in `tools/hours.mjs`) | Prevents closing an under-invested project |
-| Session budget if unspecified | 2 h wall-clock | Owner's stated average |
+| Session minimum if unspecified | 2 h of wall-clock working time; no fixed cap after it (finish the current task, start no new large task) | Owner's decision (S015) |
 | Checkpoint interval | ≤ 45 min | Limits loss if the machine stops abruptly |
-| Close-out reserve | ≥ 10 % of budget | Leaves time for the log, ledger, and push |
+| Close-out | Starts after the minimum, at a clean stopping point; not counted toward the minimum | Leaves time for the log, ledger, and push |
 | Maintenance cap (past projects) | ≤ 15 % of a session | Keeps focus on the current project |
 | P0 + P1 floor | ≥ 8 active hours (phase P0/P1 in `tools/hours.mjs`), across ≥ 2 sessions on ≥ 2 calendar days | A ≥ 2-month commitment justifies deep research; a second day gives fresh-context reflection. S011 lowered the session count from 3 to 2, so that one long owner block plus one more day suffices |
 | P0 + P1 ceiling | ≤ 14 days after kickoff; exceeding it needs a recorded reason in the selection ADR (the Gate takes precedence) | Guards against analysis paralysis |

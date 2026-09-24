@@ -2,6 +2,12 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-25 · S015**:
+  - `defaults.md`: the session length is a 2 h minimum with no fixed cap, and close-out comes after the minimum.
+  - Session template row renamed to "Minimum".
+  - `research.md`: emoji replaced by plain English, with a search qualifier.
+  - Reason: owner decision on session length, and the English audit. Evidence: S015.
+
 - **2026-09-24 · S013**: DEV-only promotion.
   - `launch.md` rewritten: channels are DEV and awesome lists; DEV packages and their workflow; HN, Reddit, and the screenshot flow removed.
   - `research.md`: distribution plan and scoring based on DEV; HN kept as a reading-only research source.

@@ -16,7 +16,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 4. **Deep dive on each shortlisted candidate**:
    - **Landscape**: ≥ 10 comparable or adjacent repos, with stars, star history, last activity, recurring issue themes, and gaps.
    - **Case studies**: ≥ 5 successful launches of the same archetype, dissected for what drove the stars, with evidence (launch posts, timing, visible referrers).
-   - **Demand**: ≥ 3 independent signals of real pain (issues with many 👍, forum threads, repeated questions), each linked.
+   - **Demand**: ≥ 3 independent signals of real pain (issues with many thumbs-up reactions, forum threads, repeated questions), each linked.
    - **Differentiation**: a one-sentence answer to "why this over X", checked against the top 3 alternatives.
    - **Distribution plan**:
      - a DEV article angle that teaches something on its own (L-003), with candidate tags and evidence that those tags have active readers;
@@ -37,7 +37,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 - **Hacker News** (reading only; it is not a program channel), via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn what developers value.
 - **DEV**: top articles by tag (`dev.to/api/articles?tag=X&top=N`) show which topics and formats draw readers, and which articles link to GitHub repos.
 - **Reddit** is unreachable from this environment (L-002); use secondary sources only.
-- **Issues of popular repos, sorted by 👍**: demand that the maintainers will not meet.
+- **Issues of popular repos, sorted by thumbs-up reactions** (`sort:reactions-+1`): demand that the maintainers will not meet.
 - **Package download trends** (npm, PyPI), as demand evidence.
 - **Awesome lists in the domain**: gaps, and each list's inclusion criteria.
 - **Program data**: `history/metrics/` and `lessons.md`.

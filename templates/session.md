@@ -6,7 +6,7 @@
 | Project / phase | earnstar_N (<name>) / Pn; day D since kickoff (YYYY-MM-DD) |
 | Open → close (Asia/Shanghai) | YYYY-MM-DD HH:MM → YYYY-MM-DD HH:MM |
 | Open → close (UTC) | … → … |
-| Budget / wall-clock / active / owner-wait | 2 h / … min / … min / … min |
+| Minimum / wall-clock / active / owner-wait | 2 h / … min / … min / … min |
 | Month to date | … h of … h target (ahead / behind by … h), from `tools/hours.mjs` |
 | Model / effort | from the ledger (e.g., claude-opus-5-5 / xhigh) |
 | Agent | Claude Code version · entrypoint · permission mode · Constitution `sha` in effect |

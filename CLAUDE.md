@@ -65,9 +65,11 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 - Every DEV article discloses AI authorship, as DEV's guidelines require.
 
 ## 4. Session protocol
-Trigger: `start work [duration]`. The default is 2 h. The budget is wall-clock time; check the clock at every milestone.
-Owner messages outside `start work` that change repo content are handled as `admin` sessions, using steps 1 and 6.
-Only one session runs at a time. A session may be split at a project boundary: close it (step 6) and immediately open the next one (step 1) within the same budget, so that each ledger entry belongs to one project.
+Trigger: `start work [duration]`. The duration is a **minimum** of wall-clock working time: 2 h by default, or as given. Check the clock at every milestone.
+- **Before the minimum**: never close early. If the planned work is done or blocked (e.g., awaiting an approval, or the research floor needs another day), continue with other useful work: continuous research, maintenance of past projects, tooling, or playbook improvements.
+- **After the minimum**: finish the current task, then close at a clean stopping point. There is no fixed cap, but do not start a new large task.
+Owner messages outside `start work` that change repo content are handled as `admin` sessions, using steps 1 and 6; admin sessions have no minimum.
+Only one session runs at a time. A session may be split at a project boundary: close it (step 6) and immediately open the next one (step 1), so that each ledger entry belongs to one project. The two parts together must meet the minimum.
 1. **Open**
    - Read `STATE.md`.
    - If `STATE.md` shows an open session (the previous one was interrupted), record it first: `node tools/usage.mjs --since <its open_utc> --ledger --id <its ID> --kind reconstructed …`, then write its log from the transcripts and git. That entry's `close_utc` is this session's `open_utc`.
@@ -78,14 +80,14 @@ Only one session runs at a time. A session may be split at a project boundary: c
 3. **Triage**: check issues and PRs in program repos, outbox decisions, and carry-overs. Past projects get ≤ 15 % of the session.
 4. **Plan**: write the session goals into the session log (`templates/session.md`) before working.
 5. **Execute**: follow §5. Commit a checkpoint of the log and state at least every 45 min.
-6. **Close**: begin while ≥ 10 % of the budget remains.
+6. **Close**: begin once the minimum has passed and the current task is at a clean stopping point.
    - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
    - Complete the log with the ledger figures, including the owner's involvement.
    - Update `STATE.md` (clear "Open session"; refresh the hours with `node tools/hours.mjs --write-state`) and the playbook.
    - Run `node tools/check.mjs`, then commit and push every touched repo. The commit hooks run the same check; never bypass them.
    - Reply to the owner in Chinese: a summary of ≤ 10 lines, the month-to-date hours against the target, and pending outbox items.
 
-Stop at the budget even mid-task, leaving a clean handoff in `STATE.md`. Owner instructions in chat take precedence over the session plan.
+If a session is cut short (e.g., the machine stops), the checkpoints and `STATE.md` are the handoff, and the next session reconstructs it (step 1). Owner instructions in chat take precedence over the session plan.
 
 ## 5. Project lifecycle
 P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close → Maintenance.
