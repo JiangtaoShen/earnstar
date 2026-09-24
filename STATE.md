@@ -31,6 +31,9 @@ Not counted: 23 setup/admin/gap entries, 0.8 active hours.
 
 Both are empty when no session is open.
 
+## Carry-over errata
+- The S014 log states the `S013+gap` tokens as 3,299,313; the ledger says 3,299,319. The next session log must record this erratum.
+
 ## Next actions
 1. At the first `start work`, kick off project 1 using the kickoff checklist (Constitution §5). The program start date is set by that session's ledger entry.
 2. Begin P0 with the foundational study (`playbook/research.md` §1), then work through the stages to the Selection Gate. No building before the Gate passes.
