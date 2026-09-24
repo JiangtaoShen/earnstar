@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-09-24 by S013 (admin)._
+_Last updated: 2026-09-25 by S014 (admin)._
 
 ## Program
 - **Program start / end**: see the Hours block (set by the first `work` session).
@@ -40,13 +40,13 @@ DEV is the only social channel (S013).
 
 | Platform | Status | Registered | Username |
 |---|---|---|---|
-| DEV (dev.to) | registered (owner-reported); API key pending | 2026-09-24 | recorded by `tools/devto.mjs whoami` once the key is set |
+| DEV (dev.to) | ready; API key verified 2026-09-25 (`whoami`, `stats`) | 2026-09-24 | `jiangtao_shen_dc63dff520c` (id 4140876) |
 
 - Credentials stay with the owner only (Constitution §3C). The registration email is intentionally not recorded in this public repo.
 - The owner's HN and Reddit accounts (registered 2026-09-24) are not used by the program.
 
 ## Awaiting owner
-- **DEV API key** (S012): create it at dev.to/settings/extensions and store it as the user environment variable `DEVTO_API_KEY` with the `Read-Host` command in `playbook/launch.md`. Never paste it into chat. Then say so, and the developer runs `node tools/devto.mjs whoami`.
+- **DEV username** (S014, optional, before the first article): the auto-generated username `jiangtao_shen_dc63dff520c` appears in every article URL. A clean one (changed by the owner in DEV settings) looks more credible. Change it before the first article, because existing article URLs contain the username.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
 ## Session history
 | ID | Date (Asia/Shanghai) | Kind | Summary |
@@ -65,6 +65,7 @@ DEV is the only social channel (S013).
 | S011 | 2026-09-24 | admin | End-to-end simulation in a disposable sandbox; 16 findings: 14 fixed (incl. a ledger deadlock on non-ASCII research queries), 1 documented, 1 awaiting the owner; sandbox deleted |
 | S012 | 2026-09-24 | admin | DEV (dev.to) added as a third channel, published by the developer via API after per-article owner approval (`tools/devto.mjs`, L-003); waiting for the owner's API key |
 | S013 | 2026-09-24 | admin | Social promotion reduced to DEV only (owner decision): HN, Reddit, and the screenshot-evidence workflow removed (`tools/evidence.mjs` deleted); awesome-list PRs kept |
+| S014 | 2026-09-25 | admin | DEV API key set by the owner and verified read-only (`whoami`, `stats`); DEV channel ready |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.
