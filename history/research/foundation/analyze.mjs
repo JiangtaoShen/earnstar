@@ -95,7 +95,9 @@ out.push('');
 // 5. Channels
 out.push('### Launch channels (sample)', '');
 const hnAny = sample.filter(r => r.hn_posts > 0), hn100 = sample.filter(r => r.hn_max_points >= 100);
-const nearHN = hn100.filter(r => r.hn_within_7d_of_first_star);
+// Launch week = the highest-scoring HN story within 7 days of the first star (S016 review, objection 6).
+const hnLaunch = r => !!(r.hn_max_date && r.first_star && Math.abs(Date.parse(r.hn_max_date) - Date.parse(`${r.first_star}T00:00:00Z`)) <= 7 * 86400e3);
+const nearHN = hn100.filter(hnLaunch);
 out.push(table(['Signal', 'Share of sample', 'Median stars (with / without)', '1k in <= 90 d (with / without)'], [
   ['Any HN story linking the repo', pct(hnAny.length, sample.length), `${fmt(med(hnAny.map(r => r.stars)))} / ${fmt(med(sample.filter(r => !r.hn_posts).map(r => r.stars)))}`,
     `${pct(hnAny.filter(fast).length, hnAny.filter(r => r.star_source === 'github').length)} / ${pct(sample.filter(r => !r.hn_posts && fast(r)).length, sample.filter(r => !r.hn_posts && r.star_source === 'github').length)}`],
@@ -123,7 +125,7 @@ const pickCases = [...cases.filter(small).sort((a, b) => a.days_create_to_1k - b
   ...cases.filter(r => !small(r)).sort((a, b) => a.days_create_to_1k - b.days_create_to_1k).slice(0, 15)];
 const clean = d => (hasCJK(d) ? '(CJK description)' : (d || '').replace(/[^\x20-\x7e]/g, '').replace(/\|/g, '/').trim().slice(0, 80));
 const readme = r => [r.media_above_fold ? 'media' : '', r.gif_anywhere ? 'gif' : '', r.one_liner_install ? '1-line install' : '', r.cjk_readme ? 'CJK' : ''].filter(Boolean).join(', ') || 'text only';
-const chan = r => (r.hn_max_points >= 100 ? `HN ${r.hn_max_points} pts${r.hn_within_7d_of_first_star ? ' (launch week)' : ''}` : r.hn_posts ? `HN ${r.hn_max_points} pts` : r.cjk_readme ? 'no HN; CJK README' : 'no HN');
+const chan = r => (r.hn_max_points >= 100 ? `HN ${r.hn_max_points} pts${hnLaunch(r) ? ' (launch week)' : ''}` : r.hn_posts ? `HN ${r.hn_max_points} pts` : r.cjk_readme ? 'no HN; CJK README' : 'no HN');
 out.push('### Fast risers (1k within 90 days; grey-area repos excluded): small-audience owners first', '');
 out.push(`Fast risers in the sample: ${cases.length}. Listed: all ${cases.filter(small).length} whose owner is a user with < 100 followers, then the 15 fastest of the rest.`, '');
 out.push(table(['Repo', 'Arch.', 'Lang.', 'Owner followers', 'Days to 1k', 'Stars now', 'Channel evidence', 'README', 'Description'],

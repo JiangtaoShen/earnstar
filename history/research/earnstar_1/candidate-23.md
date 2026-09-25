@@ -70,7 +70,7 @@ fluent-korean is a cold start with delayed ignition: almost nothing for six week
 5. The size of the viral behavior skills themselves (§1): users adopt such fixes in the hundreds of thousands.
 6. For 23b, the habit has a name and a pattern list: "Claudese" ([benn.substack.com](https://benn.substack.com/p/the-frontier-fails-the-turing-test), 2026-06-26). The #77136 thread cites an Arena.ai analysis of the same patterns, reports that it worsened with Opus 5, says colleagues moved to Codex over it, and names "output style" 30 times as the fix people try; it never mentions caveman, i-have-adhd, or humanizer.
 
-**Leading sub-candidate after S016: 23b (Claudese).** It has the strongest recent demand, a meme-able name, deterministic text metrics for measurement (stock phrases, abstract nouns, sentence length, agreement openers), and a fresh news hook (Claude Opus 5.5, 2026-09-22).
+**Leading sub-candidate after S016: 23b (Claudese)**, with the caveats in the independent review (`../foundation.md` §9). It has the strongest recent demand, a meme-able name, deterministic text metrics for measurement (stock phrases, abstract nouns, sentence length, agreement openers), and a fresh news hook (Claude Opus 5.5, 2026-09-22).
 
 ## 4. Differentiation (draft)
 "Why this over caveman, i-have-adhd, or humanizer?" — Draft: _it targets a habit none of them owns, and it proves its effect with a reproducible measurement on the current model._ To do: fix the habit, then check this sentence against the top 3 alternatives.
@@ -103,8 +103,8 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 
 **Readings** (small, self-selected samples: 3–62 repos per model):
 - **Measurement from public data works**, with ≥ 43,000 words for each of 10 model versions.
-- **"You're absolutely right" is gone from current models**: 0.05–0.18 per 1,000 words in Opus 4, Opus 4.5, Sonnet 4, and Sonnet 4.5, and 0.00 in every 4.6, 4.7, 4.8, and 5 model. This weakens 23c for current models.
-- **"genuinely" rose sharply**: ≤ 0.08 through Opus 4.7, then 0.35 in Opus 4.8 and 0.25 in Sonnet 5. That matches #77136, which names Opus 4.8.
+- **"You're absolutely right" was not observed in newer models**: 0.05–0.18 per 1,000 words in Opus 4, Opus 4.5, Sonnet 4, and Sonnet 4.5 (10 of 62 Sonnet 4.5 repos), and none in about 114 repos using 4.6-and-later models. But the older hits are concentrated (Opus 4: 13 of 18 hits in one repo; Opus 4.5: all 4 in one repo), model is confounded with time (system prompts, users banning the phrase), and other flattery persists ("good catch", "great point", "fair point": 0.23 per 1,000 words in Opus 4.6). 23c stays undecided until a broader agreement lexicon is measured.
+- **"genuine(ly)" rose, but not monotonically**: ≤ 0.08 per 1,000 words through Opus 4.7, then 0.35 in Opus 4.8 and 0.25 in Sonnet 5, but 0.09 in Opus 5. One repo supplies 10 of Opus 4.8's 30 hits, and the regex also counts technical uses of "genuine". Consistent with #77136's timing, but weak on its own.
 - **Fixed phrases are sparse** (< 0.5 per 1,000 words), so they cannot carry the measurement alone. Next: a data-derived lexicon (words whose rates rose most between model generations), sentence length, and abstract-noun rates.
 
 **Data-derived lexicon** (`claudese.mjs lexicon`): words used relatively more by Opus 4.8, Opus 5, and Sonnet 5 than by the 4.5/4.6 models. Across all repos (165,564 vs 503,499 words), topic words dominate (payload, jq, curl, bytes), but style words stand out: deliberately (61× the older rate), verdict (36×), untouched (20×), owns (19×), landed (17×), survives (14×), flagging (13.5×), genuinely (13.4×), precisely (11×), drift (11×), carries (10×), holds (9×). Restricted to the 13 repos with transcripts from both groups (`--paired`, 79,338 vs 135,373 words), untouched (92×), end-to-end (40×), precisely (23×), pre-existing (13×), unrelated (10×), silently (8×), and drift (8×) remain, while dates and tool names still leak in.
@@ -121,6 +121,6 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 - **Risks to check**: whether the fix measurably works without harming task quality (the demand in i-have-adhd #4); support for other agents' transcript formats (Codex, OpenCode).
 
 ## 8. To do
-- Pick the habit (23b leads; 23c is weakened by the spike) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), once the owner answers the headless-evaluation question.
+- Pick the habit (23b leads; 23c is undecided) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), once the owner answers the headless-evaluation question.
 - Name search (GitHub, npm, trademarks).
 - Feasibility spike: the evaluation harness and a first skill draft.
