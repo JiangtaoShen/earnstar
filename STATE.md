@@ -48,7 +48,7 @@ DEV is the only social channel (S013).
 - The owner's HN and Reddit accounts (registered 2026-09-24) are not used by the program.
 
 ## Awaiting owner
-- **Headless evaluations** (S016, needed before the spike): may the developer run Claude Code headless (`claude -p`) on the owner's subscription to measure candidate skills before and after (a few hundred short runs per evaluation)? It uses the owner's quota, so it needs the owner's consent (§3C).
+- **Headless evaluations** (S016, needed before the spike): may the developer run Claude Code headless (`claude -p`) on the owner's subscription to measure candidate skills before and after (a few hundred short runs per evaluation)? It uses the owner's quota, so it needs the owner's consent (§3C); Anthropic's terms say subscription limits assume "ordinary, individual usage" (L-013), so runs would stay small. The alternative, an API key, costs money (budget 0).
 - **DEV username** (S014, optional, before the first article): the auto-generated username `jiangtao_shen_dc63dff520c` appears in every article URL. A clean one (changed by the owner in DEV settings) looks more credible. Change it before the first article, because existing article URLs contain the username.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
 ## Session history
@@ -70,7 +70,7 @@ DEV is the only social channel (S013).
 | S013 | 2026-09-24 | admin | Social promotion reduced to DEV only (owner decision): HN, Reddit, and the screenshot-evidence workflow removed (`tools/evidence.mjs` deleted); awesome-list PRs kept |
 | S014 | 2026-09-25 | admin | DEV API key set by the owner and verified read-only (`whoami`, `stats`); DEV channel ready |
 | S015 | 2026-09-25 | admin | Session duration is now a 2 h minimum with no fixed cap (§4); English and readiness audit passed for project 1; root repo description and topics improved |
-| S016 | 2026-09-25 | work | Program start and project 1 kickoff; foundational study (3,246-repo population, 500-repo sample, tiers, DEV, cold starts); 25 ideas and preliminary screening; lead candidate #23b "Claudese"; L-004–L-012 |
+| S016 | 2026-09-25 | work | Program start and project 1 kickoff; foundational study (3,246-repo population, 500-repo sample, tiers, DEV, cold starts); 25 ideas and preliminary screening; lead candidate #23b "Claudese"; L-004–L-013 |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

@@ -110,5 +110,5 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 ## 9. Naming
 - Short, memorable, and searchable.
 - Free on GitHub and on the target package registry.
-- No trademark conflicts.
+- No trademark conflicts. Never use "Claude", "Claude Code", or "Anthropic" in a project's name or logo; plain-text references in the description are fine (L-013).
 - Rename `earnstar_N` at the start of P2 (Constitution §3A). The local folder name stays unchanged. After renaming, update `name` in `repos.json` and the clone's remote (`git remote set-url origin https://github.com/JiangtaoShen/<new name>.git`).

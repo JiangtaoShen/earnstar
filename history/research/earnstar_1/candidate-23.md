@@ -111,7 +111,16 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 
 **Spike conclusion**: public transcripts can detect marker shifts between model generations (the disappearance of "absolutely right", the rise of "genuinely"). A robust Claudese metric that separates style from task needs either many more paired repos or a controlled prompt set run headless, which awaits the owner's answer.
 
-## 7. To do
+## 7. Refined concept (S016, to be tested in the deep dive)
+**A local Claudese meter plus the fix.** One command scores the user's own Claude Code transcripts, which Claude Code keeps locally as JSONL, for Claudese markers and prints a shareable score card; a skill or output style reduces the habit; running the meter again shows the before and after on the user's own sessions.
+- **Why this form**: the score card is a screenshot others can share, which is the amplifier every studied burst needed (§2); the measurement runs on each user's own data, privately, with no upload and no quota spent by the program; the public-transcript data (§6) supplies the DEV article's model-by-model findings.
+- **Landscape check** (GitHub search, 2026-09-25): local transcript tools measure tokens, cost, and sessions, not writing style: kenn-io/agentsview 5,990 stars, nateherkai/token-dashboard 709, opalinehq/cli 301, hmenzagh/CCMeter 116, numman-ali/cc-wrapped 87 (a "Wrapped"-style summary). No style meter was found.
+- **Testability**: the developer can build and test the meter on this machine's own transcripts, which stay private (Constitution §6: transcripts are never published).
+- **Local-format check** (throwaway code in `lab/spike/`, run on this program's own transcripts only, aggregates only): Claude Code's local JSONL records carry the model name (`claude-opus-5-5`) and separable text blocks, so the meter's input is straightforward. The only marker hit was almost certainly a quotation (this session quoted issue #3382's title), so the meter must skip quoted text and code.
+- **Naming constraint (settled)**: the name must not contain "Claude" (L-013), so "Claudese" can appear in the description and the article but not as the project name.
+- **Risks to check**: whether the fix measurably works without harming task quality (the demand in i-have-adhd #4); support for other agents' transcript formats (Codex, OpenCode).
+
+## 8. To do
 - Pick the habit (23b leads; 23c is weakened by the spike) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), once the owner answers the headless-evaluation question.
 - Name search (GitHub, npm, trademarks).
 - Feasibility spike: the evaluation harness and a first skill draft.
