@@ -33,6 +33,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 
 ## 2. Sources (cite every source used)
 - **GitHub search**, for fast risers by topic or language: `gh api -X GET search/repositories -f q="created:>YYYY-MM-DD stars:>200 topic:X" -f sort=stars`.
+- **Star history of any public repo**: `gh api -H "X-GitHub-Api-Version: 2026-03-10" repos/OWNER/REPO/stargazers/history` (weekly buckets with daily counts). Since July 2026 the stargazer list itself is private to a repo's admins and collaborators (L-004). The study scripts in `history/research/foundation/` show the full method.
 - **GitHub Trending** (daily and weekly, per language) and OSS Insight collections.
 - **Hacker News** (reading only; it is not a program channel), via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn what developers value.
 - **DEV**: top articles by tag (`dev.to/api/articles?tag=X&top=N`) show which topics and formats draw readers, and which articles link to GitHub repos.

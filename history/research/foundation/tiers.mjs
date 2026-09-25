@@ -96,7 +96,25 @@ function report() {
     const sh = tiers.map(([, g]) => g.filter(r => classify(r) === c).length / g.length);
     L.push(`| ${c} | ${(100 * sh[0]).toFixed(1)} % | ${(100 * sh[1]).toFixed(1)} % | ${(100 * sh[2]).toFixed(1)} % | ${sh[0] ? (sh[2] / sh[0]).toFixed(2) : '–'} |`);
   }
+  // Conversion estimates. Tier sizes for the window from GitHub search on 2026-09-25 (S016): >= 10 stars 193,857;
+  // >= 100: 26,604; >= 1,000: 3,246. Each archetype's count per tier = tier size x its share in that tier.
+  const N10 = 193857 - 26604, N100 = 26604 - 3246, N1000 = 3246;
+  const other = tiers.map(([, g]) => g.filter(r => classify(r) === 'OTH').length / g.length);
+  L.push('', 'Estimated conversion for repos with >= 10 stars, by archetype (OTH excluded from the normalized lift):', '');
+  L.push('| Archetype | Normalized lift (>= 1000 vs 10-99) | P(>= 100 given >= 10) | P(>= 1000 given >= 10) |', '|---|---|---|---|');
+  for (const c of codes.filter(c => c !== 'OTH')) {
+    const sh = tiers.map(([, g]) => g.filter(r => classify(r) === c).length / g.length);
+    const n = [sh[0] * N10, sh[1] * N100, sh[2] * N1000], tot = n[0] + n[1] + n[2];
+    const lift = sh[0] ? (sh[2] / (1 - other[2])) / (sh[0] / (1 - other[0])) : 0;
+    L.push(`| ${c} | ${lift.toFixed(2)} | ${((100 * (n[1] + n[2])) / tot).toFixed(1)} % | ${((100 * n[2]) / tot).toFixed(2)} % |`);
+  }
+  L.push(`| All | 1.00 | ${((100 * 26604) / 193857).toFixed(1)} % | ${((100 * 3246) / 193857).toFixed(2)} % |`);
   const f = g => g.filter(r => r.owner_followers !== null && r.owner_followers !== undefined);
+  const smallFrac = g => { const x = f(g); return x.filter(r => r.owner_type === 'User' && r.owner_followers < 100).length / x.length; };
+  const s = [smallFrac(tiers[0][1]), smallFrac(tiers[1][1]), smallFrac(sample)];
+  const sn = [s[0] * N10, s[1] * N100, s[2] * N1000], stot = sn[0] + sn[1] + sn[2];
+  const ln = [(1 - s[0]) * N10, (1 - s[1]) * N100, (1 - s[2]) * N1000], ltot = ln[0] + ln[1] + ln[2];
+  L.push('', `Owners that are users with < 100 followers, given >= 10 stars: P(>= 100) ${((100 * (sn[1] + sn[2])) / stot).toFixed(1)} %, P(>= 1000) ${((100 * sn[2]) / stot).toFixed(2)} %. All other owners: P(>= 100) ${((100 * (ln[1] + ln[2])) / ltot).toFixed(1)} %, P(>= 1000) ${((100 * ln[2]) / ltot).toFixed(2)} %.`);
   const smallShare = g => { const x = f(g); return x.length ? `${Math.round((100 * x.filter(r => r.owner_type === 'User' && r.owner_followers < 100).length) / x.length)} % (n ${x.length})` : '–'; };
   L.push('', `Owners that are users with < 100 followers: 10-99 tier ${smallShare(tiers[0][1])}; 100-999 tier ${smallShare(tiers[1][1])}; >= 1000 sample ${smallShare(sample)}.`);
   const org = g => `${Math.round((100 * g.filter(r => r.owner_type === 'Organization').length) / g.length)} %`;

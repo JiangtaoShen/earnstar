@@ -47,14 +47,17 @@ async function collect() {
     }
     console.error(`${tag}: ${seen.size} articles`);
   }
-  // Keep candidates whose author has a GitHub username; fetch bodies to find links to the author's own repos.
-  const cands = [...seen.values()].filter(a => a.user?.github_username);
+  // Keep project announcements by authors with a GitHub username; fetch bodies to find links to the author's own repos.
+  const PROJECT = /(i|we) (just )?(built|made|created|wrote|released|launched|open[- ]?sourced)|introducing|announcing|open[- ]source|side project|my (new )?(tool|library|app|cli|project)|github/i;
+  const PTAGS = new Set(['showdev', 'opensource', 'github', 'sideprojects', 'tooling', 'cli']);
+  const cands = [...seen.values()].filter(a => a.user?.github_username && (PROJECT.test(`${a.title} ${a.description || ''}`) || a.tag_list.some(t => PTAGS.has(t))));
+  console.error(`candidates: ${cands.length}`);
   const out = [];
   let i = 0;
   for (const a of cands) {
     const full = await get(`https://dev.to/api/articles/${a.id}`);
-    await sleep(350);
-    if (++i % 100 === 0) console.error(`bodies ${i}/${cands.length}`);
+    await sleep(1000); // DEV throttles bursts
+    if (++i % 50 === 0) console.error(`bodies ${i}/${cands.length}`);
     if (!full?.body_markdown) continue;
     const gu = a.user.github_username.toLowerCase();
     const repos = new Set();

@@ -120,12 +120,12 @@ out.push('', `Median README length: fast ${fmt(med(f30.map(r => r.readme_len)))}
 // 7. Case list: fast risers, all small-audience ones first
 const cases = timed.filter(fast).filter(r => r.archetype !== 'GR');
 const pickCases = [...cases.filter(small).sort((a, b) => a.days_create_to_1k - b.days_create_to_1k),
-  ...cases.filter(r => !small(r)).sort((a, b) => a.days_create_to_1k - b.days_create_to_1k)];
+  ...cases.filter(r => !small(r)).sort((a, b) => a.days_create_to_1k - b.days_create_to_1k).slice(0, 15)];
 const clean = d => (hasCJK(d) ? '(CJK description)' : (d || '').replace(/[^\x20-\x7e]/g, '').replace(/\|/g, '/').trim().slice(0, 80));
 const readme = r => [r.media_above_fold ? 'media' : '', r.gif_anywhere ? 'gif' : '', r.one_liner_install ? '1-line install' : '', r.cjk_readme ? 'CJK' : ''].filter(Boolean).join(', ') || 'text only';
 const chan = r => (r.hn_max_points >= 100 ? `HN ${r.hn_max_points} pts${r.hn_within_7d_of_first_star ? ' (launch week)' : ''}` : r.hn_posts ? `HN ${r.hn_max_points} pts` : r.cjk_readme ? 'no HN; CJK README' : 'no HN');
 out.push('### Fast risers (1k within 90 days; grey-area repos excluded): small-audience owners first', '');
-out.push(`Small-audience fast risers: ${cases.filter(small).length}. Total fast risers listed: ${pickCases.length}.`, '');
+out.push(`Fast risers in the sample: ${cases.length}. Listed: all ${cases.filter(small).length} whose owner is a user with < 100 followers, then the 15 fastest of the rest.`, '');
 out.push(table(['Repo', 'Arch.', 'Lang.', 'Owner followers', 'Days to 1k', 'Stars now', 'Channel evidence', 'README', 'Description'],
   pickCases.map(r => [`[${r.full_name}](https://github.com/${r.full_name})`, r.archetype, r.language ?? '–', `${r.owner_followers}${r.owner_type === 'Organization' ? ' (org)' : ''}`,
     Math.round(r.days_create_to_1k), r.stars, chan(r), readme(r), clean(r.description)])));
