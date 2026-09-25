@@ -109,7 +109,7 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 
 **Data-derived lexicon** (`claudese.mjs lexicon`): words used relatively more by Opus 4.8, Opus 5, and Sonnet 5 than by the 4.5/4.6 models. Across all repos (165,564 vs 503,499 words), topic words dominate (payload, jq, curl, bytes), but style words stand out: deliberately (61× the older rate), verdict (36×), untouched (20×), owns (19×), landed (17×), survives (14×), flagging (13.5×), genuinely (13.4×), precisely (11×), drift (11×), carries (10×), holds (9×). Restricted to the 13 repos with transcripts from both groups (`--paired`, 79,338 vs 135,373 words), untouched (92×), end-to-end (40×), precisely (23×), pre-existing (13×), unrelated (10×), silently (8×), and drift (8×) remain, while dates and tool names still leak in.
 
-**Spike conclusion**: public transcripts can detect marker shifts between model generations (the disappearance of "absolutely right", the rise of "genuinely"). A robust Claudese metric that separates style from task needs either many more paired repos or a controlled prompt set run headless, which awaits the owner's answer.
+**Spike conclusion**: public transcripts can detect marker shifts between model generations (the disappearance of "absolutely right", the rise of "genuinely"). A robust Claudese metric that separates style from task needs either many more paired repos or a controlled prompt set run headless, which the owner approved at small scale in S017 (`playbook/workstation.md` §5).
 
 ## 7. Refined concept (S016, to be tested in the deep dive)
 **A local Claudese meter plus the fix.** One command scores the user's own Claude Code transcripts, which Claude Code keeps locally as JSONL, for Claudese markers and prints a shareable score card; a skill or output style reduces the habit; running the meter again shows the before and after on the user's own sessions.
@@ -121,6 +121,6 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 - **Risks to check**: whether the fix measurably works without harming task quality (the demand in i-have-adhd #4); support for other agents' transcript formats (Codex, OpenCode).
 
 ## 8. To do
-- Pick the habit (23b leads; 23c is undecided) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), once the owner answers the headless-evaluation question.
+- Pick the habit (23b leads; 23c is undecided) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), using small-scale headless runs (approved in S017).
 - Name search (GitHub, npm, trademarks).
 - Feasibility spike: the evaluation harness and a first skill draft.

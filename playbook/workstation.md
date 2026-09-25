@@ -31,3 +31,10 @@ How the developer uses the owner's computer under Constitution §3A. The owner's
 ` escape inside the inserted text can arrive as a real line break and split a string literal (seen in S016). Make such edits with the Edit tool, and run `node --check` after any scripted source edit.
 - **Line endings**: the repo enforces LF (`.gitattributes`), and the tools accept CRLF input.
 - **Localized output**: Windows tools print localized text (e.g., the WMI OS caption). Prefer language-independent sources, such as registry values and numeric codes.
+
+## 5. Headless evaluations (owner approval, S017)
+The owner approved small-scale headless Claude Code runs (`claude -p`) on the owner's subscription, to measure candidate skills before and after. Anthropic's terms say subscription limits assume ordinary, individual usage (L-013), so:
+- **Scale**: at most 300 short runs per evaluation round, and one round per session unless the session log gives a reason for a second.
+- **Pace**: at most 2 runs at a time. Stop at the first usage-limit or rate-limit message and record it.
+- **Scope**: Claude models only, through the installed CLI; prompts and working files live in a disposable folder under `lab/`; no credentials or owner files are used as test material.
+- **Record**: the session log states the number of runs, the model, the total tokens if reported, and the purpose.

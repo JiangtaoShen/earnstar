@@ -2,6 +2,8 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-09-25 · S017**: `workstation.md` §5 (new): limits for headless Claude Code evaluations on the owner's subscription. Reason: the owner approved small-scale runs ("Yes, small-scale headless evaluations are allowed" [translated]). Evidence: S017.
+
 - **2026-09-25 · S016**:
   - `research.md` sources: GitHub's star-history endpoint replaces stargazer lists for other people's repos.
   - `lessons.md`: L-004 to L-013 from the foundational study and the first spike; H-003, H-004, H-005, and H-007 annotated.
