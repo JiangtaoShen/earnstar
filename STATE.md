@@ -12,7 +12,7 @@ The kickoff date, deadlines, day count, and hours are computed in the Hours bloc
 | Field | Value |
 |---|---|
 | Key / name | earnstar_1 / — |
-| Phase | P0 Research: foundational study done (`history/research/foundation.md`); 23 ideas and a preliminary screening (`history/research/earnstar_1/ideas.md`); deep dives next |
+| Phase | P0 Research: foundational study done (`history/research/foundation.md`); 25 ideas and a preliminary screening (`history/research/earnstar_1/ideas.md`); deep dive of #23 started (`candidate-23.md`) |
 | First public release | — |
 | Pivot review due | — (launch + 14 days) |
 
@@ -32,7 +32,7 @@ Not counted: 30 setup/admin/gap entries, 1.0 active hours.
 Both are empty when no session is open.
 
 ## Next actions
-1. **Deep dives** (`playbook/research.md` §1.4) on ≥ 3 shortlisted candidates, each with a landscape (≥ 10 repos), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan. Lead: #23 measured behavior skill (23b readable replies and 23c sycophancy; 23a comment bloat is weakened by the S016 premise check). Others: #21 Windows skill and #10 launch kit (both weakened: many small incumbents), #4 Windows companion (exploratory). Generate more ideas if fewer than 3 candidates survive.
+1. **Deep dives** (`playbook/research.md` §1.4) on ≥ 3 shortlisted candidates, each with a landscape (≥ 10 repos), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan. Lead: #23b "Claudese" (readable replies), a measured behavior skill; 23a (comment bloat) and 23c (sycophancy) are weakened by S016 measurements. See `history/research/earnstar_1/candidate-23.md`. Others: #21 Windows skill and #10 launch kit (both weakened: many small incumbents), #4 Windows companion (exploratory). Generate more ideas if fewer than 3 candidates survive.
 2. **Design for an outside amplifier**: every viral skill burst studied had one (HN front page, a large X account, Chinese dev media); DEV articles and awesome lists are follow-on channels (L-007, L-009). The DEV base rate is in `foundation.md` §6.
 3. **Feasibility spike** on the leading candidate (≤ 4 active hours); measured evaluations need the owner's answer below.
 4. **Pre-mortem, independent critique, and the reflection** in a later session than the draft ADR. The research floor is ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days; the P0+P1 ceiling is 14 days after kickoff (2026-10-09).
@@ -70,7 +70,7 @@ DEV is the only social channel (S013).
 | S013 | 2026-09-24 | admin | Social promotion reduced to DEV only (owner decision): HN, Reddit, and the screenshot-evidence workflow removed (`tools/evidence.mjs` deleted); awesome-list PRs kept |
 | S014 | 2026-09-25 | admin | DEV API key set by the owner and verified read-only (`whoami`, `stats`); DEV channel ready |
 | S015 | 2026-09-25 | admin | Session duration is now a 2 h minimum with no fixed cap (§4); English and readiness audit passed for project 1; root repo description and topics improved |
-| S016 | 2026-09-25 | work | Program start and project 1 kickoff; foundational study (3,246-repo population, 500-repo sample, tiers, DEV, cold starts); 23 ideas and preliminary screening; L-004–L-010 |
+| S016 | 2026-09-25 | work | Program start and project 1 kickoff; foundational study (3,246-repo population, 500-repo sample, tiers, DEV, cold starts); 25 ideas and preliminary screening; lead candidate #23b "Claudese"; L-004–L-012 |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

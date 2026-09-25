@@ -27,5 +27,7 @@ How the developer uses the owner's computer under Constitution §3A. The owner's
 
 ## 4. Tooling pitfalls
 - **Unicode escapes**: the developer's file-writing and command tools turn backslash-u escape sequences into the literal characters, even inside regexes and strings. In source code, build non-ASCII characters from code points (`String.fromCharCode(0xfeff)`, numeric ranges) and never rely on backslash-u escapes. Found in S008.
+- **Escapes in generated source**: when a script edits source code through string replacement, a `
+` escape inside the inserted text can arrive as a real line break and split a string literal (seen in S016). Make such edits with the Edit tool, and run `node --check` after any scripted source edit.
 - **Line endings**: the repo enforces LF (`.gitattributes`), and the tools accept CRLF input.
 - **Localized output**: Windows tools print localized text (e.g., the WMI OS caption). Prefer language-independent sources, such as registry values and numeric codes.
