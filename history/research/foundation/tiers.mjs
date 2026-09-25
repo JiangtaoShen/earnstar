@@ -14,7 +14,8 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const LAB = path.resolve(HERE, '..', '..', '..', 'lab', 'foundation');
-const OUT = path.join(LAB, 'tiers.json');
+// TIERS_FILE selects the data file, e.g. tiers-sys.json for the systematic sample; the default is the first sample.
+const OUT = path.join(LAB, process.env.TIERS_FILE || 'tiers.json');
 const TOKEN = execFileSync('gh', ['auth', 'token'], { encoding: 'utf8' }).trim();
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function gh(p) {
@@ -49,10 +50,13 @@ export function classify(r) {
   return 'OTH';
 }
 
+// days > 0: that many random days (seeded). step < 0: systematic sampling, every |step| days from the window's
+// start, so weekdays rotate and every month is covered (added after the S016 review; step -11 gives 25 days).
 async function collect(days = 6, seed = 7) {
   const start = Date.parse('2025-09-25T00:00:00Z'), end = Date.parse('2026-06-27T00:00:00Z');
   const rand = rng(seed), picked = new Set();
-  while (picked.size < days) picked.add(new Date(start + Math.floor(rand() * ((end - start) / 86400e3 + 1)) * 86400e3).toISOString().slice(0, 10));
+  if (days < 0) for (let t = start; t <= end; t += -days * 86400e3) picked.add(new Date(t).toISOString().slice(0, 10));
+  else while (picked.size < days) picked.add(new Date(start + Math.floor(rand() * ((end - start) / 86400e3 + 1)) * 86400e3).toISOString().slice(0, 10));
   const rows = [];
   for (const day of [...picked].sort()) {
     for (const [tier, range] of [['10-99', '10..99'], ['100-999', '100..999']]) {
@@ -89,7 +93,7 @@ function report() {
   const tiers = [['10-99', rows.filter(r => r.tier === '10-99')], ['100-999', rows.filter(r => r.tier === '100-999')], ['>= 1000', top]];
   const codes = ['AI', 'SK', 'CR', 'ML', 'DT', 'SH', 'DA', 'SEC', 'GR', 'FUN', 'HW', 'OTH'];
   const L = [];
-  L.push(`Random creation days (${days.length}): ${days.join(', ')}. Tier 10-99: ${tiers[0][1].length} repos; 100-999: ${tiers[1][1].length}; >= 1000: the full population (${top.length}).`);
+  L.push(`Creation days sampled (${days.length}): ${days.join(', ')}. Tier 10-99: ${tiers[0][1].length} repos; 100-999: ${tiers[1][1].length}; >= 1000: the full population (${top.length}).`);
   L.push(`Keyword classifier agreement with the 500 manual labels (AT and AA merged into AI): ${Math.round((100 * agree) / labelled.length)} %.`, '');
   L.push('| Archetype (keyword proxy) | 10-99 | 100-999 | >= 1000 | Lift, >= 1000 vs 10-99 |', '|---|---|---|---|---|');
   for (const c of codes) {
@@ -109,6 +113,31 @@ function report() {
     L.push(`| ${c} | ${lift.toFixed(2)} | ${((100 * (n[1] + n[2])) / tot).toFixed(1)} % | ${((100 * n[2]) / tot).toFixed(2)} % |`);
   }
   L.push(`| All | 1.00 | ${((100 * 26604) / 193857).toFixed(1)} % | ${((100 * 3246) / 193857).toFixed(2)} % |`);
+  // Day-level bootstrap (S016 review): resample the sampled days with replacement, recompute each class's
+  // P(>= 1000 given >= 10), and report the 10th-90th percentile range. The >= 1000 tier is the full population.
+  const byDay = new Map();
+  for (const r of rows) { if (!byDay.has(r.day)) byDay.set(r.day, []); byDay.get(r.day).push(r); }
+  const dayList = [...byDay.keys()], brand = rng(99);
+  // Per day and tier: repo count and count per class, computed once.
+  const tally = new Map();
+  for (const [d, rs] of byDay) for (const t of ['10-99', '100-999']) {
+    const g = rs.filter(r => r.tier === t), m = { n: g.length };
+    for (const r of g) { const c = classify(r); m[c] = (m[c] || 0) + 1; }
+    tally.set(`${d}|${t}`, m);
+  }
+  const topShare = {}; for (const r of tiers[2][1]) { const c = classify(r); topShare[c] = (topShare[c] || 0) + 1 / tiers[2][1].length; }
+  const conv = (c, dsel) => {
+    const sum = t => dsel.reduce((a, d) => { const m = tally.get(`${d}|${t}`); return [a[0] + (m[c] || 0), a[1] + m.n]; }, [0, 0]);
+    const [k0, n0] = sum('10-99'), [k1, n1] = sum('100-999');
+    const n = [(k0 / n0) * N10, (k1 / n1) * N100, (topShare[c] || 0) * N1000]; return (100 * n[2]) / (n[0] + n[1] + n[2]);
+  };
+  L.push('', `Day-level bootstrap over ${dayList.length} sampled days (1,000 resamples), P(>= 1000 given >= 10), 10th-90th percentile:`);
+  for (const c of ['SK', 'AI', 'CR', 'DT', 'FUN']) {
+    const xs = [];
+    for (let b = 0; b < 1000; b++) xs.push(conv(c, dayList.map(() => dayList[Math.floor(brand() * dayList.length)])));
+    xs.sort((x, y) => x - y);
+    L.push(`- ${c}: ${xs[100].toFixed(1)} % to ${xs[900].toFixed(1)} % (point estimate ${conv(c, dayList).toFixed(1)} %)`);
+  }
   const f = g => g.filter(r => r.owner_followers !== null && r.owner_followers !== undefined);
   const smallFrac = g => { const x = f(g); return x.filter(r => r.owner_type === 'User' && r.owner_followers < 100).length / x.length; };
   const s = [smallFrac(tiers[0][1]), smallFrac(tiers[1][1]), smallFrac(sample)];

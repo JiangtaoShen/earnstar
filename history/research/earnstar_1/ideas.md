@@ -4,8 +4,8 @@ _Stage 2 (divergence) started in S016 (2026-09-25), after the foundational study
 
 ## Inputs from the foundational study
 - Repos about AI coding agents dominate the 2026 winners: 22 % of the 3,246 repos with ≥ 1k stars mention Claude, 39 % agents, 20 % skills.
-- By estimated conversion from ≥ 10 to ≥ 1,000 stars, agent skills lead (4.2 %), then AI-agent tooling (2.8 %); non-AI developer tools (1.0 %) and playful projects (0.8 %) trail. The average is 1.7 %.
-- Owners with < 100 followers convert far less: 10 % of their repos with ≥ 10 stars reach 100, and 0.6 % reach 1,000.
+- By estimated conversion from ≥ 10 to ≥ 1,000 stars, agent skills lead (3.8 %), then AI-agent tooling (2.7 %); non-AI developer tools and playful projects (1.0 % each) trail. The average is 1.7 %.
+- Owners with < 100 followers convert far less: about 10 % of their repos with ≥ 10 stars reach 100, and about 0.7 % reach 1,000 (an upper-bound gap; see the review in `../foundation.md` §9).
 - Cold-start winners needed a burst of a few hundred stars in the first week, borrowed from a large venue (Habr, XDA, Qiita, a Chinese aggregator account on X, Reddit). The program's own channels are DEV, awesome lists, and GitHub discovery.
 - README features (media near the top, install heading) are table stakes: they do not separate fast from slow winners.
 - A DEV article alone brings a median of 1 star in its first week (L-010); every viral skill burst studied had an outside amplifier (§23 case studies). The project must be easy for others to share.
@@ -51,7 +51,7 @@ Each: one line, then the evidence that triggered it. Codes as in `../foundation.
 18. **Agent-readable repo map (AT)**: a compact, cached code map that cuts agent token use.
     Evidence: Houseofmvps/codesight, parcadei/llm-tldr, Mibayy/token-savior, tirth8205/code-review-graph (all > 1k in the sample). Crowded.
 19. **Playful visualizer of agent work (FUN)**: replay an agent session or git history as an animation.
-    Evidence: unhappychoice/gitlogue > 1k (sample). Playful projects convert poorly (0.8 %).
+    Evidence: unhappychoice/gitlogue > 1k (sample). Playful projects convert poorly (about 1.0 %).
 20. **Small-GPU local model kit (ML/AT)**: recipes to run coding models on 6 GB GPUs.
     Evidence: Show HN posts on running large models on small hardware (JustVugg/colibri 937 pts, drumih/turbo-fieldfare 919 pts). Heavy GPU work; the machine limits testing of larger models.
 
