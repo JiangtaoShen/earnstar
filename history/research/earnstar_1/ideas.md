@@ -101,7 +101,7 @@ Knock-outs from `playbook/research.md` §4, plus a first incumbent check by GitH
 | 16 | Agent session search | Knock-out (soft) | Crowded, no clear angle |
 | 17 | Codebase LLM wiki | Knock-out (soft) | Crowded since April 2026 (≥ 3 repos above 1k) |
 | 18 | Agent-readable repo map | Knock-out (soft) | Crowded (≥ 4 repos above 1k in the sample) |
-| 19 | Playful agent-work visualizer | Deprioritized | Playful projects convert poorly (0.8 %) |
+| 19 | Playful agent-work visualizer | Deprioritized | Playful projects convert poorly (about 1.0 %) |
 | 20 | Small-GPU local model kit | Deprioritized | Heavy GPU work for a narrow audience; overlaps with fast-moving model releases |
 | 21 | Windows survival skill | **Shortlist (weakened)** | Large pain area; fully testable on this machine. But a first landscape pass found a dozen Windows or PowerShell agent skills, all small: Misaka-Mikoto-Tech/agent-skills 272, thanh-abaii/gstack-windows-port 36, hqy2435662352/agent-powershell-standardizer 8, UncertaintyDeterminesYou4ndMe/powershell-windows-cli-agent-skill 6, GuanKr/pwsh-pitfalls 2, kumu314/windows-agent-failure-modes 0. As with #10, many tried and none rose |
 | 22 | Demo-GIF skill | Deprioritized | Many recent attempts, none above 2 stars |
