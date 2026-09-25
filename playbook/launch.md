@@ -27,6 +27,8 @@ Social promotion uses DEV only (owner decision, S013). The other outward channel
   - One PR per list, through the outbox.
   - Only lists that are active (a merged PR within the last 90 days) and whose criteria the project meets.
   - Follow each list's CONTRIBUTING exactly.
+  - Expect lists to require prior traction (a minimum age or star count; some reject brand-new projects), so plan them as follow-on channels after the launch burst, not as the ignition (L-009).
+  - Some lists accept only human-made submissions (e.g., hesreallyhim/awesome-claude-code, through its web issue form). Such an item is queued with `Executed by: owner`, and the developer prepares the text.
 
 ## DEV article packages
 - **Location**: `history/promo/<project key>/O-NNN-devto/`. `history/promo/<project key>/README.md` indexes the articles, their status, and their URLs.

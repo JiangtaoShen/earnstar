@@ -4,7 +4,8 @@ Newest first. Each entry gives the date, session, change, reason, and evidence.
 
 - **2026-09-25 · S016**:
   - `research.md` sources: GitHub's star-history endpoint replaces stargazer lists for other people's repos.
-  - `lessons.md`: L-004 to L-008 from the foundational study; H-003 and H-005 annotated.
+  - `lessons.md`: L-004 to L-009 from the foundational study; H-003 and H-005 annotated.
+  - `launch.md`: awesome lists are follow-on channels that often need prior traction, and some accept only human submissions (L-009).
   - Reason: GitHub restricted stargazer data (changelog 2026-06-30) and shipped `GET /repos/{owner}/{repo}/stargazers/history` (changelog 2026-09-04); the foundational study's results. Evidence: S016, `history/research/foundation.md`.
 
 - **2026-09-25 · S015**:
