@@ -1,10 +1,10 @@
 # STATE — handoff
 
-_Last updated: 2026-09-25 by S015 (admin)._
+_Last updated: 2026-09-25 by S016 (work)._
 
 ## Program
 - **Program start / end**: see the Hours block (set by the first `work` session).
-- **Phase**: not started. The next project is `earnstar_1`.
+- **Phase**: project 1 (`earnstar_1`) started on 2026-09-25 (S016, the first `start work`).
 
 ## Current project
 The kickoff date, deadlines, day count, and hours are computed in the Hours block below (`tools/hours.mjs`). Do not copy them here.
@@ -12,7 +12,7 @@ The kickoff date, deadlines, day count, and hours are computed in the Hours bloc
 | Field | Value |
 |---|---|
 | Key / name | earnstar_1 / — |
-| Phase | — |
+| Phase | P0 Research: foundational study done (`history/research/foundation.md`); 23 ideas and a preliminary screening (`history/research/earnstar_1/ideas.md`); deep dives next |
 | First public release | — |
 | Pivot review due | — (launch + 14 days) |
 
@@ -32,8 +32,10 @@ Not counted: 30 setup/admin/gap entries, 1.0 active hours.
 Both are empty when no session is open.
 
 ## Next actions
-1. At the first `start work`, kick off project 1 using the kickoff checklist (Constitution §5). The program start date is set by that session's ledger entry.
-2. Begin P0 with the foundational study (`playbook/research.md` §1), then work through the stages to the Selection Gate. No building before the Gate passes.
+1. **Deep dives** (`playbook/research.md` §1.4) on ≥ 3 shortlisted candidates, each with a landscape (≥ 10 repos), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan. Lead: #23 measured behavior skill (23b readable replies and 23c sycophancy; 23a comment bloat is weakened by the S016 premise check). Others: #21 Windows skill and #10 launch kit (both weakened: many small incumbents), #4 Windows companion (exploratory). Generate more ideas if fewer than 3 candidates survive.
+2. **Design for an outside amplifier**: every viral skill burst studied had one (HN front page, a large X account, Chinese dev media); DEV articles and awesome lists are follow-on channels (L-007, L-009). The DEV base rate is in `foundation.md` §6.
+3. **Feasibility spike** on the leading candidate (≤ 4 active hours); measured evaluations need the owner's answer below.
+4. **Pre-mortem, independent critique, and the reflection** in a later session than the draft ADR. The research floor is ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days; the P0+P1 ceiling is 14 days after kickoff (2026-10-09).
 
 ## Owner promotion accounts
 DEV is the only social channel (S013).
@@ -46,6 +48,7 @@ DEV is the only social channel (S013).
 - The owner's HN and Reddit accounts (registered 2026-09-24) are not used by the program.
 
 ## Awaiting owner
+- **Headless evaluations** (S016, needed before the spike): may the developer run Claude Code headless (`claude -p`) on the owner's subscription to measure candidate skills before and after (a few hundred short runs per evaluation)? It uses the owner's quota, so it needs the owner's consent (§3C).
 - **DEV username** (S014, optional, before the first article): the auto-generated username `jiangtao_shen_dc63dff520c` appears in every article URL. A clean one (changed by the owner in DEV settings) looks more credible. Change it before the first article, because existing article URLs contain the username.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
 ## Session history
@@ -67,6 +70,7 @@ DEV is the only social channel (S013).
 | S013 | 2026-09-24 | admin | Social promotion reduced to DEV only (owner decision): HN, Reddit, and the screenshot-evidence workflow removed (`tools/evidence.mjs` deleted); awesome-list PRs kept |
 | S014 | 2026-09-25 | admin | DEV API key set by the owner and verified read-only (`whoami`, `stats`); DEV channel ready |
 | S015 | 2026-09-25 | admin | Session duration is now a 2 h minimum with no fixed cap (§4); English and readiness audit passed for project 1; root repo description and topics improved |
+| S016 | 2026-09-25 | work | Program start and project 1 kickoff; foundational study (3,246-repo population, 500-repo sample, tiers, DEV, cold starts); 23 ideas and preliminary screening; L-004–L-010 |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.
