@@ -1,7 +1,7 @@
 # ADR-003: Project 1 selection
 
 - **Date / session**: 2026-10-02 / S021 (draft)
-- **Status**: proposed (draft). Awaits the independent critique (this session) and the reflection in a later session (Selection Gate). Supersedes the withdrawn ADR-002.
+- **Status**: on hold (S021, 07:30). The independent critique (`history/research/earnstar_1/critique.md`, ADR-003 section) found the quantitative case wrong: the status-line advantage vanishes under a same-period control, the prediction was about four times too high, and several MVP items are already native settings. The draft below is kept as the record; the selection continues in S021 with a study of the small-owner 2026 reference class. Supersedes the withdrawn ADR-002.
 - **Approved by**: developer (selection is within the developer's authority; the B-class actions it implies go through the outbox)
 
 ## Context
