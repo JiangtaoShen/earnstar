@@ -175,3 +175,17 @@ Reading: in the CJK community, behavior and workflow skills from owners with no 
 
 ### Balancing evidence: recent English-language skills (S018)
 Same search, the 92 repos without a CJK description: **56 of 92 come from owners with < 100 followers**, a share similar to the CJK set (24 of 42). Examples (stars, owner followers): miqdadbadjuber/anti-slop 4,201 (78), Ryze-AI-Adgent/open-seo-mcp-skills 2,947 (7), Sahir619/fable-method 2,299 (24; distils how a new model works, a model-release hook), coldteadotai/pr-lens 1,783 (14), Spielewoy/autoprompt-skill 1,298 (31), gamedev-skills/awesome-gamedev-agent-skills 1,263 (9), kaankiziltug/logo-design-skill 1,212 (9). Small owners win in both languages; what differs is how their launches ignited, which is mostly unobserved for these repos. L-019 (CJK converts about 2.2 times better among small owners) compares conversion rates, not the count of winners.
+
+### Scenario (a) evidence: how recent English small-owner skills ignited (S018)
+Star history and launch evidence for five repos (subagent; sources in its report, summarised here):
+
+| Repo | Created | Week 1 | Peak | Evidence found | DEV role |
+|---|---|---|---|---|---|
+| miqdadbadjuber/anti-slop | 2026-08-07 | 198 | 258 on 2026-09-07 (150–258 a day, 09-04 to 09-17) | Aggregator posts on X only after the peak; seed not found | none |
+| Ryze-AI-Adgent/open-seo-mcp-skills | 2026-08-29 | 459 | 332 on 2026-09-26 | Trendshift #16 of the day on 09-26, two days into the burst; company-backed; directory listings | none |
+| Sahir619/fable-method | 2026-07-06 | 293 | 365 on 2026-07-15 | News hook (Fable 5 leaving subscriptions, 07-07/08); #1 JavaScript and #19 overall on Trending on the peak day | none |
+| coldteadotai/pr-lens | 2026-08-20 (first star 08-27) | 72 after the first star | 358 on 2026-09-07 | Two tiny Show HN posts (6 and 4 points); #9 TypeScript on Trending 09-08; AlphaSignal after the peak | none |
+| Spielewoy/autoprompt-skill | 2026-08-17 | 749 | 237 on 2026-08-19 | Took off the day after creation; benchmark claim at the top of the README; press after the peak | none |
+
+Reading: DEV did not drive any of these bursts; Trending amplified after spikes began; the first seeds remain unseen. Traits in common: a news hook, proof in the README, one-line install through skill directories, and per-language Trending (H-009).
+
