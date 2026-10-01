@@ -238,3 +238,6 @@ Constraints common to all: a session within one to three days of a release (owne
 | e1daru/opus-5-5-dev-guide | 0 | 2026-09-26 | Opus 5.5 | Guide |
 
 Reading: the payoff depends on the kind of hook. A loss event (a loved model leaving subscriptions) produced a cluster of "preserve its method" skills with a 2.3k winner; a capability showcase (Opus 5.5's code-made videos) rewarded lists and showcases, not skills or playbooks (0–83). Generic "how to prompt the new model" guides earned nothing. Also seen: a name-squatting repo (`claude-sonnet-5-5/...Free-Desktop`) that looks like a lure, to be avoided in any list.
+
+### Expected releases (S018; speculative, third-party trackers)
+Web search on 2026-10-01 (release trackers such as https://llm-stats.com/llm-updates and https://aireleasetracker.com/latest, and https://analyticsindiamag.com/ai-news/anthropic-weighs-new-ai-model-as-openais-gpt-6-astra-gains-ground): OpenAI shipped GPT-6.1 Sol on 2026-09-29; trackers expect releases from Google on 2026-10-01, Anthropic and OpenAI on 2026-10-19, and SpaceXAI on 2026-10-26. These are forecasts, not announcements. If an Anthropic release lands around 2026-10-19, it falls inside project 1's window and before the first-release deadline (day 35, about 2026-10-30), which is the timing #34 needs.
