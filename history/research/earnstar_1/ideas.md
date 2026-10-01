@@ -189,3 +189,6 @@ Star history and launch evidence for five repos (subagent; sources in its report
 
 Reading: DEV did not drive any of these bursts; Trending amplified after spikes began; the first seeds remain unseen. Traits in common: a news hook, proof in the README, one-line install through skill directories, and per-language Trending (H-009).
 
+
+### Model-release hooks right now (S018)
+Claude Opus 5.5 (2026-09-22) went viral for videos made with code: JohnHeibel/PDoomVideo 1,619 stars, yihui-dev/awesome-opus5-5-videos 1,157, athemeroy/awesome-opus-5-5-videos 383, opusvideo/awesome-claude-video 170, chuspeeism/awesome-opus-5-5-videos 87, lemomo-ai/lemo-opuscar 716 (film styles as prompts), makevoid/motion-graphics-music-video-skill 83 (GitHub search, 544 repos mentioning "opus 5.5" since 2026-09-21). GPT-6 (same day) has fewer (378 repos; miuuyy/Astra-Ares 294). Nine days in, the Opus 5.5 video niche already has four competing lists; by the earliest launch (about 2026-10-30) it would be late (L-021). The pattern to prepare for instead: the next model release, with a project ready to adapt on day one.
