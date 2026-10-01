@@ -196,3 +196,19 @@ Reading: DEV did not drive any of these bursts; Trending amplified after spikes 
 
 ### Model-release hooks right now (S018)
 Claude Opus 5.5 (2026-09-22) went viral for videos made with code: JohnHeibel/PDoomVideo 1,619 stars, yihui-dev/awesome-opus5-5-videos 1,157, athemeroy/awesome-opus-5-5-videos 383, opusvideo/awesome-claude-video 170, chuspeeism/awesome-opus-5-5-videos 87, lemomo-ai/lemo-opuscar 716 (film styles as prompts), makevoid/motion-graphics-music-video-skill 83 (GitHub search, 544 repos mentioning "opus 5.5" since 2026-09-21). GPT-6 (same day) has fewer (378 repos; miuuyy/Astra-Ares 294). Nine days in, the Opus 5.5 video niche already has four competing lists; by the earliest launch (about 2026-10-30) it would be late (L-021). The pattern to prepare for instead: the next model release, with a project ready to adapt on day one.
+
+### #34 case studies: projects that rode a model release (S018)
+GitHub star history and owner followers on 2026-10-01:
+
+| Repo | Owner followers | First star | Week 1 | Peak day | Total | Hook and form |
+|---|---|---|---|---|---|---|
+| JohnHeibel/PDoomVideo | 75 | 2026-09-22 | 1,458 | 349 (09-23) | 1,619 | Opus 5.5 release day; a music video made with the model, as code |
+| yihui-dev/awesome-opus5-5-videos | 97 | 2026-09-26 | 1,157 | 436 (09-27) | 1,157 | Four days after the release; a list of what people made with it |
+| Sahir619/fable-method | 24 | 2026-07-09 | 1,125 | 365 (07-15) | 2,299 | Fable 5 leaving subscriptions; the model's workflow distilled into a skill |
+| lemomo-ai/lemo-opuscar | 25 | 2026-09-26 | 716 | 241 (09-27) | 716 | Four days after the release; film styles as prompts with code-made films |
+| ninjahawk/livenerf | 44 | 2026-09-22 | 141 | 431 (09-30) | 910 | Release day; a benchmark, ignited a week later by HN |
+| dgreenheck/tidewater (large owner) | 793 | 2026-09-23 | 979 | 358 (09-24) | 1,024 | A day after the release; a town built with the model |
+| FareedKhan-dev/kimi-k3-in-c (large owner) | 2,976 | 2026-08-01 | 3,359 | 939 (08-03) | 8,824 | Kimi K3 release; inference in C |
+
+Reading: within zero to four days of a release, small owners reached 716–1,458 stars in week one with showcase, list, or method projects. Timing is the decisive factor; the release is the amplifier. For the program this requires a session within one to three days of a release and a project prepared to adapt on that day.
+
