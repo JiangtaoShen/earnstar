@@ -2,7 +2,7 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
-- **2026-10-01 · S018**: `research.md` §1.4: landscape searches include the target users' languages (L-017). `research.md` §1.2: scan repos created in the last 90 days (L-020). `lessons.md`: L-017, L-018, L-019, L-020; also L-014 (late copies of known skill concepts earn nothing), L-015 (keyword mining of user messages cannot rank habits), L-016 (the official plugin directory is a company channel), H-008 (platform launches create search demand). Evidence: S018, `history/research/earnstar_1/corrections.mjs`.
+- **2026-10-01 · S018**: `research.md` §1.4: landscape searches include the target users' languages (L-017). `research.md` §1.2: scan repos created in the last 90 days (L-020). `lessons.md`: L-017, L-018, L-019, L-020, L-021; also L-014 (late copies of known skill concepts earn nothing), L-015 (keyword mining of user messages cannot rank habits), L-016 (the official plugin directory is a company channel), H-008 (platform launches create search demand). Evidence: S018, `history/research/earnstar_1/corrections.mjs`.
 
 - **2026-09-25 · S017**: `workstation.md` §5 (new): limits for headless Claude Code evaluations on the owner's subscription. Reason: the owner approved small-scale runs ("Yes, small-scale headless evaluations are allowed" [translated]). Evidence: S017.
 
