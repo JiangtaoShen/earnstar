@@ -84,3 +84,15 @@ One sentence: **"Make Claude Code's interface yours, in the terminal and the des
 4. **Desktop rendering differs or fails**: verify before launch; otherwise state terminal-first.
 5. **API churn between releases**: tests in CI against `latest` and `stable` each night.
 6. **Visual quality**: the README must look good; the recording pipeline is proven in the spike.
+
+## 10. Addendum (S021, 07:15): incumbents missed by the first landscape pass
+A search for "hud" and "status bar" (GitHub, 2026-10-02) found the largest incumbent in this space, which the "statusline" and "theme" searches had missed:
+
+| Repo | Stars | Owner followers | Created | Week 1 | First 30 days | Peak day | Last 30 days | What |
+|---|---|---|---|---|---|---|---|---|
+| jarrodwatts/claude-hud | 28,257 | 1,337 | 2026-01-02 | 1,773 | 2,780 | 1,652 (2026-03-18) | 543 | Status-line plugin: context, rate limits, active tools, agents, todos; v0.10.0 released 2026-10-01 after a render refactor ("one implementation per element and one width engine", #791); no mods code yet |
+| GaoSSR/best-claude-hud | 1,109 | 46 | 2026-06-26 | 2 | 172 | 61 (2026-07-21) | 502 | Minimal status-line HUD in Rust |
+| m1ckc3s/claude-status-bar | 706 | — | 2026-06-21 | — | — | — | — | Menu-bar indicator (macOS) |
+| NYCU-Chung/cc-statusline | 264 | — | 2026-04-12 | — | — | — | — | Status-line dashboard |
+
+Reading: (1) the information shown in a band (context, limits, tools, agents, todos) is already owned by two large status-line tools, claude-hud (28k, very active, a 1.3k-follower owner) and ccstatusline (13k); either can add a mods renderer quickly, so a band of the same widgets is not a defensible core for #39. (2) The archetype keeps producing small-owner winners long after its launch: best-claude-hud (46 followers) went from 2 stars in week 1 to 1,109, with 502 in the last 30 days, on a "minimal, Rust" angle. (3) What status-line tools cannot do is restyle the transcript (tool rows, diffs, timestamps, the turn line), draw in the desktop app, or take input in a pane. #39's core should move there; the band becomes an optional extra or an integration (for example, showing a status-line tool's output in the desktop band).
