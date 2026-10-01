@@ -6,7 +6,8 @@
 | Project / phase | earnstar_N (<name>) / Pn; day D since kickoff (YYYY-MM-DD) |
 | Open → close (Asia/Shanghai) | YYYY-MM-DD HH:MM → YYYY-MM-DD HH:MM |
 | Open → close (UTC) | … → … |
-| Minimum / wall-clock / active / owner-wait | 2 h / … min / … min / … min |
+| Length rule / wall-clock / active / owner-wait | until stop · N h minimum · none (admin) / … min / … min / … min |
+| Close reason | owner said stop · minimum reached · no useful work left · usage limit (say which) |
 | Month to date | … h of … h target (ahead / behind by … h), from `tools/hours.mjs` |
 | Model / effort | from the ledger (e.g., claude-opus-5-5 / xhigh) |
 | Agent | Claude Code version · entrypoint · permission mode · Constitution `sha` in effect |

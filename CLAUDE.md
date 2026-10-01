@@ -65,11 +65,15 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 - Every DEV article discloses AI authorship, as DEV's guidelines require.
 
 ## 4. Session protocol
-Trigger: `start work [duration]`. The duration is a **minimum** of wall-clock working time: 2 h by default, or as given. Check the clock at every milestone.
-- **Before the minimum**: never close early. If the planned work is done or blocked (e.g., awaiting an approval, or the research floor needs another day), continue with other useful work: continuous research, maintenance of past projects, tooling, or playbook improvements.
-- **After the minimum**: finish the current task, then close at a clean stopping point. There is no fixed cap, but do not start a new large task.
+Trigger: `start work [duration]`. Check the clock at every milestone.
+- **Without a duration** (the default): work continues until the owner says stop.
+  - If the planned work is done or blocked (e.g., awaiting an approval, or the research floor needs another day), continue with other useful work: continuous research, maintenance of past projects, tooling, or playbook improvements.
+  - Pending owner decisions go to "Awaiting owner" in `STATE.md`; they are not a reason to stop while other useful work exists.
+  - Close early only if no useful work remains or a usage or rate limit stops the work. The closing reply states the reason.
+- **With a duration** (e.g., `start work 3h`): the duration is a **minimum** of wall-clock working time. Before it, never close early (continue with other useful work, as above). After it, finish the current task, then close at a clean stopping point.
+- **When the owner says stop**: finish or checkpoint the current step, then close (step 6).
 Owner messages outside `start work` that change repo content are handled as `admin` sessions, using steps 1 and 6; admin sessions have no minimum.
-Only one session runs at a time. A session may be split at a project boundary: close it (step 6) and immediately open the next one (step 1), so that each ledger entry belongs to one project. The two parts together must meet the minimum.
+Only one session runs at a time. A session may be split at a project boundary: close it (step 6) and immediately open the next one (step 1), so that each ledger entry belongs to one project. With a duration, the two parts together must meet the minimum.
 1. **Open**
    - Read `STATE.md`.
    - If `STATE.md` shows an open session (the previous one was interrupted), record it first: `node tools/usage.mjs --since <its open_utc> --ledger --id <its ID> --kind reconstructed …`, then write its log from the transcripts and git. That entry's `close_utc` is this session's `open_utc`.
@@ -80,7 +84,7 @@ Only one session runs at a time. A session may be split at a project boundary: c
 3. **Triage**: check issues and PRs in program repos, outbox decisions, and carry-overs. Past projects get ≤ 15 % of the session.
 4. **Plan**: write the session goals into the session log (`templates/session.md`) before working.
 5. **Execute**: follow §5. Commit a checkpoint of the log and state at least every 45 min.
-6. **Close**: begin once the minimum has passed and the current task is at a clean stopping point.
+6. **Close**: begin when the owner says stop, when a given minimum has passed, or when an early-close condition applies, and the current task is at a clean stopping point.
    - Run `node tools/usage.mjs --since <open_utc> --ledger --id <SNNN> --kind work --project <key> --phase <Pn>`. This also archives the transcripts and records the agent configuration, the work composition, git activity, and the machine.
    - Complete the log with the ledger figures, including the owner's involvement.
    - Update `STATE.md` (clear "Open session"; refresh the hours with `node tools/hours.mjs --write-state`) and the playbook.
