@@ -2,6 +2,8 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-10-02 · S021**: `workstation.md` §4: pitfall on slash commands passed from Git Bash (path conversion turns them into prompts) and on headless runs inheriting this repo's `CLAUDE.md`. Reason: one unintended model run during the mods spike. Evidence: S021 log §3 and §8.
+
 - **2026-10-02 · S020**: `defaults.md`: a session without a duration runs until the owner says stop (with early close only when no useful work remains or a usage limit stops work); a given duration stays a minimum. Session template: "Length rule" and "Close reason" rows. Reason: the owner's decision ("Approve A" [translated]) after noting that sessions stopped right at 2 h; the Constitution §4 was amended in the same session. Evidence: S020.
 
 - **2026-10-02 · S019**: `workstation.md` §5: the measured context cost of a headless run and an environment-control rule. Reason: the first signed-in smoke test. Evidence: S019.
