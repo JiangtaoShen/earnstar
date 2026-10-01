@@ -150,3 +150,14 @@ The owner's channel decision (STATE, "Awaiting owner") changes which candidate c
 
 Under every scenario, the critique standard applies: the same knock-outs for vendor-fix risk and late entry (#7, #28, #31), and searches in the target users' languages.
 
+
+## Last-90-days scan (S018, L-020)
+GitHub search on 2026-10-01: 74 repos created since 2026-07-01 have more than 5,000 stars. The waves the foundational study's window could not see:
+- **DeepSeek Harness (DSH)**: deepseek-ai/deepseek-harness 241,350 (2026-08-13, "Everything is a Plugin"); anywhere-labs/dsh-desktop 29,695; awesome-dsh-plugin/awesome-dsh-plugin 17,499; dataelement/dsh-desktop 11,288; zhu1090093659/dsh-web 8,239; yjh051108/dsh-routing-suite 6,992; 16,927 repos with the topic `dsh-plugin`. Deep dive running (S018 subagent).
+- **Jev / System One models**: NandhaKishorM/laya 29,434; browser-use/jev-ultrafast 21,615; jaredpalmer/kev 8,106; tamaratran/fast-jev-compaction 7,269; mizorewww/laya-mlx 6,668 (`candidate-26-27.md`).
+- **New coding-agent harnesses**: xai-org/grok-build 27,177; zai-org/ZCode 7,270; truefoundry/trueforge 6,032; yc-software/qm 15,302.
+- **Codex customization**: Fei-Away/Codex-Dream-Skin 14,872.
+- **Single-purpose skills keep winning**: petergyang/no-ai-slop 11,613; Vincentwei1021/video-shotcraft 10,089; oso95/scroll-world 9,618; jakubkrehel/skills 7,402; LiamGvchi/gc-minimal-zine-poster 7,235.
+- Also present and excluded on principle: jailbreak and subscription-bridging repos (ToS risk, §3C).
+
+Implication: every new harness spawns a plugin ecosystem with fresh search demand (H-008); a cross-harness project (Claude Code, Codex, DSH, and others) can be early in several at once.

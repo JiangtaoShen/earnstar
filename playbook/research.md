@@ -11,7 +11,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
    - Sample ≥ 30 repos that gained ≥ 1,000 stars within 90 days of creation, over the past 12 months. Include ≥ 10 whose authors had small audiences (< 100 followers), because they show how cold starts succeed.
    - For each repo, record: archetype, language, launch channels, days to 1k stars, README pattern, and author audience (current followers as a proxy; note this limitation).
    - Output: `history/research/foundation.md`, giving base rates by archetype and by channel. Record the conclusions in `lessons.md`.
-2. **Divergence**: ≥ 15 raw ideas, each one line with the evidence that triggered it.
+2. **Divergence**: ≥ 15 raw ideas, each one line with the evidence that triggered it. Include a scan of repos created in the last 90 days (by stars and by topic, in English and Chinese), which the foundational study's window excludes (L-020).
 3. **Screening**: apply the knock-outs (§4) and shortlist ≥ 3 candidates.
 4. **Deep dive on each shortlisted candidate**:
    - **Landscape**: ≥ 10 comparable or adjacent repos, with stars, star history, last activity, recurring issue themes, and gaps. Search in English and in the languages of the target users (L-017).
