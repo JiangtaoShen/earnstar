@@ -75,7 +75,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 **Applying the knock-outs and the scores consistently** (from the S018 critique, `history/research/earnstar_1/critique.md`):
 - Apply each knock-out the same way to every idea; e.g., if one idea is dropped because a single vendor release could remove the need, so is every idea with that risk.
 - Score distribution only for channels the program can actually use under the current channel policy, not channels that would need an approval not yet given.
-- Build reference classes that count the misses as well as the winners (e.g., all repos of the same kind created in the same window, by star threshold; L-023), and search them in the target users' languages (L-017).
+- Build reference classes that count the misses as well as the winners (e.g., all repos of the same kind created in the same window, by star threshold; `tools/basecount.mjs`; L-023), compare them with a same-period control (e.g., all new skills that week), and search them in the target users' languages (L-017). In S018 a control reversed a conclusion drawn from winners alone.
 - Treat score differences smaller than one point on one criterion as noise.
 
 ## 5. Outputs
