@@ -50,3 +50,26 @@ _S018, 2026-10-01. Gathered by two research subagents (read-only; every claim ca
 - **#27 as a primary bet**: weak. The wave peaked before our earliest launch (≤ day 35, about 2026-10-30), and late entrants mostly have < 50 stars. Its durable value is as a component (a local judge) inside another candidate.
 - **#26**: strong timing if general availability lands within our window, but the date is unknown and the platform may change without notice. Its best gaps overlap with a proven demand: shrinking what tool output costs the context window (fast-jev-compaction 7,270 in two weeks; rtk-ai/rtk 82k).
 - **Candidate #29 (new)**: a local, private context saver for coding agents: deterministic trimming and stashing of tool output, an optional local decision model (Laya) to judge relevance, shipped as a classic hook now and as a mod at general availability. Its landscape must be checked against rtk, context-mode, and the Jev pruners before it is shortlisted.
+
+## #26 — concrete project options and Gate drafts (S018)
+Demand in #91870 points to infrastructure: fail-closed enforcement (24 commenters), audit and provenance (21), redaction before the model reads (14). Search demand at general availability (H-008) favours a catalogue. Two options:
+
+| | 26-A: tested mod catalogue and cookbook | 26-B: policy and audit mod pack |
+|---|---|---|
+| What | A curated, categorised list of mods, each verified to load on a stated Claude Code version and terminal (Windows, macOS, Linux), with its capability footprint and a demo; plus a builder skill and a starter template | Declarative rules (YAML) enforced fail-closed at `tool.check`; an append-only audit log of every tool call; secret redaction in tool results before the model reads them |
+| Archetype | Curated resource plus tooling (about 1.9 % and 2.7 % conversion, L-006) | AI-agent tooling (about 2.7 %) |
+| Closest incumbents | karanb192/awesome-claude-code-mods 32 (list plus a footprint scanner), karanb192/claude-code-mods 32 (builder skill), ray-amjad/awesome-claude-code-function-hooks 3; at general availability, Anthropic's docs and anthropics/claude-plugins-official (37k) | Anthropic's built-in `sec-default` mod; kenryu42/cc-safety-net 1,555 (a classic hook); partial mods: function-hooks, signet-eval-functions, git-gates, budget-guard |
+| Differentiation draft | "The mod catalogue where every entry is tested on a named version and platform", which the existing lists do not do | "Rules you can read in one YAML file, enforced fail-closed, with an audit trail", which hooks and CLAUDE.md cannot guarantee |
+| Main risk | General availability may slip for months; the list's value depends on others' mods | Anthropic may extend `sec-default`; security tools need careful claims |
+| Distribution | GitHub search and topics at general availability (`claude-code`, `claude-code-mods`, `function-hooks`); a DEV article that teaches mod building (#ai, #agents, #programming); later awesome lists that accept it | A DEV article on enforcing agent rules with data on how often rules are ignored; topics `ai-safety`, `claude-code`, `agent-security`; awesome lists for Claude Code once eligible |
+
+Both need a terminal Claude Code at a mods-capable version (≥ 2.1.26x) and the owner's sign-in for testing.
+
+## Gate status of the candidates (S018)
+| Candidate | Landscape ≥ 10 | Case studies ≥ 5 | Demand ≥ 3 | Differentiation | Distribution plan | Main open risk |
+|---|---|---|---|---|---|---|
+| #23 behavior skill (habit open; 23b demoted) | done (`candidate-23.md`) | done (9) | done for 23b; habit choice open | open: no unowned habit with a fresh hook yet (L-014, L-015) | draft | Lottery-like outcomes; needs an outside amplifier |
+| #26 Mods (26-A or 26-B) | done (13 repos) | done (5 launch precedents) | done (#91870 asks) | drafts above | drafts above | General availability date unknown |
+| #24 habit tracker | partial | partial | done | open | open | Needs headless runs (owner's CLI sign-in) |
+| #21 Windows skill, #10 launch kit, #4 Windows companion | partial | open | partial | open | open | Weak landscapes (many small incumbents) |
+

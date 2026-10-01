@@ -100,6 +100,13 @@ export const HABITS = {
   types_any: /\b(any type|type any|as any|ts-ignore|eslint-disable)\b/i,
 };
 
+// Many "user" turns are injected text (compaction summaries, skill files, pasted diffs, git status). Keep turns that
+// look typed by a person: short, few lines, and free of headings, diffs, tables, and file listings (S018 precision check).
+export function humanShaped(t) {
+  if (t.length > 600 || t.split('\n').length > 8) return false;
+  return !/^\s*(#{1,6} |[+-]{1,3} |\||diff --git|@@ |On branch |Changes not staged|\d+:\d+ +(Warning|Error))/m.test(t);
+}
+
 function report() {
   const byHabit = new Map(Object.keys(HABITS).map(k => [k, { turns: 0, repos: new Set(), example: null }]));
   const repos = new Set(), corrRepos = new Set();
@@ -108,7 +115,7 @@ function report() {
     if (!line) continue;
     const r = JSON.parse(line);
     turns++; repos.add(r.repo);
-    if (!CUE.test(r.text)) continue;
+    if (!humanShaped(r.text) || !CUE.test(r.text)) continue;
     corrective++; corrRepos.add(r.repo);
     for (const [k, re] of Object.entries(HABITS)) if (re.test(r.text)) { const g = byHabit.get(k); g.turns++; g.repos.add(r.repo); }
   }

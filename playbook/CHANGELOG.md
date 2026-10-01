@@ -2,6 +2,8 @@
 
 Newest first. Each entry gives the date, session, change, reason, and evidence.
 
+- **2026-10-01 · S018**: `lessons.md`: L-014 (late copies of known skill concepts earn nothing), L-015 (keyword mining of user messages cannot rank habits), H-008 (platform launches create search demand). Evidence: S018, `history/research/earnstar_1/corrections.mjs`.
+
 - **2026-09-25 · S017**: `workstation.md` §5 (new): limits for headless Claude Code evaluations on the owner's subscription. Reason: the owner approved small-scale runs ("Yes, small-scale headless evaluations are allowed" [translated]). Evidence: S017.
 
 - **2026-09-25 · S016**:
