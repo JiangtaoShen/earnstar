@@ -1,6 +1,6 @@
 # earnstar_1 — ideas and screening
 
-_Stage 2 (divergence) started in S016 (2026-09-25), after the foundational study (`../foundation.md`). Stage 3 (screening) and the deep dives follow in later sessions._
+_Stage 2 (divergence) started in S016 (2026-09-25), after the foundational study (`../foundation.md`); extended in S018 (2026-10-01). Contents: inputs; raw ideas #1–#34; screening table and shortlist; selection rerun plan by channel scenario; last-90-days scan; evidence for the rerun (scenarios a and c, model-release hooks, #34 case studies, forms, and landscape). Deep dives: `candidate-23.md`, `candidate-26-27.md` (#26, #27, #30), `candidate-31.md`; critique of the withdrawn draft: `critique.md`._
 
 ## Inputs from the foundational study
 - Repos about AI coding agents dominate the 2026 winners: 22 % of the 3,246 repos with ≥ 1k stars mention Claude, 39 % agents, 20 % skills.
@@ -103,7 +103,7 @@ Each: one line, then the evidence that triggered it. Codes as in `../foundation.
 34. **Day-one model-release kit (SK/AT)**: a project built in advance to respond within a day of each major model release: a measured behavior card for the new model (verbosity, jargon, sycophancy, drift, hedging; one panel of ≤ 300 headless runs) and a skill that adapts agents to its quirks, published together and updated at every release.
     Evidence (S018): model releases are frequent, predictable-in-kind news hooks (Claude Opus 5.5 and GPT-6 on 2026-09-22; Fable 5 changes on 2026-07-07). Cold starts that rode them: Sahir619/fable-method 2,299 stars from a 24-follower owner, launched on the Fable 5 news (#1 JavaScript on Trending on its peak day); ninjahawk/livenerf 903 from a 44-follower owner, created on the Opus 5.5 release day (ignited by HN). Cadence (Claude Code changelog): Opus 4.8 on 2026-05-28, Opus 5 on 07-24, Fable 5.1 on 09-01, Opus 5.5 on 09-22, Sonnet 5.5 on 09-28 — a notable Claude model every one to eight weeks, plus other vendors' releases, so project 1's window should see one to three more. This turns L-021 (waves are decided early) into an advantage: the research and the build happen before the hook, and only the release-day measurement is time-critical. First landscape note: standalone behavior benchmarks stay small (lechmazur/sycophancy 60 stars, inclusionAI/HeartBench 52, others ≤ 20; GitHub search 2026-10-01), so a card draws attention mainly when it answers a live controversy, as livenerf did with "is the model nerfed?". Risks: sessions are scheduled by the owner, so a release day may pass without one; each card needs the CLI signed in; the first card's hook date is unknown.
 
-## Screening (preliminary, S016)
+## Screening (preliminary, S016; updated in S018)
 Knock-outs from `playbook/research.md` §4, plus a first incumbent check by GitHub search on 2026-09-25. To be confirmed at the start of the deep dives in the next session.
 
 | # | Idea | Result | Reason |
@@ -169,6 +169,8 @@ GitHub search on 2026-10-01: 74 repos created since 2026-07-01 have more than 5,
 - Also present and excluded on principle: jailbreak and subscription-bridging repos (ToS risk, §3C).
 
 Implication: every new harness spawns a plugin ecosystem with fresh search demand (H-008); a cross-harness project (Claude Code, Codex, DSH, and others) can be early in several at once.
+
+## Evidence for the selection rerun (S018)
 
 ### Scenario (c) evidence: recent CJK-language skills (S018)
 GitHub search on 2026-10-01 over the topics `agent-skills`, `claude-skills`, `claude-code-skills`, `skills`, `codex-skills`, and `claude-code-skill`, repos created since 2026-06-15 with > 300 stars: 134 repos, 42 with a CJK description, **24 of those 42 from owners with < 100 followers**. Examples by small owners (stars, owner followers):
