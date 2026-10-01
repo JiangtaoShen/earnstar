@@ -218,3 +218,21 @@ Reading: within zero to four days of a release, small owners reached 716–1,458
 2. **Showcase list per release**: a curated, verified list of what people build with the new model (the awesome-opus5-5-videos pattern, 1,157 in week one); cheap and fast, but four competing lists appeared within nine days of Opus 5.5, so being first by days matters.
 3. **Behavior card only**: the livenerf pattern applied to behavior; strongest with a live controversy and an HN-class launch (scenario b).
 Constraints common to all: a session within one to three days of a release (owner-scheduled), the CLI signed in for measurements, and English-only content unless the owner approves otherwise. The deep dive must check repos in English and Chinese (L-017) and count misses, not only winners (L-023).
+
+### #34 landscape (S018; GitHub search on 2026-10-01)
+| Repo | Stars | Created | Release hook | Form |
+|---|---|---|---|---|
+| Sahir619/fable-method | 2,299 | 2026-07-06 | Fable 5 leaving subscriptions | Method distilled into skills |
+| voidful/hung-yi-lee-skill | 1,293 | 2026-04-08 | (general; mentions Fable 5) | Persona skill |
+| duolahypercho/fusion-fable | 472 | 2026-06-13 | Fable 5 | Two models fused into "Fable-tier" answers |
+| tomicz/fable-5-train-opus-skills-after-it-retires | 408 | 2026-07-02 | Fable 5 retirement | Prompt to capture skills before retirement |
+| cozytab/fable5-mode | 106 | 2026-07-06 | Fable 5 | Make another model work like Fable 5 |
+| adamentwistle/fable-skills | 98 | 2026-07-07 | Fable 5 | 35 skills with a blind-graded benchmark |
+| UnpaidAttention/fable5-methodology | 92 | 2026-07-06 | Fable 5 | Methodology |
+| makevoid/motion-graphics-music-video-skill | 83 | 2026-09-26 | Opus 5.5 | Video skill |
+| Junhan2/oh-my-fable | 56 | 2026-09-02 | Fable 5.1 | Prompting guide as skills (KO/EN/ZH) |
+| tuzhechen2005/opus-video-skills | 55 | 2026-09-26 | Opus 5.5 | Video skills |
+| Emirfs/opus-5-5-playbook | 0 | 2026-09-23 | Opus 5.5 | Prompting playbook |
+| e1daru/opus-5-5-dev-guide | 0 | 2026-09-26 | Opus 5.5 | Guide |
+
+Reading: the payoff depends on the kind of hook. A loss event (a loved model leaving subscriptions) produced a cluster of "preserve its method" skills with a 2.3k winner; a capability showcase (Opus 5.5's code-made videos) rewarded lists and showcases, not skills or playbooks (0–83). Generic "how to prompt the new model" guides earned nothing. Also seen: a name-squatting repo (`claude-sonnet-5-5/...Free-Desktop`) that looks like a lure, to be avoided in any list.
