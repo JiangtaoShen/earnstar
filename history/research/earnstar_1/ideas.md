@@ -212,7 +212,7 @@ GitHub star history and owner followers on 2026-10-01:
 | dgreenheck/tidewater (large owner) | 793 | 2026-09-23 | 979 | 358 (09-24) | 1,024 | A day after the release; a town built with the model |
 | FareedKhan-dev/kimi-k3-in-c (large owner) | 2,976 | 2026-08-01 | 3,359 | 939 (08-03) | 8,824 | Kimi K3 release; inference in C |
 
-Reading: within zero to four days of a release, small owners reached 716–1,458 stars in week one with showcase, list, or method projects. Timing is the decisive factor; the release is the amplifier. For the program this requires a session within one to three days of a release and a project prepared to adapt on that day.
+Reading: within zero to four days of a release, small owners reached 716–1,458 stars in week one with showcase, list, or method projects. Timing is the decisive factor; the release is the amplifier. **Correction (S018, same session)**: counting the misses with same-week controls (`tools/basecount.mjs`), the Opus 5.5 week favoured riders (given ≥ 10 stars, 17 % reached 500 vs 6 % for that week's skills) but the Fable 5 week did not (riders 11.8 % to 100 vs 29 % for that week's skills). The rider advantage depends on how viral the release itself is (L-023 is now "mixed evidence"). For the program this requires a session within one to three days of a release and a project prepared to adapt on that day.
 
 
 ### #34 forms to compare in the deep dive (S018 sketch)
