@@ -23,6 +23,10 @@ Social promotion uses DEV only (owner decision, S013). The other outward channel
   - **Key**: the owner creates it at dev.to/settings/extensions ("DEV Community API Keys") and stores it as the user environment variable `DEVTO_API_KEY` with the command below, so it never appears in chat, logs, or history. The developer never sees or prints it. The owner can revoke it on the same page.
     `$k = Read-Host "DEV API key"; [Environment]::SetEnvironmentVariable('DEVTO_API_KEY', $k, 'User'); Remove-Variable k`
   - **Tags**: choose tags with active readerships that match the article, researched at the time of writing, and cite the evidence in the package.
+- **Passive discovery** (no third-party write; S018, H-009, L-011, L-022):
+  - Make skills installable in one line through `npx skills add owner/repo`, so genuine installs list the skill on skills.sh's leaderboard. Never install it ourselves to move a ranking (§3C).
+  - Give the repo a detected primary language (scripts, tests, an evaluation), so a launch-day spike can reach that language's Trending list.
+  - Put proof at the top of the README (a measured before/after, a benchmark with its method) and time the release to a news hook.
 - **Awesome lists**
   - One PR per list, through the outbox.
   - Only lists that are active (a merged PR within the last 90 days) and whose criteria the project meets.
