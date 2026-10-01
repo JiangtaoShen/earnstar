@@ -53,6 +53,8 @@ GitHub star history, 2026-10-01:
 - **Prevalence**: 1,874 public SpecStory transcripts found by CJK search terms; 866 have a user writing mostly in CJK. Among the 37 repos with ≥ 5 agent replies of ≥ 30 letters: 1,621 replies, 289 English (17.8 % pooled); per-repo English share median 2 %, p75 12 %, p90 38 %. By model, where ≥ 60 replies: GPT-5.3 11.6 %, GPT-5.4 8.6 %, GPT-5.5 8.5 %, Claude Opus 4.6 8.3 %, GPT-4.1 0 %, Cursor's default 19.9 %. Small samples; some English replies may have been requested.
 - **Mechanism (confirmed in the docs)**: the Stop hook input includes `last_assistant_message` ("the final assistant message text from the current turn"), so no transcript parsing is needed; exit code 2 with a reason on stderr, or `decision: "block"`, makes Claude continue with the reason as a system reminder; `SubagentStop` works the same way ([hooks docs](https://code.claude.com/docs/en/hooks)). The docs describe no built-in loop guard, so the hook caps its own retries.
 - **Prototype** (throwaway, `lab/spike/langlock/hook.mjs`, about 60 lines, Node, no dependencies): on 7 simulated Stop inputs it allowed Japanese, Chinese, and English replies in the configured language, allowed short replies and replies whose English is only in code blocks, and blocked the English line quoted in #96326 ("All gates pass. Now for the pre-commit review.") for a Japanese user and a Chinese reply for an English user. The retry cap blocked twice and then allowed the stop. Design fix found: after giving up, the counter never resets in that session, so the cap must be per turn (e.g., keyed by the transcript's user-message count).
+- **Other agents**: Codex has a Stop hook whose request carries `last_assistant_message`, `stop_hook_active`, and a `turn_id`, and it can block with a reason ([stop.rs](https://github.com/openai/codex/blob/main/codex-rs/hooks/src/events/stop.rs)); Gemini CLI's `AfterAgent` hook receives `prompt_response` and can "reject the response and force a retry" with `decision: "deny"` or exit code 2 ([hooks reference](https://github.com/google-gemini/gemini-cli/blob/main/docs/hooks/reference.md)). One small hook can therefore serve Claude Code, Codex, and Gemini CLI; OpenCode (plugins) is not yet checked.
+- **Which languages first**: GitHub code search on 2026-10-01 finds far more public transcripts from CJK users than from other non-English users: Simplified Chinese 1,652, Japanese 699, Traditional Chinese 255, Korean 10, versus Spanish ("por favor") 78, German ("bitte") 52, Portuguese ("obrigado") 2. CJK first; Latin-script languages need a word-based detector later.
 - **Still open**: an end-to-end run in a real session (needs the owner to sign in the CLI), a word-based detector for Latin-script languages, and Windows path handling in the hook command.
 
 ## 6. Distribution plan (draft)
@@ -62,7 +64,10 @@ GitHub star history, 2026-10-01:
 - **Awesome lists** (follow-on, L-009): VoltAgent/awesome-agent-skills after adoption; hesreallyhim/awesome-claude-code via the owner after ≥ 14 days or 100 stars.
 - **Amplifier readiness**: a side-by-side screenshot (drifted English reply vs locked reply) that works in any language's social feed.
 
-## 7. Risks
+## 7. Name candidates (S018; decided at the start of P2, research.md §9)
+All free on npm (registry 404 on 2026-10-01); GitHub repos with the same name: `langlock` 18, `keeplang` 2, `replylang` 0, `tonguelock` 0. None may contain "Claude" (L-013).
+
+## 8. Risks
 - A model or harness fix could reduce the drift (#96601 asks whether the regression is in the harness); the lock still helps across agents and for the reverse drift.
 - Demand evidence is thin in reaction counts.
 - Rewrites cost tokens; the hook must trigger only on clear mismatches (short replies and code-only replies excluded).
