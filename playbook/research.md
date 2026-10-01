@@ -75,7 +75,9 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 **Applying the knock-outs and the scores consistently** (from the S018 critique, `history/research/earnstar_1/critique.md`):
 - Apply each knock-out the same way to every idea; e.g., if one idea is dropped because a single vendor release could remove the need, so is every idea with that risk.
 - Score distribution only for channels the program can actually use under the current channel policy, not channels that would need an approval not yet given.
-- Build reference classes that count the misses as well as the winners (e.g., all repos of the same kind created in the same window, by star threshold; `tools/basecount.mjs`; L-023), compare them with a same-period control (e.g., all new skills that week), and search them in the target users' languages (L-017). In S018 a control reversed a conclusion drawn from winners alone.
+- Build reference classes that count the misses as well as the winners (e.g., all repos of the same kind created in the same window, by star threshold; `tools/basecount.mjs`; L-023), compare them with a same-period control (e.g., all new skills that week), and search them in the target users' languages (L-017). In S018 a control reversed a conclusion drawn from winners alone. In S021 it happened again (L-026): a 2025 reference class looked strong until compared with its own 2025 control and with the same niche in 2026. Prefer reference classes from the last 6 months.
+- Check every claimed need against the current release before scoring it: native settings and the changelog (L-026), and a direct probe where possible (S021 tested permission decisions with a zero-token mod).
+- Search each category in the users' own words as well as the platform's (e.g., "hud", "status bar", "dashboard" for status lines; L-026).
 - Treat score differences smaller than one point on one criterion as noise.
 
 ## 5. Outputs
