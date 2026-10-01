@@ -118,3 +118,19 @@ Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time
 
 Reasons in brief: #34 has mixed release-rider evidence (L-023: favourable for Opus 5.5, unfavourable for Fable 5) and depends on a session within days of a release and on the CLI sign-in (feasibility 3); #31 has thin reaction counts but independent, multilingual reports, a measured fresh regression, no existing tool, a deterministic mechanism confirmed in the docs and prototyped, and a strong reference class (language-community tools from small owners reached 200–2,300 stars); #23 has the strongest archetype but no unowned habit with a fresh hook yet (L-014, L-015); #30 has the strongest single demand signal and a visual result, but weak historical conversion and an unknown mods launch date; feasibility of all mod-based options depends on the owner signing in the CLI and on an updated CLI.
 
+
+## #30 — update after the Mods launch (S021, 2026-10-02)
+**Crowding**: about nine companion mods already exist, all at 0–1★ (rezzminator/buddy, vmallela0/cc-buddy, klyap/claude-code-ascii-pet-mod, tomada1114/clawd-band, tamaclaude, octo-pet, pixelband, claudecafe cc-maid, and a pet in sezaakgun/cc-arcade that davila7/claude-code-templates repackages; `mods-wave.md` §6, `mods-demand.md` §2). A furqan-khan07 pixel-art mod that reacts to Claude was posted in #91870 on 09-26.
+
+**Case studies with drivers** (`tools/starhist.mjs`, 2026-10-02):
+
+| Repo | Owner followers | Created | Week 1 | First 30 days | Total | Last 30 days | Driver seen |
+|---|---|---|---|---|---|---|---|
+| OpenPetsHQ/openpets | 1 (org) | 2026-05-04 | 171 | 656 | 1,256 | 100 | A desktop pet platform with an SDK and agent integrations; no HN story |
+| cpaczek/any-buddy | 180 | 2026-04-01 | 467 | 591 | 612 | 2 | The Buddy release itself ("Hack Claude Code to get any buddy you want"); decayed with the news |
+| ramarivera/coding-buddy | — | 2026-04-09 | 204 | 351 | 464 | 13 | The Buddy removal (#45596) |
+| grayashh/buddy-reroll | 81 | 2026-04-01 | 169 | 235 | 239 | 0 | The Buddy release |
+| fiorastudio/buddy | 7 | 2026-04-09 | 22 | 68 | 115 | 14 | The removal; MCP-based |
+| talkvalue/Buddi | — | — | 50 | 74 | 93 | 2 | macOS notch |
+
+Reading: companions earned stars when Anthropic's own Buddy was in the news (its release and removal in April) and decayed with it; the one lasting success (openpets) is a cross-agent platform, not a Claude Code add-on. **Differentiation (S021)**: weak; a late entry into a crowded mod category (L-014), and the original Buddy's art and generator belong to Anthropic. **Distribution**: the #45596 thread (1,186 👍; a disclosed reply is B-class) and GIFs; no news hook unless Anthropic revisits Buddy. **Status**: runner-up at most; a companion can also become one widget of #39's band.
