@@ -165,3 +165,10 @@ GitHub search on 2026-10-01: 74 repos created since 2026-07-01 have more than 5,
 - Also present and excluded on principle: jailbreak and subscription-bridging repos (ToS risk, §3C).
 
 Implication: every new harness spawns a plugin ecosystem with fresh search demand (H-008); a cross-harness project (Claude Code, Codex, DSH, and others) can be early in several at once.
+
+### Scenario (c) evidence: recent CJK-language skills (S018)
+GitHub search on 2026-10-01 over the topics `agent-skills`, `claude-skills`, `claude-code-skills`, `skills`, `codex-skills`, and `claude-code-skill`, repos created since 2026-06-15 with > 300 stars: 134 repos, 42 with a CJK description, **24 of those 42 from owners with < 100 followers**. Examples by small owners (stars, owner followers):
+- Behavior and writing skills: LB623/no-negative-echo 887 (0; keeps rejected approaches out of Codex's commits, comments, and PRs, close to idea #1), lennney/stop-that-shit 2,428 (22; a hook and skill guard for Codex), nanaism/yomiyasu 683 (10; natural Japanese), leter/zh-tech-writing 312 (5; Chinese technical writing).
+- Workflow skills: zenstory-ai/drama-skills 2,418 (99; short-drama production), boyang-hu/website-rebuild-skill 1,338 (67), chengyi-ai/native-subtitle-quote-image 1,109 (38), yuwen-cool/yuwen-publish-precheck 767 (11; review before posting to Douyin or Xiaohongshu), dmoshehun-prog/learn-from-materials 758 (12), Claycui828/ASu-resume-skills 363 (2).
+Reading: in the CJK community, behavior and workflow skills from owners with no audience regularly reach several hundred to a few thousand stars, consistent with L-019. Building them needs Chinese or Japanese content in the program repo, which is B-class (owner approval), and the Chinese-language landscape must be searched in Chinese (L-017).
+
