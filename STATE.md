@@ -12,7 +12,7 @@ The kickoff date, deadlines, day count, and hours are computed in the Hours bloc
 | Field | Value |
 |---|---|
 | Key / name | earnstar_1 / — |
-| Phase | P0 Research: foundational study done (`history/research/foundation.md`); 25 ideas and a preliminary screening (`history/research/earnstar_1/ideas.md`); deep dive of #23 started (`candidate-23.md`) |
+| Phase | P0 Research: foundational study done; 31 ideas screened (`history/research/earnstar_1/ideas.md`); deep dives of #23, #26, #30, #31; lead #31 reply-language lock |
 | First public release | — |
 | Pivot review due | — (launch + 14 days) |
 
@@ -40,10 +40,9 @@ Not counted: 34 setup/admin/gap entries, 1.1 active hours.
 Both are empty when no session is open.
 
 ## Next actions
-1. **Deep dives** (`playbook/research.md` §1.4) on ≥ 3 shortlisted candidates, each with a landscape (≥ 10 repos), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan. Lead: #23b "Claudese" (readable replies), a measured behavior skill; 23a (comment bloat) is weakened by an S016 measurement; 23c (sycophancy) is undecided. An independent review of the foundational study (`foundation.md` §9) lists follow-up analyses (followers at launch, hand-labelled lower tiers); the 26-day tier resample is done. See `history/research/earnstar_1/candidate-23.md`. Others: #21 Windows skill and #10 launch kit (both weakened: many small incumbents), #4 Windows companion (exploratory). Generate more ideas if fewer than 3 candidates survive.
-2. **Design for an outside amplifier**: every viral skill burst studied had one (HN front page, a large X account, Chinese dev media); DEV articles and awesome lists are follow-on channels (L-007, L-009). The DEV base rate is in `foundation.md` §6.
-3. **Feasibility spike** on the leading candidate (≤ 4 active hours). Small-scale headless evaluations on the owner's subscription are approved (S017) within the limits in `playbook/workstation.md` §5.
-4. **Pre-mortem, independent critique, and the reflection** in a later session than the draft ADR. The research floor is ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days; the P0+P1 ceiling is 14 days after kickoff (2026-10-09).
+1. **Lead candidate after S018: #31 reply-language lock** (`history/research/earnstar_1/candidate-31.md`): demand, landscape, case studies, a confirmed mechanism, and an offline prototype are done. Still open: an end-to-end run in a real Claude Code session (needs the CLI signed in, see "Awaiting owner"), a detector for Latin-script languages, how its reference projects reached their communities (subagent result in the S018 log), the name (no "Claude", L-013), and whether a CJK README is worth requesting from the owner (B-class).
+2. **Other deep-dived candidates** for the Gate's three: #30 companion as a mod and #26 Mods (`candidate-26-27.md`), #23 behavior skill (`candidate-23.md`; no unowned habit with a fresh hook yet). Preliminary scores (S018): #31 3.90, #23 3.85, #30 3.80; binding scores go in the selection ADR.
+3. **Then**: the selection ADR draft with the pre-mortem and a prediction with intervals, the independent critique, and the reflection in a later session. Research floor: ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days (about 4 h done after S018); P0+P1 ceiling 2026-10-09 (exceeding it needs a recorded reason in the ADR).
 
 ## Owner promotion accounts
 DEV is the only social channel (S013).

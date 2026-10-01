@@ -97,6 +97,7 @@ Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time
 
 | Candidate | Demand | Differ. | Time-to-wow | Feasibility | Distribution | Sustain. | Weighted |
 |---|---|---|---|---|---|---|---|
+| #31 reply-language lock (added later in S018; `candidate-31.md`) | 3 | 4 | 4 | 5 | 4 | 4 | 3.90 |
 | #23 behavior skill (habit to be found) | 4 | 2 | 5 | 5 | 3 | 5 | 3.85 |
 | #30 companion as a mod | 5 | 3 | 5 | 3 | 3 | 3 | 3.80 |
 | #21 Windows skill | 3 | 2 | 3 | 5 | 2 | 4 | 3.05 |
@@ -104,5 +105,5 @@ Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time
 | #26-B policy and audit pack | 3 | 3 | 2 | 3 | 3 | 3 | 2.85 |
 | #24 habit tracker | 3 | 3 | 3 | 2 | 3 | 2 | 2.75 |
 
-Reasons in brief: #23 has the strongest archetype but no unowned habit with a fresh hook yet (L-014, L-015); #30 has the strongest single demand signal and a visual result, but weak historical conversion and an unknown mods launch date; feasibility of all mod-based options depends on the owner signing in the CLI and on an updated CLI.
+Reasons in brief: #31 has thin reaction counts but independent, multilingual reports, a measured fresh regression, no existing tool, a deterministic mechanism confirmed in the docs and prototyped, and a strong reference class (language-community tools from small owners reached 200–2,300 stars); #23 has the strongest archetype but no unowned habit with a fresh hook yet (L-014, L-015); #30 has the strongest single demand signal and a visual result, but weak historical conversion and an unknown mods launch date; feasibility of all mod-based options depends on the owner signing in the CLI and on an updated CLI.
 
