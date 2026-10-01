@@ -212,3 +212,9 @@ GitHub star history and owner followers on 2026-10-01:
 
 Reading: within zero to four days of a release, small owners reached 716–1,458 stars in week one with showcase, list, or method projects. Timing is the decisive factor; the release is the amplifier. For the program this requires a session within one to three days of a release and a project prepared to adapt on that day.
 
+
+### #34 forms to compare in the deep dive (S018 sketch)
+1. **Field guide per release**: on release day, a measured note of the new model's habits (one headless panel) plus a skill or output style that works with them; one folder per release in a single repo, so the repo compounds across releases (the fable-method pattern, made recurring).
+2. **Showcase list per release**: a curated, verified list of what people build with the new model (the awesome-opus5-5-videos pattern, 1,157 in week one); cheap and fast, but four competing lists appeared within nine days of Opus 5.5, so being first by days matters.
+3. **Behavior card only**: the livenerf pattern applied to behavior; strongest with a live controversy and an HN-class launch (scenario b).
+Constraints common to all: a session within one to three days of a release (owner-scheduled), the CLI signed in for measurements, and English-only content unless the owner approves otherwise. The deep dive must check repos in English and Chinese (L-017) and count misses, not only winners (L-023).
