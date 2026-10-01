@@ -23,6 +23,10 @@ if (!name || !query || !/^[a-z0-9-]+$/.test(name)) {
   process.exit(2);
 }
 const TOKEN = execFileSync('gh', ['auth', 'token'], { encoding: 'utf8' }).trim();
+// Program repos hold no CJK text (Constitution §9, tools/check.mjs), so CJK runs in descriptions become "[CJK]".
+const CJK = [[0x2e80, 0x2fdf], [0x3000, 0x303f], [0x3040, 0x30ff], [0x3400, 0x4dbf], [0x4e00, 0x9fff], [0xf900, 0xfaff], [0xff00, 0xffef]];
+const isCJK = ch => { const c = ch.codePointAt(0); return CJK.some(([lo, hi]) => c >= lo && c <= hi); };
+const clean = s => { let out = '', inRun = false; for (const ch of s) { if (isCJK(ch)) { if (!inRun) out += '[CJK]'; inRun = true; } else { out += ch; inRun = false; } } return out; };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function page(p) {
@@ -43,7 +47,7 @@ for (let p = 1; p <= 10; p++) {
   const j = await page(p);
   total = j.total_count;
   for (const it of j.items) {
-    repos.push([it.full_name, it.stargazers_count, it.created_at, it.pushed_at, it.owner?.type ?? '', (it.description ?? '').slice(0, 140)]);
+    repos.push([it.full_name, it.stargazers_count, it.created_at, it.pushed_at, it.owner?.type ?? '', clean(it.description ?? '').slice(0, 140)]);
   }
   if (j.items.length < 100 || repos.length >= total) break;
   await sleep(2200);
