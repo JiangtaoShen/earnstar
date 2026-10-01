@@ -12,7 +12,7 @@ The kickoff date, deadlines, day count, and hours are computed in the Hours bloc
 | Field | Value |
 |---|---|
 | Key / name | earnstar_1 / — |
-| Phase | P0 Research: foundational study done; 31 ideas screened (`history/research/earnstar_1/ideas.md`); deep dives of #23, #26, #30, #31; lead #31 reply-language lock |
+| Phase | P0 Research: foundational study done; 31 ideas screened (`history/research/earnstar_1/ideas.md`); deep dives of #23, #26, #30, #31; draft selection (#31) withdrawn after the independent critique; selection to be rerun |
 | First public release | — |
 | Pivot review due | — (launch + 14 days) |
 
@@ -40,9 +40,8 @@ Not counted: 34 setup/admin/gap entries, 1.1 active hours.
 Both are empty when no session is open.
 
 ## Next actions
-1. **Lead candidate after S018: #31 reply-language lock** (`history/research/earnstar_1/candidate-31.md`): demand, landscape, case studies, a confirmed mechanism, and an offline prototype are done. Still open: an end-to-end run in a real Claude Code session (needs the CLI signed in, see "Awaiting owner"), a detector for Latin-script languages, how its reference projects reached their communities (subagent result in the S018 log), the name (no "Claude", L-013), and whether a CJK README is worth requesting from the owner (B-class).
-2. **Other deep-dived candidates** for the Gate's three: #30 companion as a mod and #26 Mods (`candidate-26-27.md`), #23 behavior skill (`candidate-23.md`; no unowned habit with a fresh hook yet). Preliminary scores (S018): #31 3.90, #23 3.85, #30 3.80; binding scores go in the selection ADR.
-3. **Then**: the selection ADR draft with the pre-mortem and a prediction with intervals, the independent critique, and the reflection in a later session. Research floor: ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days (about 4 h done after S018); P0+P1 ceiling 2026-10-09 (exceeding it needs a recorded reason in the ADR).
+1. **Rerun the selection** in the next session. The S018 draft (ADR-002, #31 reply-language lock) was withdrawn after the independent critique (`history/research/earnstar_1/critique.md`). Remaining deep-dived candidates: #30 companion as a mod and #26 Mods (`candidate-26-27.md`), #23 behavior skill (`candidate-23.md`); generate stronger candidates if the owner's channel decision (below) changes what can be reached. Search in the target users' languages (L-017).
+2. **Before committing**: an end-to-end feasibility test in a real session (needs the CLI sign-in), the pre-mortem, a new independent critique, and the reflection in a later session. Research floor: ≥ 8 active P0/P1 hours over ≥ 2 sessions on ≥ 2 days (about 4 h after S018); P0+P1 ceiling 2026-10-09 (exceeding it needs a recorded reason in the ADR).
 
 ## Owner promotion accounts
 DEV is the only social channel (S013).
@@ -55,6 +54,7 @@ DEV is the only social channel (S013).
 - The owner's HN and Reddit accounts (registered 2026-09-24) are not used by the program.
 
 ## Awaiting owner
+- **Channel policy review** (S018, decides which project can succeed): the research shows that a cold start needs a burst from a large venue or an in-language community, which an English DEV account alone cannot provide (L-007, L-010, L-018; `history/research/foundation.md` §5–§6). Evidence in brief: a DEV article alone brings a median of about 1 star in its first week; where a cold-start burst's cause was found (7 of 12 cases, all 7 viral skills, the only dated language-community case), it was an HN front page, Reddit, a large X account, or the author's own post on GeekNews or linux.do. Options for the owner: (a) keep DEV only and accept small expected outcomes (tens of stars); (b) allow the owner to post selected launches on other venues (HN rules require the owner's own words, L-001), with the developer preparing material through the outbox; (c) allow a Chinese README and Chinese-community posts (V2EX, linux.do, Juejin) for projects that fit. The developer recommends deciding before the selection is rerun.
 - **Sign in the standalone Claude Code CLI** (S018, needed for the approved headless evaluations): the `claude` command in a terminal reports "Not logged in". The owner runs `claude` once in a terminal and completes `/login` with their account; the developer never sees or types credentials. Until then, evaluations use public and local data only.
 - **DEV username** (S014, optional, before the first article): the auto-generated username `jiangtao_shen_dc63dff520c` appears in every article URL. A clean one (changed by the owner in DEV settings) looks more credible. Change it before the first article, because existing article URLs contain the username.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
