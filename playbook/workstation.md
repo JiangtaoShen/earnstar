@@ -38,3 +38,5 @@ The owner approved small-scale headless Claude Code runs (`claude -p`) on the ow
 - **Pace**: at most 2 runs at a time. Stop at the first usage-limit or rate-limit message and record it.
 - **Scope**: Claude models only, through the installed CLI; prompts and working files live in a disposable folder under `lab/`; no credentials or owner files are used as test material.
 - **Record**: the session log states the number of runs, the model, the total tokens if reported, and the purpose.
+- **Context cost** (measured in S019): one trivial run (`claude -p` with `--tools ""` and `--no-session-persistence`, Opus 5.5) carried 121,650 cache-write tokens, reported as about $0.97 API-equivalent; later runs within the cache lifetime read that context from cache. Keep rounds small, run them back to back, and prefer several prompts per run where the design allows.
+- **Environment control**: that context includes the owner's user-level settings and skills, which can shape the behavior being measured. Before a panel, record what the default context contains, and run every arm of a comparison under the same context.
