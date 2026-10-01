@@ -94,6 +94,8 @@ Also: anthropics/claude-desktop-buddy (2,618; Anthropic's hardware maker API), p
 
 **Differentiation (draft)**: "Why this over coding-buddy, Codex Pets, or the two new buddy mods?" — _a companion that lives where the original did (above the prompt, via mods), reacts to what the agent is actually doing (tool calls, test results, long waits), restores your original companion exactly, and works in more than one agent._ coding-buddy uses the status line; Codex Pets exists only in Codex; rezzminator/buddy and vmallela0/cc-buddy are two-day-old mods with 0–1 stars (2026-10-01).
 
+**Feasibility note (S018)**: the published mods types (13,186 lines, written for Claude Code 2.1.277) document frame animation, e.g. `$.clock.every(33, () => $.ui.blit({ requestId, key, cells: frame() }))`, and the `AbovePrompt` band as a render site ([types](https://github.com/anthropics/claude-code/blob/main/mods/types/claude-code.d.ts)); so an animated companion above the prompt is supported in principle. Testing needs a mods-capable CLI (the installed 2.1.196 is too old) and the owner's sign-in, in a terminal (the Windows desktop app does not render mods).
+
 **Distribution plan (draft)**: the #45596 thread (1,185 👍; one disclosed comment, B-class, outbox); a DEV article on building a terminal UI mod (#ai, #programming, #showdev) timed with mods reaching general availability; a GIF of the companion reacting, made for sharing; topics `claude-code`, `claude-code-mods`, `terminal-pet`, `companion`; awesome lists for mods (karanb192/awesome-claude-code-mods) once eligible. Risk: the mods launch date is unknown, and the thread's demand has converted poorly into stars.
 
 ## Preliminary scoring (S018; for focus only, the binding scores belong in the selection ADR)
