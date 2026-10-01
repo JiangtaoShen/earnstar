@@ -14,7 +14,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 2. **Divergence**: ≥ 15 raw ideas, each one line with the evidence that triggered it.
 3. **Screening**: apply the knock-outs (§4) and shortlist ≥ 3 candidates.
 4. **Deep dive on each shortlisted candidate**:
-   - **Landscape**: ≥ 10 comparable or adjacent repos, with stars, star history, last activity, recurring issue themes, and gaps.
+   - **Landscape**: ≥ 10 comparable or adjacent repos, with stars, star history, last activity, recurring issue themes, and gaps. Search in English and in the languages of the target users (L-017).
    - **Case studies**: ≥ 5 successful launches of the same archetype, dissected for what drove the stars, with evidence (launch posts, timing, visible referrers).
    - **Demand**: ≥ 3 independent signals of real pain (issues with many thumbs-up reactions, forum threads, repeated questions), each linked.
    - **Differentiation**: a one-sentence answer to "why this over X", checked against the top 3 alternatives.

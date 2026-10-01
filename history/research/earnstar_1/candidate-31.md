@@ -13,7 +13,7 @@ _Started in S018 (2026-10-01). Stage 4 of `playbook/research.md`._
 Caveat: issue reactions are low; non-English users file and upvote fewer GitHub issues, and some English replies are wanted.
 
 ## 2. Landscape (≥ 10 repos)
-No tool that enforces reply language was found (GitHub search, 2026-10-01). Adjacent tools for language communities and plain-language output (stars on 2026-10-01; owner followers today):
+No tool that enforces reply language was found by English-only GitHub searches on 2026-10-01; this was wrong (see §9). Adjacent tools for language communities and plain-language output (stars on 2026-10-01; owner followers today):
 
 | Repo | Stars | Created | Owner followers | What |
 |---|---|---|---|---|
@@ -71,3 +71,6 @@ All free on npm (registry 404 on 2026-10-01); GitHub repos with the same name: `
 - A model or harness fix could reduce the drift (#96601 asks whether the regression is in the harness); the lock still helps across agents and for the reverse drift.
 - Demand evidence is thin in reaction counts.
 - Rewrites cost tokens; the hook must trigger only on clear mismatches (short replies and code-only replies excluded).
+
+## 9. Outcome (S018): knocked out
+The independent critique (`critique.md`) found a same-product competitor missed by English-only searches: [minorun365/claude-code-japanese-guard](https://github.com/minorun365/claude-code-japanese-guard) (Stop hook, `last_assistant_message`, one-line install; created 2026-09-25; owner followers 260; 36 stars on 2026-10-01 and fading). With a native audience, first-mover timing, and the hook at its peak, it reached 36 stars. Together with a likely vendor fix, thin and concentrated demand, and no reachable channel, #31 is knocked out. Its measurement scripts remain useful evidence for #23 and #24.

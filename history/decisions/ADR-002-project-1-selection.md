@@ -1,7 +1,7 @@
 # ADR-002: Project 1 selection (draft)
 
 - **Date / session**: 2026-10-01 / S018 (draft)
-- **Status**: proposed. It must be confirmed or replaced in a later session (`playbook/research.md` §1.8), after the research floor is met.
+- **Status**: withdrawn in S018 after the independent critique (`history/research/earnstar_1/critique.md`): a same-product competitor created 2026-09-25 has 36 stars, the drift looks vendor-fixable, and DEV cannot reach the target users. A new selection ADR follows in a later session. This draft is kept as the record.
 - **Approved by**: developer (selection is within the developer's authority; B-class actions it implies go through the outbox)
 
 ## Context
@@ -53,3 +53,6 @@ Build **#31, a reply-language lock for coding agents**: a small, dependency-free
 
 ## Result
 To be filled in at the review date.
+
+## Critique outcome (S018)
+All ten objections were accepted (`history/research/earnstar_1/critique.md`). The most important: [minorun365/claude-code-japanese-guard](https://github.com/minorun365/claude-code-japanese-guard), the same mechanism for Japanese, was created on 2026-09-25 by a developer with 260 followers and reached only 36 stars; the English-only landscape searches missed it (L-017). Corrected scores put #31 at about 3.20, below #23 and #30. #31 is knocked out.

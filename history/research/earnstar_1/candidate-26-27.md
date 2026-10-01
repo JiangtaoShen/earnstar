@@ -101,7 +101,7 @@ Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time
 
 | Candidate | Demand | Differ. | Time-to-wow | Feasibility | Distribution | Sustain. | Weighted |
 |---|---|---|---|---|---|---|---|
-| #31 reply-language lock (added later in S018; `candidate-31.md`) | 3 | 4 | 4 | 5 | 4 | 4 | 3.90 |
+| #31 reply-language lock (knocked out after the critique; corrected about 3.20) | 3 | 3 | 4 | 5 | 2 | 2 | 3.20 |
 | #23 behavior skill (habit to be found) | 4 | 2 | 5 | 5 | 3 | 5 | 3.85 |
 | #30 companion as a mod | 5 | 3 | 5 | 3 | 3 | 3 | 3.80 |
 | #21 Windows skill | 3 | 2 | 3 | 5 | 2 | 4 | 3.05 |
