@@ -10,7 +10,7 @@ Project 1 started on 2026-09-25 (S016). The foundational study (`history/researc
 ## Selection Gate checklist
 - [x] The foundational study exists and was written in this project (S016), with an independent review (§9 of the study).
 - [x] ≥ 15 ideas screened (31) and ≥ 3 candidates deep-dived: #31 (`candidate-31.md`), #30 and #26 (`candidate-26-27.md`), #23 (`candidate-23.md`).
-- [ ] Each candidate has a landscape (≥ 10), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan: complete for #31 and #26 (drafts) and #23 (differentiation open); #30 lacks its differentiation statement and distribution plan.
+- [ ] Each candidate has a landscape (≥ 10), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan: complete for #31, #26 (drafts), and #30 (drafts added in S018); #23 still lacks a differentiation statement because its habit is open.
 - [ ] Feasibility spike: offline prototype passed for #31 (`lab/spike/langlock/hook.mjs`, results in `candidate-31.md` §5); the end-to-end run in a real session awaits the owner's CLI sign-in.
 - [ ] Pre-mortem (below) and independent critique (to be run on this draft, with every objection answered).
 - [x] Prediction with intervals, kill criteria, and runner-up (below; to be revisited after the critique).
