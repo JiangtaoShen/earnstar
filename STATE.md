@@ -34,8 +34,8 @@ Not counted: 34 setup/admin/gap entries, 1.1 active hours.
 <!-- hours:end -->
 
 ## Open session
-- **ID**: —
-- **open_utc**: —
+- **ID**: S018
+- **open_utc**: 2026-10-01T07:38:46.430Z
 
 Both are empty when no session is open.
 
@@ -56,6 +56,7 @@ DEV is the only social channel (S013).
 - The owner's HN and Reddit accounts (registered 2026-09-24) are not used by the program.
 
 ## Awaiting owner
+- **Sign in the standalone Claude Code CLI** (S018, needed for the approved headless evaluations): the `claude` command in a terminal reports "Not logged in". The owner runs `claude` once in a terminal and completes `/login` with their account; the developer never sees or types credentials. Until then, evaluations use public and local data only.
 - **DEV username** (S014, optional, before the first article): the auto-generated username `jiangtao_shen_dc63dff520c` appears in every article URL. A clean one (changed by the owner in DEV settings) looks more credible. Change it before the first article, because existing article URLs contain the username.
 - **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
 ## Session history

@@ -124,3 +124,14 @@ Rates per 1,000 words of agent prose (code blocks removed); models with >= 20,00
 - Pick the habit (23b leads; 23c is undecided) with a baseline measurement on the current model (Claude Opus 5.5, released 2026-09-22), using small-scale headless runs (approved in S017).
 - Name search (GitHub, npm, trademarks).
 - Feasibility spike: the evaluation harness and a first skill draft.
+
+## 9. Reassessment (S018, 2026-10-01)
+New evidence weakens the fix half of 23b and narrows what is distinct:
+- **Vendor incumbent for the fix**: Claude Code 2.1.237 (2026-08-20) "Added a built-in 'Concise' output style: Claude leads with results and skips preamble and narration" ([changelog](https://code.claude.com/docs/en/changelog)). A later release fixed "custom, project, and plugin output styles drifting back to the default voice mid-session", which addresses the drift that users cited against prompt fixes. A comment on #77136 (fredrikaverpil, 2026-08-20) notes the Concise style injects a reminder on every turn.
+- **Vendor tooling for measured plugins**: `claude plugin eval` (2026-09-11) runs "a plugin's eval suite against Claude Code" with "scored, reproducible results". "Measured" is therefore no longer a differentiator by itself.
+- **Whack-a-mole risk, measured by a user**: headinthebox (#77136, 2026-08-21) scored 183 of their own Claude Code transcripts (1.46M words) before and after seven CLAUDE.md style rules: mean sentence length −7.6 %, "X is not Y, it's Z" −29 %, named and banned terms −21 %, but un-named rhetorical scaffolding +7 %, and "load-bearing", explicitly banned, +11 %. A word-list fix, or a hook triggered by a word list, moves the list and not the register.
+- **Community fixes are plain files**: users share output styles in the thread (`Say-It-Once`, `Empathic`, `GAUGE_STYLE.md`), none packaged as a measured project.
+
+**What remains distinct**: a local meter that scores the style of one's own agent replies over time (sentence length, the "not X, it's Y" construction, named and un-named scaffolding), to show whether Concise or any style actually helps. headinthebox's manual analysis is the method's proof; no tool packages it. Its star potential is uncertain: transcript analytics without a style angle range from 87 (cc-wrapped) to 5,990 stars (agentsview), and the measurement comment drew no reactions.
+
+**Status**: 23b drops from "lead" to "contender". The deep dive continues only as a meter (archetype AT, conversion about 2.7 %), compared on equal terms with other candidates.
