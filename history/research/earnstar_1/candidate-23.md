@@ -60,6 +60,8 @@ Two 23b-specific cases (GitHub star history and HN Algolia, 2026-09-25):
 
 fluent-korean is a cold start with delayed ignition: almost nothing for six weeks, then one day of 212 stars without HN, most likely a Korean community post (to be confirmed).
 
+**Added in S018**: [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) ("makes your AI agent think like the laziest senior dev in the room"), created 2026-06-12, had 149,532 stars on 2026-10-01: 1,745 in its first partial week, 41,364 in its second (best day 8,730), and still 500–1,000 a day in late September; its only HN post scored 98 points (2026-06-14); owner followers today 2,175 (GitHub API and star history). It owns over-engineering, the habit that andrej-karpathy-skills also targets, which shows that a sharper hook can win a habit an incumbent already covers.
+
 **Pattern**: every burst had an outside amplifier; low-scoring HN posts did nothing; the author's own small audience gave ~200 stars at most. Several repos had second waves months later.
 
 ## 3. Demand (≥ 3 signals)
