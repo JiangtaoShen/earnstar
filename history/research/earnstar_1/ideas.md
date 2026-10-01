@@ -88,6 +88,9 @@ Each: one line, then the evidence that triggered it. Codes as in `../foundation.
 29. **Local context saver for coding agents (AT)**: trim and stash tool output locally before it reaches the model, with an optional local decision model judging relevance; a classic hook now, a mod at general availability.
     Evidence (S018): the convergence of #26 and #27 (`candidate-26-27.md`): tamaratran/fast-jev-compaction 7,270 stars in two weeks, unmaintained since 2026-09-18, with issues asking for a local backend.
 
+30. **The terminal companion, rebuilt as a mod (FUN/AT)**: bring back the removed `/buddy` companion above the prompt, using the mods UI (`AbovePrompt`), reacting to what the agent does; cross-agent where possible (Codex already ships "Pets").
+    Evidence (S018): anthropics/claude-code [#45596](https://github.com/anthropics/claude-code/issues/45596) "Bring Back Buddy" is the most-upvoted open issue (1,185 👍, 272 comments, still active on 2026-09-28); commenters note that Codex's Pets feature is popular ("codex is currently beating claude code in the buddy department") and that at least three projects reverse-engineered the original generator to restore people's specific companions. Mods can render above the prompt (`candidate-26-27.md`). Earlier replacements: ramarivera/coding-buddy 464 stars (status-line hack, since 2026-04-09), fiorastudio/buddy 115, talkvalue/Buddi 93 (macOS notch). Mod-based revivals started this week: rezzminator/buddy 1 star (2026-09-27), vmallela0/cc-buddy 0 (2026-09-29). Concern: the thread's demand converted poorly into stars (the best replacement has 464 after six months), and playful projects convert at about 1 % (L-006).
+
 ## Screening (preliminary, S016)
 Knock-outs from `playbook/research.md` §4, plus a first incumbent check by GitHub search on 2026-09-25. To be confirmed at the start of the deep dives in the next session.
 
@@ -122,6 +125,7 @@ Knock-outs from `playbook/research.md` §4, plus a first incumbent check by GitH
 | 27 | Local decision model for agent hooks | Deprioritized (S018) | The wave peaked before our earliest launch (new "jev" repos −53 % week over week), and the coding-agent winners were decided within about 72 hours; useful only as a component (`candidate-26-27.md`) |
 | 28 | Restore dedicated tools in Auto Mode | Deprioritized | Real demand (218 👍 across four issues), but one vendor release can remove the need |
 | 29 | Local context saver | Knock-out | Dominant incumbents doing exactly this: mksglu/context-mode 24,579 stars ("Sandboxes tool output (98% reduction)"), rtk-ai/rtk 82,138, and caveman's proxy; the Jev-based judges (GhalebDweikat/winnow 100, tamaratran/jev-pruner 154) show little room for a model-judged variant |
+| 30 | Companion as a mod | **Shortlist (S018)** | The strongest single demand signal in the tracker, plus the mods launch hook and a screenshot-able result; but weak star conversion so far, and two revivals started this week |
 
 **Shortlist for deep dives** (≥ 3 required; updated in S018): #26 Mods and #27 local decision model (new, deep dives running), #23 measured behavior skill (23b demoted to "contender" as a meter, see `candidate-23.md` §9; it absorbs #1), #24 agent habit tracker, #21 Windows survival skill (weakened), #10 open-source launch kit (weakened), and #4 Windows-first agent companion (exploratory). The deep dives (landscape ≥ 10 repos, ≥ 5 case studies, ≥ 3 demand signals, differentiation, distribution plan) continue next session.
 

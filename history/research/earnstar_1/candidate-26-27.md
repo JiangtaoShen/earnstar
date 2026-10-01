@@ -73,3 +73,36 @@ Both need a terminal Claude Code at a mods-capable version (≥ 2.1.26x) and the
 | #24 habit tracker | partial | partial | done | open | open | Needs headless runs (owner's CLI sign-in) |
 | #21 Windows skill, #10 launch kit, #4 Windows companion | partial | open | partial | open | open | Weak landscapes (many small incumbents) |
 
+## #30 — the terminal companion as a mod (S018)
+**Demand**: [#45596](https://github.com/anthropics/claude-code/issues/45596) "Bring Back Buddy", 1,185 👍 and 272 comments, still active on 2026-09-28; Codex's Pets feature is cited as the competitor; at least three projects reverse-engineered the original generator; commenters say they would accept inference costs.
+
+**Landscape and outcomes** (GitHub star history, 2026-10-01):
+
+| Repo | Total | Week 1 | First 30 days | Peak day | Last 30 days | Form |
+|---|---|---|---|---|---|---|
+| OpenPetsHQ/openpets | 1,254 | 171 | 656 | 86 (2026-05-12) | 98 | Desktop companion platform with coding-agent integrations (created 2026-05-04; no HN story) |
+| ramarivera/coding-buddy | 464 | 204 | 351 | 68 (2026-04-09) | 13 | Status-line revival, the day after removal |
+| fiorastudio/buddy | 115 | 22 | 68 | 11 | 14 | Virtual pet with code-review comments |
+| talkvalue/Buddi | 93 | 50 | 74 | 17 | 2 | macOS notch companion |
+| dropdevrahul/campy | 14 | 1 | 8 | 4 | 4 | ASCII pets for several agents |
+| rezzminator/buddy | 1 | | | | | Mod above the prompt (2026-09-27) |
+| vmallela0/cc-buddy | 0 | | | | | Mod, "restored exactly" (2026-09-29) |
+
+Also: anthropics/claude-desktop-buddy (2,618; Anthropic's hardware maker API), physical buddies on ESP32 and M5 boards (72–276), zivkong/token-tamers 7, kernastra/pi-pets 1, pixle-codes/familiar 0.
+
+**Reading**: the category's outcomes are moderate and steady (median about 100, best about 1,250), not viral. The removal itself was the news hook in April and has passed; mods reaching general availability would be the next one.
+
+## Preliminary scoring (S018; for focus only, the binding scores belong in the selection ADR)
+Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time-to-wow 15 %, feasibility 15 %, distribution 15 %, sustainability 10 %.
+
+| Candidate | Demand | Differ. | Time-to-wow | Feasibility | Distribution | Sustain. | Weighted |
+|---|---|---|---|---|---|---|---|
+| #23 behavior skill (habit to be found) | 4 | 2 | 5 | 5 | 3 | 5 | 3.85 |
+| #30 companion as a mod | 5 | 3 | 5 | 3 | 3 | 3 | 3.80 |
+| #21 Windows skill | 3 | 2 | 3 | 5 | 2 | 4 | 3.05 |
+| #26-A tested mod catalogue | 3 | 2 | 3 | 3 | 4 | 2 | 2.85 |
+| #26-B policy and audit pack | 3 | 3 | 2 | 3 | 3 | 3 | 2.85 |
+| #24 habit tracker | 3 | 3 | 3 | 2 | 3 | 2 | 2.75 |
+
+Reasons in brief: #23 has the strongest archetype but no unowned habit with a fresh hook yet (L-014, L-015); #30 has the strongest single demand signal and a visual result, but weak historical conversion and an unknown mods launch date; feasibility of all mod-based options depends on the owner signing in the CLI and on an updated CLI.
+
