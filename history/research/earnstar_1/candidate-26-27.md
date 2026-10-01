@@ -65,7 +65,7 @@ Demand in #91870 points to infrastructure: fail-closed enforcement (24 commenter
 
 Both need a terminal Claude Code at a mods-capable version (≥ 2.1.26x) and the owner's sign-in for testing.
 
-**Launch-week list base rate (S018, H-008)**: lists created in DeepSeek Harness's launch week reached 100 stars in 12.8 % of cases (11 of 86), against 1.5 % for that week's skills, but only one passed 1,000. For 26-A this means a fair chance of modest traction at general availability and a small chance of the top spot, which early lists (karanb192/awesome-claude-code-mods) are positioned to take. At the Skills launch (2025-10-16), 4 of 21 launch-week lists passed 1,000 stars (19 %), so a launch can support several winning lists, not just one.
+**Launch-week list base rate (S018, H-008)**: lists created in DeepSeek Harness's launch week reached 100 stars in 12.8 % of cases (11 of 86), against 1.5 % for that week's skills, but only one passed 1,000. For 26-A this means a fair chance of modest traction at general availability and a small chance of the top spot, which early lists (karanb192/awesome-claude-code-mods) are positioned to take. At the Skills launch (2025-10-16), 4 of 21 launch-week lists passed 1,000 stars (19 %), so a launch can support several winning lists, not just one. At the MCP launch (2024-11-25), 3 of 7 launch-week lists passed 1,000 (43 %), and 4.2 % of all MCP repos from that week did (about ten times the later base rate, L-024). **Implication**: if Mods reach general availability inside project 1's window, a ready, high-quality entry at launch (a tested catalogue and useful mods) has the best odds measured in this research; the risk is the unknown date, and whether the preview period already counts as the launch.
 
 ## Gate status of the candidates (S018)
 | Candidate | Landscape ≥ 10 | Case studies ≥ 5 | Demand ≥ 3 | Differentiation | Distribution plan | Main open risk |
@@ -112,7 +112,7 @@ Weights from `playbook/research.md` §3: demand 25 %, differentiation 20 %, time
 | #34 day-one model-release kit (added late in S018; `ideas.md`) | 3 | 3 | 4 | 3 | 4 | 3 | 3.30 |
 | #30 companion as a mod | 5 | 3 | 5 | 3 | 3 | 3 | 3.80 |
 | #21 Windows skill | 3 | 2 | 3 | 5 | 2 | 4 | 3.05 |
-| #26-A tested mod catalogue | 3 | 2 | 3 | 3 | 4 | 2 | 2.85 |
+| #26-A tested mod catalogue (demand raised after the launch-week tests, H-008) | 4 | 2 | 3 | 3 | 4 | 2 | 3.10 |
 | #26-B policy and audit pack | 3 | 3 | 2 | 3 | 3 | 3 | 2.85 |
 | #24 habit tracker | 3 | 3 | 3 | 2 | 3 | 2 | 2.75 |
 
