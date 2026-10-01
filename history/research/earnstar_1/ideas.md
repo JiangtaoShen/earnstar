@@ -138,3 +138,15 @@ Knock-outs from `playbook/research.md` §4, plus a first incumbent check by GitH
 **Shortlist for deep dives** (≥ 3 required; updated in S018 after the critique): #30 companion as a mod, #26 Mods (`candidate-26-27.md`), #23 measured behavior skill (23b demoted to "contender" as a meter, see `candidate-23.md` §9; it absorbs #1), #24 agent habit tracker, #21 Windows survival skill (weakened), #10 open-source launch kit (weakened), and #4 Windows-first agent companion (exploratory). The deep dives (landscape ≥ 10 repos, ≥ 5 case studies, ≥ 3 demand signals, differentiation, distribution plan) continue next session.
 
 **First landscape note on #10 (S016)**: every maintainer-launch skill or repo checker found on 2026-09-25 is small: study8677/Readme.skill 172, zenika-open-source/promote-open-source-project 862 (a guide from 2019), IndianOldTurtledove/codex-oss-maintainer-toolkit 45, 199-biotechnologies/github-optimization-skill 15, KorroAi/readme-roast 12, and several repo-health checkers with 0 stars. Many have tried and none rose, which suggests the maintainer audience is too small for this archetype's usual lift. #10 is weakened; its deep dive must find counter-evidence or drop it.
+
+## Selection rerun plan, by channel scenario (S018)
+The owner's channel decision (STATE, "Awaiting owner") changes which candidate can win. Prepared shortlist per scenario:
+
+| Scenario | Reachable ignition | Best-fitting candidates | Next research step |
+|---|---|---|---|
+| (a) DEV only | Search demand at a platform launch (H-008); passive pickup by aggregators | #30 companion as a mod and #26-A mod catalogue, both timed to Mods reaching general availability; #23 only with a truly fresh hook | Track the Mods launch date; build-and-wait risk |
+| (b) Owner posts selected launches (e.g., HN, in the owner's own words, L-001) | An HN front page (livenerf: 45 → 903 stars in two days) | A rigorous measurement project on model behavior per release (#24, the livenerf pattern applied to habits and style); a crafted, try-it-now tool (#30) | Check what livenerf does not cover; design a pre-registered method that small-scale runs can support |
+| (c) Chinese README and Chinese channels | Chinese aggregators and communities; curated weeklies by self-recommendation | Chinese-language skills for real workflows (the strongest small-owner reference class, L-019) | Divergence in Chinese (search in Chinese per L-017), landscape of Chinese skill hits by small owners, launch-channel tracing |
+
+Under every scenario, the critique standard applies: the same knock-outs for vendor-fix risk and late entry (#7, #28, #31), and searches in the target users' languages.
+
