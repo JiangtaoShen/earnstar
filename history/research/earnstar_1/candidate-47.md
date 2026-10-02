@@ -1,5 +1,7 @@
 # Candidate #47: a local monitor of changes in your Claude Code sessions
 
+**Status: knocked out by the independent critique (S022, `critique.md`, ADR-004 section): near-identical products at 0–2 stars (nerfwatch, nerfd, iqdrop) and the serving model and effort already shown by claude-hud.**
+
 _S022, 2026-10-02. Proposed by the independent selection panel (`panel-s022.md`); verified and extended by the developer. Gate items: landscape, case studies, demand, differentiation, distribution, feasibility._
 
 ## 1. The idea

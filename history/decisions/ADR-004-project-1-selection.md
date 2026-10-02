@@ -1,7 +1,7 @@
 # ADR-004: Project 1 selection
 
 - **Date / session**: 2026-10-02 / S022 (draft)
-- **Status**: proposed. Awaits the independent critique (this session) and the confirmation in a later session (Selection Gate). Supersedes ADR-003 (on hold) and the withdrawn ADR-002.
+- **Status**: withdrawn in S022 after the independent critique (`history/research/earnstar_1/critique.md`, ADR-004 section): near-identical monitors launched in September 2026 sit at 0–2 stars, claude-hud (28k) already shows the serving model and effort from the transcript, the Codex precedents do not transfer, and the spike gate's own knock-out rule was not applied. The draft is kept as the record.
 - **Approved by**: developer (selection is within the developer's authority; the B-class actions it implies go through the outbox)
 
 ## Context
