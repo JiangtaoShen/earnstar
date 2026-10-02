@@ -12,9 +12,10 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 3. **Understand the job.** For the strongest needs, reconstruct the task step by step as the user experiences it. Where possible, do the task yourself on this machine with the tools people use today, and note exactly where it hurts.
 4. **Try the existing solutions.** For each strong need, find what exists (search in the users' own words and languages, `tools/crowding.mjs`, the feature lists of the largest adjacent tools) and actually use the best ones. Record why they fail these users, or confirm that they already serve them well (then the need is met; drop it). A niche full of recent attempts that nobody uses is a warning that the need may be weaker than it looks; find out why they failed before going further.
 5. **Prototype on real tasks.** Build a throwaway prototype of the core of the solution (budget in `defaults.md`) and try it on realistic tasks taken from the users' own descriptions. The question is whether it would have helped the person who wrote the issue. Test fixtures must look like the users' own files (ordinary names, no hints such as `gbk_crlf.c` or an `orig/` folder), and when AI agents are involved, test with the models and tool settings users actually run, not only the newest model (L-032). Count behavioural evidence (scripts, workflows, forks) in independent people or projects, not in search hits, and check whether the workarounds already work for those who have them (L-031).
-6. **Decide.** Write the selection ADR: the people, the need with its evidence, why existing tools fail, the smallest first version, how the project will learn from use after release without promotion (issues, discussions, downloads, the developer's own daily use), and the first three iterations it expects.
-7. **Independent critique.** A subagent with no stake reviews the ADR from the user's point of view: is the need real, is it unmet, would these people actually use this? It runs fresh searches (it must not rely only on the developer's files, L-029). Record every objection and its response.
-8. **Confirm** the decision in a later session, with fresh context.
+6. **Landscape audit before the ADR.** Before drafting, an independent subagent audits the leading candidate's landscape with fresh searches in every language its users write in (including Japanese and Korean where relevant), by outcome words, across GitHub (open the 0–10-star tier), the package registries and plugin directories, and the current changelogs and open PRs of the tools involved. The developer verifies every negative claim the decision would rest on ("no fix merged", "nothing exists for X", "nobody does Y") and reads the main issue threads to the end (L-034).
+7. **Decide.** Write the selection ADR: the people, the need with its evidence, why existing tools fail, the smallest first version, how the project will learn from use after release without promotion (issues, discussions, downloads, the developer's own daily use), and the first three iterations it expects.
+8. **Independent critique.** A subagent with no stake reviews the ADR from the user's point of view: is the need real, is it unmet, would these people actually use this? It runs fresh searches (it must not rely only on the developer's files, L-029). Record every objection and its response.
+9. **Confirm** the decision in a later session, with fresh context.
 
 ## 2. Sources
 - **Issues and discussions** of the tools the users rely on, sorted by reactions and by recency; long threads where people share workarounds are the strongest evidence.
@@ -48,7 +49,7 @@ Treat differences smaller than one point on one criterion as noise. When candida
 
 ## 6. Selection Gate (every item must pass before P2)
 - [ ] The people and the need are described, with quotes and links from at least five independent people.
-- [ ] The existing solutions were found (in the users' own words and languages) and the best ones actually tried; why they fail is recorded.
+- [ ] The existing solutions were found (in the users' own words and languages) and the best ones actually tried; why they fail is recorded. An independent landscape audit ran before the ADR, and every negative claim the decision rests on was verified by the developer (§1.6, L-034).
 - [ ] A prototype was tried on realistic tasks from the users' own descriptions.
 - [ ] The first version, the learning plan after release, and the first three iterations are written down.
 - [ ] The independent critique is recorded and every objection is answered.

@@ -61,3 +61,19 @@ A, D, and B are within noise of each other (`research.md` §3). Tie-break: prefe
 - **D**: the hand-written workflows work for the projects that have them (1 stale label in 15 labelled issues across five projects, `lab/s024/proto-d/replystate.mjs`); the independent projects behind the 180 code-search hits are about 20 in the first 100, not 180; the remaining gaps (a packaged version, a cross-repo "waiting on me" view) have thin evidence in users' own words, and an agent now writes such a workflow in minutes. "It is unmet" drops from 3 to 2: weighted **3.65**.
 - **A**: the prototype repaired every file damaged with U+FFFD in this session's runs exactly (original plus the intended change, original encoding, line endings, and BOM), which nobody offers today (the common advice is that the bytes are lost); Codex and OpenCode can run with local models through Ollama, so they can be tested end to end here. "It is unmet" rises from 3 to 4 (prevention exists only as 1–45-star plugins per agent; repair after the fact does not exist); "we can serve it well" stays 4 (Codex and OpenCode end-to-end tests are still to be verified); "it can keep improving" rises from 3 to 4 (clear iterations per agent and editor; the repair keeps its value even if one vendor fixes its tool): weighted **4.15**.
 - A now leads D by 0.5, with differences of two points on "unmet" and one on "need" in A's favour and one point on "serve" in D's favour: more than noise (`research.md` §3). **A is the candidate for the selection ADR** (ADR-006); D and B are kept as alternatives. Details: `candidate-A-encoding.md`.
+
+## After the critique of ADR-006 (S024)
+The critique (`critique.md`, ADR-006 section) showed that A was scored by a different standard than D and that A's landscape was incomplete. One standard for all candidates:
+- **Unmet**: a need is not "unmet" because tools are small; it is unmet if the people who have it have no working option they can reasonably find. Self-built workarounds that work count against "unmet" for every candidate alike; native fixes in any widely used tool count as meeting the need for those willing to use it.
+- **Find**: 2 when the people look for fixes mainly in a vendor's issue thread (the program may not post there, L-034); 3 when they search the web or a registry with words a project can match; 4 when they search inside an app's own registry where new entries are visible.
+
+| Criterion (weight) | A encoding | D reply tracker | B GPU doctor | C latexdiff |
+|---|---|---|---|---|
+| Need (30 %) | 5 | 4 | 5 | 4 |
+| Unmet (20 %) | 2 (Kilo native, Codex flag, ~25 tools, a published recovery recipe) | 2 (workarounds work) | 3 (not yet audited) | 3 |
+| Serve (20 %) | 3 | 5 | 3 | 3 |
+| Find (15 %) | 2 | 3 | 3 | 3 |
+| Improve (15 %) | 3 | 4 | 3 | 3 |
+| **Weighted** | **3.25** | **3.65** | **3.60** | **3.30** |
+
+No candidate stands out, and all are low. B has not yet had the landscape audit that sank A (L-029, L-034), and its "unmet 3" is provisional. Next: a pre-ADR landscape audit of B, and a measurement of where new tools from unknown authors are actually found without promotion, since "people can find it" is the binding constraint the critique exposed (both started at 07:18 in S024).

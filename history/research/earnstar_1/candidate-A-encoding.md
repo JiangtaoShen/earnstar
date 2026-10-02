@@ -1,5 +1,7 @@
 # Candidate A — "Don't destroy my file's encoding or line endings" (S024)
 
+**Erratum (S024, after the independent critique; `critique.md`, ADR-006 section)**: §3 and §6 are wrong in three places and incomplete. Codex shipped CRLF preservation behind an opt-in flag (`apply_patch_preserve_line_endings`, PRs #37757 and #37758 merged 2026-08-10, release 0.148.0); Kilo (27k stars) has preserved legacy encodings natively since 2026-04; mcp-file-tools and agent-tool document Codex setups; the repair idea of §4 was published with 99.2 % recovery in [claude-code#7134](https://github.com/anthropics/claude-code/issues/7134#issuecomment-5388799038) (2026-08-23); about 25 further small tools exist (`s024/critique-ADR-006.md` §2). The prototype also failed under `core.autocrlf=true` and with Windows-1252 bytes 0x80–0x9F. The text below is kept as written.
+
 Evidence of the need: `needs.md` §A and `s024/needs-G1-windows.md` (N1, N2, N6). This file records the job as users experience it, the existing solutions as actually tried, and the prototype.
 
 ## 1. The job, step by step (as the people in the evidence describe it)

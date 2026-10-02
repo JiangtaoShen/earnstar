@@ -1,7 +1,7 @@
 # ADR-006: Project 1 selection — keep and repair file encodings and line endings that AI coding agents break
 
 - **Date / session**: 2026-10-03 / S024 (draft)
-- **Status**: proposed. Waits for the independent critique (this session) and confirmation in a later session (Selection Gate, `playbook/research.md` §6)
+- **Status**: withdrawn in S024 after the independent critique (`history/research/earnstar_1/critique.md`, ADR-006 section): Codex shipped a CRLF fix and Kilo native encoding support, about 25 small tools already exist, the same repair recipe was published in claude-code#7134, A was scored by a different standard than D, and the prototype failed under `core.autocrlf=true`. The draft is kept as the record.
 - **Approved by**: developer (selection is within the developer's authority; B-class actions it implies, such as a first npm publication, go through the outbox)
 
 ## Context
