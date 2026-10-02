@@ -38,4 +38,20 @@ A zero-token, local CLI that reads the Claude Code transcripts already on the us
 6. Positioning among usage monitors.
 
 ## 6. Spike gate (≤ 4 h; S022)
-From transcripts alone, detect two induced changes on a fixed task mix (effort high vs low; Opus 5.5 vs Sonnet 5.5) with ≥ 90 % detection and ≤ 10 % false alarms on unchanged windows of the program's own archive. Results: see §7 (to be filled).
+From transcripts alone, detect two induced changes on a fixed task mix (effort high vs low; Opus 5.5 vs Sonnet 5.5) with ≥ 90 % detection and ≤ 10 % false alarms on unchanged windows of the program's own archive. Results: see §7.
+
+## 7. Spike results (S022, 16:12–16:17; data in `lab/spike/monitor/`, git-ignored)
+**Step 1, passive logs (zero tokens)**: the program's own transcripts split by ledger session (18 sessions, all claude-opus-5-5 at `xhigh`, CLI 2.1.280–2.1.286): per-session median output 543–2,834 tokens and median thinking 0–1,149, driven by the task mix. A passive trend detector would false-alarm (it would report output falling about 60 % across CLI versions with nothing changed but the work). **Fail for passive "shrinkflation"; pass for passive facts** (serving model per turn, effort, `service_tier`, `speed`, fallbacks, `<synthetic>` messages), which are read directly from fields.
+
+**Step 2, active probe** (a fixed six-problem micro-panel with deterministic answers, one headless call, no tools, run from a scratch folder outside the repo; 21 runs in total including one test; about $0.35 API-equivalent; 5–14 s per run):
+
+| Arm | Thinking tokens (5 runs) | Mean | Output tokens | Correct |
+|---|---|---|---|---|
+| Opus 5.5, effort low | 222, 224, 228, 236, 258 | 234 | 263–299 | 6/6 in every run |
+| Opus 5.5, effort high | 303, 311, 323, 327, 332 | 319 | 344–373 | 6/6 |
+| Opus 5.5, effort xhigh | 344, 349, 395, 399, 402 | 378 | 385–443 | 6/6 |
+| Sonnet 5.5, default effort | 337, 341, 349, 363, 363 | 351 | 378–404 | 6/6 |
+
+Within an arm the thinking tokens vary by about ±5–8 %; adjacent effort levels do not overlap, so a 15–25 % shift is detectable with five runs, and the model is identified by its field. **Pass for the active probe**, with one gap: all arms scored 6/6, so the panel needs harder items with a spread of accuracy to detect capability changes, not only thinking-budget changes.
+
+**Design consequence**: #47 becomes "facts from your logs, plus a three-cent probe": passive reading of reroutes, effort, tier, speed, and fallbacks (zero tokens), and an optional active micro-panel (a few cents of the user's plan per run) compared over time and against reference runs the project publishes at each release. Spike time: about 6 minutes of wall-clock; budget ≤ 4 h.
