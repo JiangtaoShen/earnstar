@@ -35,8 +35,8 @@ Not counted: 40 setup/admin/gap entries, 1.2 active hours.
 <!-- hours:end -->
 
 ## Open session
-- **ID**: —
-- **open_utc**: —
+- **ID**: S022
+- **open_utc**: 2026-10-02T07:45:29.259Z
 
 Both are empty when no session is open.
 
