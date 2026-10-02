@@ -1,6 +1,7 @@
 # Launch and growth (P2–P4)
 
 ## Pre-launch checklist (every item must pass before any promotion)
+Start from `templates/project/` (community files, issue and PR templates, Dependabot, changelog, license inventory, LF line endings; see its `TEMPLATE.md`).
 - [ ] The README meets Constitution §7. A demo GIF or screenshot sits above the fold. Badges show only real signals (CI, license, version).
 - [ ] The quick start works from a clean clone, using only the documented commands.
 - [ ] Release `v0.1.0` or later, with notes. A package is published if applicable; its first publication goes through the outbox.

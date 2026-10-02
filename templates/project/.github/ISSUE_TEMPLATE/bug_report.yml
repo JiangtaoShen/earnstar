@@ -1,0 +1,38 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The output of `{{version command}}`
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11 / macOS 15 / Ubuntu 24.04
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands or actions, from a clean start if possible
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Paste error output as text, not a screenshot
+    validations:
+      required: true

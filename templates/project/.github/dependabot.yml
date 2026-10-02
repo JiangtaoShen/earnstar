@@ -1,0 +1,11 @@
+# Dependabot version updates; keep only the ecosystems the project uses. Alerts and secret scanning are repository settings (Constitution §7).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
