@@ -32,7 +32,7 @@ Categories of the 75 posts with ≥ 100 points: non-AI developer tools, language
 
 | Title feature | Posts | Reached 100 | Lift vs 1.46 % |
 |---|---|---|---|
-| Local LLM on small hardware | 20 | 4 | 13.7× |
+| Local LLM on small hardware | 20 | 4 | 13.7× (small sample; the whole local-LLM lane, 275 Show HNs in March–September 2026, reached 100 points at 2.55 % vs 1.70 % overall, about 1.5×: `ideas.md` #45) |
 | "Without AI" / "no LLM" | 13 | 2 | 10.5× |
 | Single binary | 28 | 2 | 4.9× |
 | First person ("I built…") | 135 | 9 | 4.6× |
@@ -65,4 +65,4 @@ About 80 % of GitHub Show HNs get 1–4 points; small-owner new repos in that ti
 Algolia may omit dead or flagged posts; the front-page proxy rests on 8 days; "stars now" includes non-HN sources; follower counts are today's; tier samples are small (n 9–19 for small owners); categories and the AI-remark regex are crude; candidate odds are judgement.
 
 ## Developer's reading
-A Show HN is a lottery ticket with a real upper tail (about 3 % chance of ≥ 100 stars for a small owner) and a median indistinguishable from no post. It suits the program only for a substantial project the owner genuinely uses, and it would face open hostility to AI-built work. The highest-lift lane, local models on small hardware, matches this machine (6 GB GTX 1660 Ti) and is worth a deep dive in the next session.
+A Show HN is a lottery ticket with a real upper tail (about 3 % chance of ≥ 100 stars for a small owner) and a median indistinguishable from no post. It suits the program only for a substantial project the owner genuinely uses, and it would face open hostility to AI-built work. The local-model lane looked like the highest-lift lane, but measured over the whole lane its lift is about 1.5×, and its best idea for this machine (#45) turned out crowded (`ideas.md` #45).
