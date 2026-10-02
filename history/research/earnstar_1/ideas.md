@@ -271,7 +271,7 @@ Evidence: `smallwin.md` (866 small-owner winners of July–September 2026), `cri
 
 39. **Configurable interface for Claude Code on mods (AT)**: see `candidate-39.md`; draft ADR-003 on hold after the critique (rescored 3.15).
 39b. **"Your status line, everywhere" (AT)**: a band mod that draws the user's existing status-line command (ccstatusline, claude-hud, powerline) in the desktop Code tab, which has no status line ([#41456](https://github.com/anthropics/claude-code/issues/41456), 70 👍), plus a live configurator; the critic's preferred variant of #39. Risks: desktop drawing unverified; `$.process.run` is documented as "CLI only"; the desktop app shows plan usage natively; a native desktop status bar would end it.
-40. **Give your coding agent an image editor (SK/AT)**: see `candidate-40.md`. Tool skills reach 1,000 at about twice the rate of skills in general (5.9 % vs 2.9 % of repos with ≥ 10 stars, 2026-03..09); image editing is under-tried (13 ImageMagick skills).
+40. **Give your coding agent an image editor (SK/AT)**: see `candidate-40.md`; knocked out by the S021 critique (`critique.md`). Tool skills reach 1,000 at about twice the rate of skills in general (5.9 % vs 2.9 % of repos with ≥ 10 stars, 2026-03..09); image editing is under-tried (13 ImageMagick skills).
 41. **Usage widget for Windows (DA/AT)**: codenotch for Windows. Evidence: vinzdg/codenotch 2,656★ (macOS, 0 followers, 1,469 in week 1), qunqin24/Pulse 498 (macOS), change-42-yhmm/quota-float 365 (Codex only). Risk: Claude usage needs the user's OAuth token against an undocumented endpoint (ToS and credential questions) unless fed by a status-line or mod bridge; the desktop app already shows usage.
 42. **Code-rendered visual skill (SK)**: infographics or diagrams from HTML/SVG, no image model. Evidence: bangtutorial/bang-motion 554, OrRon/EpicInfographics 431, inkboard/system-atlas 426; CJK leaders near 3,900. Crowded by design and motion skills since the Opus 5.5 video wave.
 43. **Behavior-guard skill with its own benchmark (SK)**: #23 with a measurement. Evidence: Spielewoy/autoprompt-skill 1,298, lennney/stop-that-shit 2,444, LB623/no-negative-echo 888. Still needs an unowned habit; readable output (#23b) is now taken (gvzdv/claudish-to-english 2,707).
@@ -281,7 +281,7 @@ Evidence: `smallwin.md` (866 small-owner winners of July–September 2026), `cri
 |---|---|---|---|
 | 39 | Configurable interface on mods | Weakened (S021 critique) | Rescored 3.15: the status-line reference class vanished under its control; native settings cover several items; claude-hud (28k) and ccstatusline (13k) own the band's content |
 | 39b | Status line in the desktop app | Shortlist (conditional) | Unique and small, rides incumbents' users; needs a desktop render check by the owner before any decision |
-| 40 | Image editor for agents | **Shortlist (lead for the reflection)** | Under-tried niche in a favorable class (tool skills ~2× the skill rate); fully local and testable; a visual gallery by construction |
+| 40 | Image editor for agents | Knock-out (S021 critique) | The same product by the reference winner's own author (kajisho5/imagemagick-skill) has 1★ after 26 days; about 40 tiny entrants; the tool-skill class claim was selected on the outcome (`critique.md`) |
 | 41 | Windows usage widget | Deprioritized | Credential and ToS questions for Claude usage; desktop shows usage natively |
 | 42 | Code-rendered visual skill | Deprioritized | Crowded |
 | 43 | Behavior guard with benchmark | Keep as fallback | Needs an unowned habit |
