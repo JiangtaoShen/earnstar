@@ -1,5 +1,7 @@
 # earnstar_1 — ideas and screening
 
+**Superseded (S023, 2026-10-03)**: this file records the star-centred selection of S016–S022. The owner ordered a restart from people's real needs, with no promotion (ADR-005); the new work goes to `people.md` and `needs.md` in this folder. The evidence here stays as background.
+
 _Stage 2 (divergence) started in S016 (2026-09-25), after the foundational study (`../foundation.md`); extended in S018 (2026-10-01). Contents: inputs; raw ideas #1–#34; screening table and shortlist; selection rerun plan by channel scenario; last-90-days scan; evidence for the rerun (scenarios a and c, model-release hooks, #34 case studies, forms, and landscape). Deep dives: `candidate-23.md`, `candidate-26-27.md` (#26, #27, #30), `candidate-31.md`; critique of the withdrawn draft: `critique.md`._
 
 ## Inputs from the foundational study

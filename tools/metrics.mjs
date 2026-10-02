@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Snapshot program metrics (repos.json status: root | active | closed) via the gh CLI and public APIs.
 //
-//   node tools/metrics.mjs            snapshot all tracked repos and all channel items
-//   node tools/metrics.mjs earnstar_1 snapshot one repo key (channel items of that project only)
+//   node tools/metrics.mjs            snapshot all tracked repos
+//   node tools/metrics.mjs earnstar_1 snapshot one repo key
 //
 // Outputs (history/metrics/), all timestamps UTC:
 //   snapshots.csv          per run and repo: stars, forks, watchers, issues, 14-day traffic totals
@@ -14,22 +14,18 @@
 //   releases.csv           per run and release: asset download count
 //   package_daily.csv      upserted per (date, key, registry, package): npm / PyPI downloads (repos.json "packages")
 //   security.csv           per run and repo: secret scanning, push protection, Dependabot alerts and updates
-//   channels.csv           per run and item in history/channels.json: DEV articles (reactions, comments, views via
-//                          tools/devto.mjs) and awesome-list PRs (state, comments)
 // Privacy: no user logins are stored.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { devtoKey, devto } from './devto.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'history', 'metrics');
 const BOM_RE = new RegExp('^' + String.fromCharCode(0xfeff)); // byte-order mark written by some editors
 const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8').replace(BOM_RE, '')); // tolerate BOM (e.g., Notepad)
 const reg = readJson(path.join(ROOT, 'repos.json'));
-const CHANNELS = path.join(ROOT, 'history', 'channels.json');
 const INTERNAL = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
 
 const errors = [];
@@ -109,32 +105,6 @@ async function packages(r) {
   if (rows.length) upsertCsv('package_daily.csv', ['date_utc', 'key', 'registry', 'package', 'downloads'], [0, 1, 2, 3], rows);
 }
 
-// DEV: with the key, own-article stats include page views; without it, public reaction/comment counts only.
-let devtoMine = null;
-async function devtoStats(id) {
-  const key = devtoKey();
-  if (key && devtoMine === null) {
-    try { devtoMine = new Map((await devto('GET', '/articles/me/all?per_page=1000', key)).map(x => [x.id, x])); }
-    catch (e) { errors.push(e.message); devtoMine = new Map(); }
-  }
-  return devtoMine?.get(id) ?? await getJson(`https://dev.to/api/articles/${id}`);
-}
-
-async function channel(c, utc) {
-  let score = '', comments = '', state = '';
-  const pr = c.url.match(/github\.com\/([^/]+\/[^/]+)\/pull\/(\d+)/);
-  if (c.type === 'devto' && c.devto_id) {
-    const d = await devtoStats(c.devto_id);
-    if (d) { score = d.public_reactions_count ?? ''; comments = d.comments_count ?? ''; state = d.page_views_count != null ? `views:${d.page_views_count}` : 'public'; }
-    else state = 'unavailable';
-  } else if (c.type === 'pr' && pr) {
-    const j = api(`repos/${pr[1]}/pulls/${pr[2]}`, null);
-    if (j) { comments = (j.comments ?? 0) + (j.review_comments ?? 0); state = j.merged ? 'merged' : j.state; }
-    else state = 'unavailable';
-  }
-  return [utc, c.id, c.project, c.type, c.url, c.posted_utc, c.posted_utc ? hours(c.posted_utc, utc) : '', score, comments, state];
-}
-
 const only = process.argv[2];
 const tracked = reg.repos.filter(r => ['root', 'active', 'closed'].includes(r.status) && (!only || r.key === only));
 const utc = new Date().toISOString();
@@ -190,9 +160,4 @@ for (const r of tracked) {
     views_14d: views.count, uniques_14d: views.uniques, community: com });
 }
 
-const items = fs.existsSync(CHANNELS) ? readJson(CHANNELS).items ?? [] : [];
-const chRows = [];
-for (const c of items.filter(c => !only || c.project === only)) chRows.push(await channel(c, utc));
-appendCsv('channels.csv', ['utc', 'id', 'project', 'type', 'url', 'posted_utc', 'hours_since_post', 'score', 'comments', 'state'], chRows);
-
-console.log(JSON.stringify({ utc, repos: summary, channels: chRows.length, errors }, null, 2));
+console.log(JSON.stringify({ utc, repos: summary, errors }, null, 2));

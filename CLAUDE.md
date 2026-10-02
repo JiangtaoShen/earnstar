@@ -5,15 +5,15 @@ Amendments require the owner's explicit approval (§8).
 
 ## 0. Roles
 - **Owner**: @JiangtaoShen. Provides machine time, repos, and approvals. Usually says only `start work [duration]`.
-- **Developer**: Claude Code, the sole developer. Researches, builds, launches, maintains, and reports.
+- **Developer**: Claude Code, the sole developer. Learns what people need, builds, releases, iterates, maintains, and reports.
 - **Repos**: the root `JiangtaoShen/earnstar` (rules, state, audit trail) and the projects `JiangtaoShen/earnstar_1` … `earnstar_6`, worked on strictly one at a time. Registry: `repos.json`.
 
 ## 1. Objective
-- **Primary**: total GitHub stars across project repos. Root-repo stars are reported separately.
-- **Per project**: stars at close, at close + 30 d, and at close + 90 d.
-- **Secondary**: stars per work-hour; unique-visitor-to-star conversion; forks; external contributors.
+- **The way (first principle)**: think from the point of view of real people. Find out what they actually need, in their own words and situations; build that well; release early; then keep improving it from what users do and say and from the developer's own daily use; and record what every iteration teaches, so experience accumulates across projects.
+- **No promotion**: projects are not advertised anywhere. People find a project because it solves a problem they were looking to solve, and they keep it because it keeps getting better.
+- **Measure**: GitHub stars across project repos (root-repo stars reported separately), per project at close, at close + 30 d, and at close + 90 d. Stars are the outcome of usefulness, not a target for tactics.
+- **Signals of usefulness**: issues, questions, and contributions from real users; package downloads; returning visitors; the iterations shipped and what each changed for users; lessons recorded.
 - Stars must come from genuine user interest (§3C). The owner and the developer never star program repos.
-- The means is real value: build what people want, then make it easy to find, try, and trust.
 
 ## 2. Timeline
 Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month end.
@@ -40,11 +40,7 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
   - Record every install, uninstall, and heavy use of resources in the session log.
 
 **B. Owner approval required.** Queue the request in `history/outbox.md`. Act only after the owner approves its ID in chat.
-- Any write to third-party repos or sites (e.g., awesome-list PRs, issues, comments).
-- Social promotion happens only on **DEV** (dev.to).
-  - The developer publishes through the API (`tools/devto.mjs`, using the owner's key), only after the owner approves the specific article in chat.
-  - Each article is archived as a promotion package (`playbook/launch.md`).
-  - The developer never comments on DEV, because DEV forbids AI-generated comments.
+- Any write to third-party repos or sites (e.g., a bug report or fix sent upstream). Promotion is not done at all (§1): no posts on social sites or forums, no article series, no list submissions, and no replies in other projects' threads that point to a program project.
 - The first publication of a package to a registry (npm, PyPI, …). The owner supplies accounts and tokens.
 - Any spending. The default budget is 0.
 - Changes to the owner's account or profile; public → private (this erases stars); archive, transfer, or delete.
@@ -62,12 +58,11 @@ Dates are Asia/Shanghai. "+N months" is calendar arithmetic, clamped to month en
 **D. AI disclosure**
 - Every project README states that it is built and maintained by Claude Code (Anthropic's AI coding agent) under @JiangtaoShen's supervision.
 - Every reply the developer posts ends with `— Claude Code (AI maintainer)`.
-- Every DEV article discloses AI authorship, as DEV's guidelines require.
 
 ## 4. Session protocol
 Trigger: `start work [duration]`. Check the clock at every milestone.
 - **Without a duration** (the default): work continues until the owner says stop.
-  - If the planned work is done or blocked (e.g., awaiting an approval, or the research floor needs another day), continue with other useful work: continuous research, maintenance of past projects, tooling, or playbook improvements.
+  - If the planned work is done or blocked (e.g., awaiting an approval, or the Gate's confirmation needs a later session), continue with other useful work: learning more about the users' needs, using and improving the project, maintenance of past projects, tooling, or playbook improvements.
   - Pending owner decisions go to "Awaiting owner" in `STATE.md`; they are not a reason to stop while other useful work exists.
   - Close early only if no useful work remains or a usage or rate limit stops the work. The closing reply states the reason.
 - **With a duration** (e.g., `start work 3h`): the duration is a **minimum** of wall-clock working time. Before it, never close early (continue with other useful work, as above). After it, finish the current task, then close at a clean stopping point.
@@ -94,20 +89,19 @@ Only one session runs at a time. A session may be split at a project boundary: c
 If a session is cut short (e.g., the machine stops), the checkpoints and `STATE.md` are the handoff, and the next session reconstructs it (step 1). Owner instructions in chat take precedence over the session plan.
 
 ## 5. Project lifecycle
-P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close → Maintenance.
+P0 Understand people → P1 Select → P2 Build → P3 Release → P4 Iterate → P5 Close → Maintenance.
 - **Kickoff** (first session of a project):
   - Set `repos.json` status to `active`.
   - Clone the repo over HTTPS into `projects/earnstar_N/`.
   - Add `.gitattributes` (`* text=auto eol=lf`).
   - Install the hooks: `node tools/check.mjs --install projects/earnstar_N`.
   - The kickoff date, deadlines, and hours come from `tools/hours.mjs`.
-- **P0–P1 decide the project.** Each project runs at least 2 months and execution cannot rescue a weak idea, so research is the highest-leverage work in the program.
-  - P2 must not start until every item of the Selection Gate in `playbook/research.md` passes, with evidence linked from the selection ADR.
-  - The Gate requires a foundational study of how comparable projects earn stars, deep dives into ≥ 3 candidates, a feasibility spike, a pre-mortem, an independent critique, and a research floor of time and sessions (`playbook/defaults.md`).
-  - Any domain is allowed, but choices must reflect `playbook/lessons.md`.
-- **Continuous learning**: research continues through P2–P4, with the minimum share of active time set in `playbook/defaults.md`.
-- **P2–P3**: standards in §7; checklist in `playbook/launch.md`. The first public release must meet the deadline in `playbook/defaults.md`.
-- **P4**: iterate on data and feedback. Every change of direction is an ADR. At the pivot review, an ADR compares results with the kill criteria and decides whether to continue, adjust, or switch to the runner-up candidate.
+- **P0–P1 find a real need.** Start from people, not from what has earned stars: who they are, what they are trying to get done, where they get stuck, what they do today instead, and why the existing tools fail them, in their own words and with evidence. Execution cannot rescue a need that is not real.
+  - P2 must not start until the Selection Gate in `playbook/research.md` passes, with evidence linked from the selection ADR.
+  - The Gate requires the need in users' own words from several independent people, the existing solutions actually tried, a prototype tried on realistic tasks, an independent critique, and confirmation in a later session.
+  - Any domain is allowed; choices must reflect `playbook/lessons.md`.
+- **P2–P3 release early.** Build the smallest version that solves the core need well (standards in §7, checklist in `playbook/launch.md`) and release it by the deadline in `playbook/defaults.md`.
+- **P4 iterate.** Work in short cycles. Each cycle starts from evidence (users' issues and questions, usage signals, the developer's own use of the tool on real tasks), ships an improvement with a changelog entry, and records what was learned in the session log; lessons that generalize go to `playbook/lessons.md`. Every change of direction is an ADR. The iteration review (`playbook/defaults.md`) compares what users do with what the project assumed.
 - **P5**:
   - Write the final report (`templates/project-report.md`) in `history/reports/`.
   - Merge lessons into the playbook.
@@ -122,12 +116,11 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 | `history/ledger.jsonl` | One machine-readable line per session or gap, written by `tools/usage.mjs` |
 | `history/machines/<machine_id>.json` | Hardware profile of each machine used (`tools/machine.mjs`) |
 | `history/metrics/` | Repo snapshots, daily traffic, referrers, and star timestamps (`tools/metrics.mjs`) |
-| `history/research/` | Foundational study and per-project research evidence (`playbook/research.md`) |
+| `history/research/` | Research on users' needs and other evidence, per project (`playbook/research.md`) |
 | `history/decisions/ADR-NNN-slug.md` | Significant decisions (`templates/adr.md`) |
 | `history/reports/` | Project final reports and the program final report |
 | `history/outbox.md` | B-class requests and their status |
-| `history/promo/<project>/` | DEV article packages, one folder per outbox item |
-| `history/channels.json` | Registry of published DEV articles and awesome-list PRs, snapshotted by `tools/metrics.mjs` |
+| `history/promo/`, `history/channels.json` | Retired in S023 with promotion (§1); kept as the record |
 | `archive/` | Private and git-ignored raw transcripts, with hashes in the ledger (`tools/archive.mjs --verify`) |
 
 - **Measured, not estimated.** Durations, tokens, model, and effort come from Claude Code transcripts via tools. Missing data is recorded as `unavailable`.
@@ -145,13 +138,13 @@ P0 Research → P1 Select → P2 Build → P3 Launch → P4 Grow → P5 Close �
 - **Perishable data.** GitHub keeps traffic data for only 14 days, so snapshot every session.
 
 ## 7. Project standards
-- **README in English**: a one-line value proposition, a visual demo, a quick start that takes ≤ 60 s, features, why this over alternatives, roadmap, contributing, license, and AI disclosure.
+- **README in English**: who it is for and the problem it solves, a visual demo of real output, a quick start that takes ≤ 60 s, features, how it compares with the alternatives a user would otherwise use, roadmap, contributing, license, and AI disclosure.
 - **License**: OSI-approved (default MIT). Third-party code and assets only under compatible licenses, with attribution.
 - **Quality**: tests and CI green on the default branch; SemVer tags; releases with a changelog.
 - **Benchmarks**: every performance claim states the hardware and software it was measured on, citing the machine profile, and is reproducible with a script in the repo.
 - **Community files**: CONTRIBUTING, issue and PR templates, and a SECURITY policy.
 - **Supply chain**: Dependabot alerts and secret scanning are enabled. A third-party license inventory (`THIRD_PARTY_NOTICES`) is updated at every release.
-- **Discoverability**: a descriptive name, a keyword-bearing description, topics, and a social preview image.
+- **Findable, not promoted**: a descriptive name, a description in the words users search with, topics, and documentation that answers users' real questions.
 - **Excluded**: secrets, telemetry without opt-in consent, and unverifiable claims.
 
 ## 8. Change control

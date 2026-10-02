@@ -10,13 +10,12 @@ Tunable parameters referenced by the Constitution. Change them only with a `CHAN
 | Checkpoint interval | ≤ 45 min | Limits loss if the machine stops abruptly; matters more in long sessions |
 | Close-out | Starts when the owner says stop (or after a given minimum), at a clean stopping point; not counted toward a minimum | Leaves time for the log, ledger, and push |
 | Maintenance cap (past projects) | ≤ 15 % of a session | Keeps focus on the current project |
-| P0 + P1 floor | ≥ 8 active hours (phase P0/P1 in `tools/hours.mjs`), across ≥ 2 sessions on ≥ 2 calendar days | A ≥ 2-month commitment justifies deep research; a second day gives fresh-context reflection. S011 lowered the session count from 3 to 2, so that one long owner block plus one more day suffices |
-| P0 + P1 ceiling | ≤ 14 days after kickoff; exceeding it needs a recorded reason in the selection ADR (the Gate takes precedence) | Guards against analysis paralysis |
-| Feasibility spike | ≤ 4 active hours, throwaway code | Retires the main technical risk cheaply |
+| P0 + P1 floor | None (removed in S023): the Gate asks for evidence of a real need and a later-session confirmation, not hours | Owner directive S023: understanding people matters more than research volume |
+| P0 + P1 ceiling | ≤ 14 days after kickoff; exceeding it needs a recorded reason in the selection ADR (the Gate takes precedence). Project 1 exceeds it because the owner ordered a restart of the selection on 2026-10-03 | Guards against analysis paralysis |
+| Prototype on real tasks | ≤ 4 active hours, throwaway code | Tests whether the solution would have helped the people who described the need |
 | First public release | ≤ day 35 after kickoff | Leaves ≥ 25 days of feedback before the 2-month minimum |
-| Pivot review | Launch + 14 days | Most launch-driven stars arrive in the first week |
-| Continuous research (P2–P4) | ≥ 10 % of active time | Learning continues after selection. Sessions are tagged with a single phase, so this share is reported in each session log and supported by the ledger's web searches and fetches; the ledger cannot measure it directly |
-| DEV articles | ≤ 3 per project (a build write-up at launch, then up to two technical deep dives or milestone write-ups, ≥ 3 weeks apart) | DEV is the only social channel (S013), but it forbids clout-driven posting, so quality beats volume |
-| Plateau (close signal) | Stars gained in the last 14 days < max(10, 5 % of total) | Marginal return has flattened |
+| Iteration review | Every 14 days after the first release | Compares what users actually do with what the selection ADR assumed |
+| Time on users (P2–P4) | ≥ 10 % of active time on users' issues, questions, and workflows, and on the developer's own use of the project | Learning from use is how the project improves without promotion |
+| Plateau (close signal) | Stars gained in the last 14 days < max(10, 5 % of total), and no open user-reported need of high value | Close when growth has flattened and users' needs are met |
 | Idle cap for active time | 60 min | Used by `tools/usage.mjs` |
 | Free-space floor | ≥ 30 GB on each of C: (conda environments, caches) and D: (work files) | Keeps the owner's machine usable. Datasets and models go in `lab/` or project folders and are pruned when no longer needed |

@@ -18,10 +18,10 @@ Five lines or fewer.
 ## 3. Timeline
 Phase — dates — key events (with evidence).
 
-## 4. Star curve and attribution
-- Stars per day and top referrers.
-- For each channel item (`channels.csv`): URL, posting time, score and comments over time, and the stars gained within 48 h.
-- Which actions caused which jumps.
+## 4. Users and iterations
+- Who the project served, and what they actually did with it (issues, questions, contributions, downloads, traffic paths), against what the selection ADR assumed.
+- Each iteration: the evidence it started from, what it changed for users, and what it taught.
+- Stars per day and top referrers, read as an outcome of usefulness (no promotion was used).
 
 ## 4a. Community and adoption
 - External issues and PRs, and the median first-response time.
@@ -29,7 +29,7 @@ Phase — dates — key events (with evidence).
 
 ## 4b. Human contribution
 - Owner instructions that changed direction.
-- Owner actions (posts, time spent).
+- Owner actions (time spent).
 - Human commits.
 - An assessment of which outcomes depended on human input.
 

@@ -1,125 +1,68 @@
-# Research and selection (P0–P1)
+# Understanding people and choosing a project (P0–P1)
 
-**Why this phase decides the project**: every project runs for at least two months. Execution cannot rescue a weak idea, so P0–P1 is the highest-leverage work in the program.
+**Principle (owner directive, S023)**: think from the point of view of real people. The question is not "what earns stars" but "what do these people actually need, and can we serve it better than what they use today?" No promotion is used (Constitution §1), so a project succeeds only if people who have the problem can find it, try it, and keep using it, and if it keeps getting better from what they do and say.
 
-**Goal**: choose, on evidence rather than intuition, the project with the highest expected stars per work-hour that the developer can build to a high standard within the timeline.
+**Goal of P0–P1**: one real, recurring need of a group of people the developer can understand and serve well, with evidence in their own words, and a first version small enough to release early and improve in short cycles.
 
 P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 
 ## 1. Stages
-1. **Foundational study**: how do open-source projects earn stars today? Written in project 1, then refreshed and extended in every later project.
-   - Sample ≥ 30 repos that gained ≥ 1,000 stars within 90 days of creation, over the past 12 months. Include ≥ 10 whose authors had small audiences (< 100 followers), because they show how cold starts succeed.
-   - For each repo, record: archetype, language, launch channels, days to 1k stars, README pattern, and author audience (current followers as a proxy; note this limitation).
-   - Output: `history/research/foundation.md`, giving base rates by archetype and by channel. Record the conclusions in `lessons.md`.
-2. **Divergence**: ≥ 15 raw ideas, each one line with the evidence that triggered it. Include a scan of repos created in the last 90 days (by stars and by topic, in English and Chinese), which the foundational study's window excludes (L-020).
-3. **Screening**: apply the knock-outs (§4) and shortlist ≥ 3 candidates.
-4. **Deep dive on each shortlisted candidate**:
-   - **Landscape**: ≥ 10 comparable or adjacent repos, with stars, star history, last activity, recurring issue themes, and gaps. Search in English and in the languages of the target users (L-017).
-   - **Case studies**: ≥ 5 successful launches of the same archetype, dissected for what drove the stars, with evidence (launch posts, timing, visible referrers).
-   - **Demand**: ≥ 3 independent signals of real pain (issues with many thumbs-up reactions, forum threads, repeated questions), each linked.
-   - **Differentiation**: a one-sentence answer to "why this over X", checked against the top 3 alternatives.
-   - **Distribution plan**:
-     - a DEV article angle that teaches something on its own (L-003), with candidate tags and evidence that those tags have active readers;
-     - ≥ 2 awesome lists whose criteria the MVP would meet;
-     - GitHub search keywords and topics.
-5. **Feasibility spike** on the leading candidate: a throwaway prototype of the riskiest technical part, within the budget in `defaults.md`, run on this machine.
-6. **Decision and pre-mortem**:
-   - Score the candidates (§3).
-   - Then answer: "It is close day and the project has fewer than N stars. Why?" List the top failure modes and their mitigations.
-7. **Independent critique**:
-   - A subagent with no stake in the decision reviews the draft ADR and argues against it.
-   - Record every objection and its response. Change the decision if the objections warrant it.
-8. **Reflection**: confirm the decision in a later session than the one that drafted it, with fresh context.
+1. **Choose people, not ideas.** Pick a group whose work the developer can understand and test on this machine (e.g., developers on Windows, maintainers of small open-source projects, users of a given tool). Write down who they are and what they are trying to get done.
+2. **Collect needs in their own words.** Read where these people describe problems and workarounds: issues and discussions of the tools they use, Q&A sites, forums, mailing lists, changelogs, and their own blog posts. Record each need as a quote with a link, the situation it arises in, how often it seems to happen, and what the person does today instead. Prefer needs where people already spend effort on workarounds (scripts, manual steps, long threads) over needs inferred from 👍 counts alone (L-029).
+3. **Understand the job.** For the strongest needs, reconstruct the task step by step as the user experiences it. Where possible, do the task yourself on this machine with the tools people use today, and note exactly where it hurts.
+4. **Try the existing solutions.** For each strong need, find what exists (search in the users' own words and languages, `tools/crowding.mjs`, the feature lists of the largest adjacent tools) and actually use the best ones. Record why they fail these users, or confirm that they already serve them well (then the need is met; drop it). A niche full of recent attempts that nobody uses is a warning that the need may be weaker than it looks; find out why they failed before going further.
+5. **Prototype on real tasks.** Build a throwaway prototype of the core of the solution (budget in `defaults.md`) and try it on realistic tasks taken from the users' own descriptions. The question is whether it would have helped the person who wrote the issue.
+6. **Decide.** Write the selection ADR: the people, the need with its evidence, why existing tools fail, the smallest first version, how the project will learn from use after release without promotion (issues, discussions, downloads, the developer's own daily use), and the first three iterations it expects.
+7. **Independent critique.** A subagent with no stake reviews the ADR from the user's point of view: is the need real, is it unmet, would these people actually use this? It runs fresh searches (it must not rely only on the developer's files, L-029). Record every objection and its response.
+8. **Confirm** the decision in a later session, with fresh context.
 
-## 2. Sources (cite every source used)
-- **GitHub search**, for fast risers by topic or language: `gh api -X GET search/repositories -f q="created:>YYYY-MM-DD stars:>200 topic:X" -f sort=stars`.
-- **Star history of any public repo**: `gh api -H "X-GitHub-Api-Version: 2026-03-10" repos/OWNER/REPO/stargazers/history` (weekly buckets with daily counts). Since July 2026 the stargazer list itself is private to a repo's admins and collaborators (L-004). The study scripts in `history/research/foundation/` show the full method. For quick case studies, `node tools/starhist.mjs OWNER/REPO ...` prints owner followers, the first star, week 1, the first 30 days, the peak day, the total, and the last 30 days. For base rates that count the misses, `node tools/basecount.mjs "<search qualifiers>"` prints how many matching repos reach each star threshold. Before scoring any idea, run `node tools/crowding.mjs "<phrase>" ...` with several short phrases in the users' own words and languages, and read its bottom-tier sample (L-027).
-- **GitHub Trending** (daily and weekly, per language) and OSS Insight collections.
-- **Hacker News** (reading only; it is not a program channel), via the Algolia API, e.g. `hn.algolia.com/api/v1/search?tags=show_hn&numericFilters=points>100`. Read the comments to learn what developers value.
-- **DEV**: top articles by tag (`dev.to/api/articles?tag=X&top=N`) show which topics and formats draw readers, and which articles link to GitHub repos.
-- **Reddit** is unreachable from this environment (L-002); use secondary sources only.
-- **Issues of popular repos, sorted by thumbs-up reactions** (`sort:reactions-+1`): demand that the maintainers will not meet.
-- **Package download trends** (npm, PyPI), as demand evidence.
-- **Awesome lists in the domain**: gaps, and each list's inclusion criteria.
-- **Program data**: `history/metrics/` and `lessons.md`.
+## 2. Sources
+- **Issues and discussions** of the tools the users rely on, sorted by reactions and by recency; long threads where people share workarounds are the strongest evidence.
+- **Q&A and forums** (Stack Overflow, GitHub Discussions, project forums), read-only.
+- **Changelogs and docs** of the tools involved, to check what is already native (L-026).
+- **The users' own artifacts**: scripts, gists, and small repos people wrote for themselves are evidence of a need and a source of requirements.
+- **Program data**: `history/metrics/`, `lessons.md`, and the developer's own experience using tools on this machine.
+- Helper tools: `tools/crowding.mjs` (who already pursues a need), `tools/declined.mjs` (requests maintainers declined), `tools/starhist.mjs` and `tools/basecount.mjs` (context only; they describe outcomes, they do not choose projects).
 
-## 3. Scoring (1–5 per criterion, weighted)
+## 3. Evaluation (1–5 per criterion, weighted)
 | Criterion | Weight | A score of 5 means |
 |---|---|---|
-| Demand evidence | 25 % | Several independent signals of pain; comparable repos are growing fast |
-| Differentiation | 20 % | A clear one-sentence answer to "why this over X" |
-| Time-to-wow | 15 % | Understood in 10 s from the README; tried in ≤ 60 s |
-| Feasibility | 15 % | The spike succeeded; an MVP takes ≤ 40 active hours on this machine; the developer can test it fully |
-| Distribution fit | 15 % | A strong DEV article angle with active tags, ≥ 2 fitting awesome lists, and searchable keywords |
-| Sustainability | 10 % | Low maintenance; no hosted infrastructure and no cost |
+| The need is real | 30 % | Several independent people describe it in their own words, with workarounds or repeated effort |
+| It is unmet | 20 % | The existing solutions were tried, and they clearly fail these users |
+| We can serve it well | 20 % | The developer can build a first version that solves the core need on this machine, and test it fully on realistic tasks |
+| People can find and try it | 15 % | Users with the need search with words that lead to the project; trying it takes a minute |
+| It can keep improving | 15 % | Clear next iterations, signals to learn from after release, low maintenance, no hosted cost |
 
-**Explore vs. exploit**:
-- Projects 1–2 explore distinct archetypes.
-- From project 3 on, weight archetypes by observed stars per work-hour, but keep at least one exploratory candidate in each scoring round.
-
-**Archetype priors**: these are unverified until the foundational study or program data confirms them.
-- Developer tools with instant payoff (CLI, editor/terminal utilities)
-- AI/LLM tooling (agents, MCP servers, Claude Code skills and plugins)
-- Curated resources (awesome lists, roadmaps, "build your own X", cheat sheets)
-- Self-hostable alternatives to paid SaaS
-- Templates and starter kits
-- Visual or playful projects with shareable output
+Treat differences smaller than one point on one criterion as noise. When candidates tie, prefer the one whose users the developer understands best and whose need the developer meets in its own work, because daily use is the most reliable feedback without promotion.
 
 ## 4. Knock-outs (any one rejects the idea)
-- It needs money or hosted services.
-- It needs owner accounts beyond GitHub and DEV.
+- The need is not real (no independent people describing it) or is already met well by an existing tool or a native feature of the current release.
+- It needs money, hosted services, or accounts beyond GitHub.
 - It carries legal, ToS, or trademark risk.
-- It depends on a dominant incumbent and has no real angle against it.
-- The developer cannot test it.
-
-**Applying the knock-outs and the scores consistently** (from the S018 critique, `history/research/earnstar_1/critique.md`):
-- Apply each knock-out the same way to every idea; e.g., if one idea is dropped because a single vendor release could remove the need, so is every idea with that risk.
-- Score distribution only for channels the program can actually use under the current channel policy, not channels that would need an approval not yet given.
-- Build reference classes that count the misses as well as the winners (e.g., all repos of the same kind created in the same window, by star threshold; `tools/basecount.mjs`; L-023), compare them with a same-period control (e.g., all new skills that week), and search them in the target users' languages (L-017). In S018 a control reversed a conclusion drawn from winners alone. In S021 it happened again (L-026): a 2025 reference class looked strong until compared with its own 2025 control and with the same niche in 2026. Prefer reference classes from the last 6 months.
-- Check every claimed need against the current release before scoring it: native settings and the changelog (L-026), and a direct probe where possible (S021 tested permission decisions with a zero-token mod).
-- Search each category in the users' own words as well as the platform's (e.g., "hud", "status bar", "dashboard" for status lines; L-026).
-- Search for the outcome the user wants, not only the mechanism ("dumber", "drift", "degraded", "nerf"; "benchmark my repo"), and read the feature lists of the two or three largest adjacent tools before calling any feature new (L-029).
-- A niche where several recent attempts sit at 0–10 stars signals weak demand on GitHub, not poor execution by others: treat it as a knock-out unless the candidate brings a channel or audience the others lacked (L-014, L-027, L-029).
-- Treat score differences smaller than one point on one criterion as noise.
-- **Tie-break** (S022): when the leading candidates are within noise, rank them in this order: (1) no knock-out after the fresh outcome-word search; (2) the number of dated launch moments under the program's control before close + 90 days (L-028); (3) option value if pending channel decisions are granted; (4) evidence that people already do the job by hand or use an adjacent tool daily; (5) a distinct archetype for exploration (projects 1–2). Record the tie-break in the ADR instead of inflating scores.
+- The developer cannot test it on realistic tasks.
+- Its value depends on promotion rather than on people looking for a solution.
 
 ## 5. Outputs
-- **`history/research/earnstar_N/`**: `ideas.md` (all raw ideas and the screening), one file per deep-dived candidate (landscape, case studies, demand, distribution), `spike.md`, and `critique.md` (objections and responses).
-- **`history/decisions/ADR-NNN-project-N-selection.md`**:
-  - the scores and the Selection Gate checklist with links;
-  - the decision and the runner-up;
-  - the pre-mortem;
-  - predicted stars at close, with 50 % and 90 % intervals;
-  - kill criteria for the pivot review (§8).
+- **`history/research/earnstar_N/`**: `people.md` (who and what they are trying to get done), `needs.md` (needs in users' own words with links), one file per candidate (the job, existing solutions tried, prototype results), and `critique.md`.
+- **`history/decisions/ADR-NNN-project-N-selection.md`**: the people and the need; the evidence; why existing tools fail; the first version; how the project will learn after release; the first three iterations; the evaluation; the critique outcome.
 
 ## 6. Selection Gate (every item must pass before P2)
-- [ ] The foundational study exists and was refreshed in this project.
-- [ ] ≥ 15 ideas were screened and ≥ 3 candidates deep-dived.
-- [ ] Each candidate has a landscape (≥ 10 repos), ≥ 5 case studies, ≥ 3 demand signals, a differentiation statement, and a distribution plan.
-- [ ] The feasibility spike succeeded, or the technical risk is shown to be low, with reasons.
-- [ ] The pre-mortem and the independent critique are recorded, and every objection is answered.
-- [ ] A prediction with intervals, kill criteria, and a runner-up are recorded.
-- [ ] The research floor is met (`defaults.md`).
+- [ ] The people and the need are described, with quotes and links from at least five independent people.
+- [ ] The existing solutions were found (in the users' own words and languages) and the best ones actually tried; why they fail is recorded.
+- [ ] A prototype was tried on realistic tasks from the users' own descriptions.
+- [ ] The first version, the learning plan after release, and the first three iterations are written down.
+- [ ] The independent critique is recorded and every objection is answered.
 - [ ] The decision was confirmed in a later session.
 
-## 7. Continuous learning (P2–P4)
-- Research does not stop at P1. At least the share of active time set in `defaults.md` goes to:
-  - user feedback;
-  - competitor moves;
-  - new comparable launches;
-  - how the domain's top projects structure their code, docs, and README.
-- Record findings in the session log and `lessons.md`.
+## 7. Iteration (P2–P4)
+- **Release early**: the first version solves the core need well and is released by the deadline in `defaults.md`.
+- **Cycle**: each cycle starts from evidence (new issues and questions, what users ask that the docs do not answer, usage signals, the developer's own use on real tasks), picks the most valuable improvement, ships it with a changelog entry, and records what was learned.
+- **Answer every user**: issues and discussions in the project repo get a first response within the next session (§3D disclosure applies).
+- **Review**: at each iteration review (`defaults.md`), compare what users actually do with what the ADR assumed; change direction only with an ADR.
+- **Accumulate experience**: lessons that generalize go to `lessons.md`; the playbook changes when experience shows a better way.
 
-## 8. Pivot review
-- **When**: at the date set in `defaults.md` (launch + 14 days). Compare the metrics with the kill criteria.
-- **Output**: an ADR that decides one of:
-  - continue;
-  - adjust the positioning, README, or channel;
-  - switch to the runner-up candidate.
-- **A switch** reuses the repo (renamed) and keeps the project's original kickoff and deadlines.
-
-## 9. Naming
-- Short, memorable, and searchable.
+## 8. Naming
+- Short, memorable, and in the words users search with.
 - Free on GitHub and on the target package registry.
 - No trademark conflicts. Never use "Claude", "Claude Code", or "Anthropic" in a project's name or logo; plain-text references in the description are fine (L-013).
 - Rename `earnstar_N` at the start of P2 (Constitution §3A). The local folder name stays unchanged. After renaming, update `name` in `repos.json` and the clone's remote (`git remote set-url origin https://github.com/JiangtaoShen/<new name>.git`).
