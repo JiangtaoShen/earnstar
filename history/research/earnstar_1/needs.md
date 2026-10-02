@@ -77,3 +77,4 @@ The critique (`critique.md`, ADR-006 section) showed that A was scored by a diff
 | **Weighted** | **3.25** | **3.65** | **3.60** | **3.30** |
 
 No candidate stands out, and all are low. B has not yet had the landscape audit that sank A (L-029, L-034), and its "unmet 3" is provisional. Next: a pre-ADR landscape audit of B, and a measurement of where new tools from unknown authors are actually found without promotion, since "people can find it" is the binding constraint the critique exposed (both started at 07:15 in S024).
+- **B after its landscape audit** (`s024/audit-B-gpu.md`): knocked out. env-doctor (172 stars) already diagnoses broken environments; PyTorch ≥ 2.13 prints the fixing command itself; the users' launchers handle old and new cards; findability and testability are poor. Re-scored 4/2/2/2/2 = **2.60**.
