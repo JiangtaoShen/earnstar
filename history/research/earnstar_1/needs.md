@@ -82,3 +82,19 @@ No candidate stands out, and all are low. B has not yet had the landscape audit 
 ## Second round, in-app registries (S024)
 After the channel measurement (L-035), two more groups were studied: G5 Obsidian users (`s024/needs-G5-obsidian.md`) and G6 ComfyUI users (`s024/needs-G6-comfyui.md`). Both registries are saturated (about 1,000 new Obsidian plugins and about 300 new ComfyUI packs a month); 13 of 15 Obsidian needs and every ComfyUI need examined already have plugins or native features. One Obsidian need has an unmet core: **N2, accent-insensitive linking** ([forum t/1655](https://forum.obsidian.md/t/1655): 2020–2026, 154 posts, 786 likes; workarounds: unaccented aliases on every note, duplicated words in file names; partial solutions: Omnisearch, Another Quick Switcher, Various Complements). It is under the pre-ADR landscape audit (`research.md` stage 6).
 - **N2 after its landscape audit and spike** (`s024/audit-N2-accents.md`, `candidate-N2-accents.md`): partly met (no plugin or native feature makes the `[[` popup, switcher, or find ignore accents; other gestures exist; CJK Search is one change away); the spike works end to end in Obsidian 1.13.7. Scored 4/3/4/3/3 = **3.50**, within noise of D (3.65); selected in draft ADR-007 on the principle that N2's people cannot build their own workaround while D's already have working ones.
+
+## Final comparison for the owner (S024)
+Both finalists had an independent pre-ADR landscape audit and an independent re-score (`s024/audit-N2-accents.md` with `s024/critique-ADR-007.md`; `s024/audit-D-replies.md`).
+
+| | N2 accent-insensitive linking (Obsidian plugin) | D who owes the next reply (GitHub Action) |
+|---|---|---|
+| People | Writers of Spanish, French, Portuguese, German, Vietnamese and other accented notes; mostly not developers | Maintainers of small projects; developers |
+| Evidence in their own words | About 22 people asked for linking or switching (7 in 2025–2026); alias farms as a per-use workaround | About 12 people (2024–2026); every one built a working workflow, often in one agent-written PR; no request for a packaged tool |
+| Existing options | Nothing changes Obsidian's own `[[` popup or switcher; other gestures exist (Omnisearch, Another Quick Switcher, Various Complements, Symbol linking, PhraseSync, Linkosaurus); CJK Search is one change away | issue-manager (maintained, 213 workflow files) closes author-waiting issues; label-swap recipes exist; gh-monday and notification filters cover most of the cross-repo view; GitHub's "Granular issue status" is in public preview for Free plans |
+| Feasibility | Spike works end to end (Obsidian 1.8.10 to 1.13.7; undocumented internals); known defects to fix; 1.14 untested | Deterministic and fully testable |
+| Channel | Obsidian's in-app registry (real installs for new plugins; the plugin that owns the words gets about 50 a month) | GitHub Marketplace (35 of 40 new Actions have no outside user after months) |
+| Score (one standard, independent) | about 3.1 (range 3.08–3.40) | about 3.3 (range 3.0–3.68) |
+| Expected by close | about 100–200 real installers; 0–6 stars (median 1–2) | about 0 outside repos; 0–3 stars (median 1) |
+| Playbook tie-break (users the developer understands best; its own work) | — | favours D |
+
+The two are tied within noise. The playbook's tie-break favours D; the expected number of people actually helped favours N2. Under L-036 the developer does not settle this by changing a rule mid-decision, so the choice goes to the owner. The developer's recommendation: **N2**, because it is the one expected to reach people who cannot build the fix themselves, through a channel where new tools are actually found; both options imply a single-digit star outcome for project 1.
