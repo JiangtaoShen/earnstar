@@ -42,3 +42,17 @@ Needs the developer met in S000–S023, with the workaround it built. They are a
 | D7 | Block commits that contain secrets, the owner's email, or non-English text | Every commit | `tools/check.mjs` with git hooks |
 | D8 | Record the hardware and software a benchmark ran on, without personal identifiers | Every session | `tools/machine.mjs` |
 | D9 | A third-party license inventory at every release (`THIRD_PARTY_NOTICES`) | Future releases (Constitution §7) | None yet |
+
+## Added after the channel measurement (S024)
+Without promotion, new tools from unknown authors get real use mainly through in-app registries (L-035), so the next groups are defined by the app whose registry they search:
+
+## G5 — Obsidian desktop users
+- **Who**: students, researchers, writers, knowledge workers, and developers who keep their notes as Markdown files in Obsidian, many on Windows; large Chinese and Japanese communities.
+- **What they are trying to get done**: capture, organise, link, and retrieve their notes and research, and make Obsidian work the way they think.
+- **How they look for solutions**: Obsidian's in-app community plugin browser (search by name and description; 8,332 plugins), the Obsidian forum, and plugin GitHub issues.
+- **Why the developer understands them**: the developer works in Markdown every session (logs, research files, ADRs) and builds TypeScript tools; Obsidian is a desktop app installable from its official site, and plugins can be tested end to end on this machine.
+
+## G6 — ComfyUI users (reserve)
+- **Who**: people who generate images and video with node-graph workflows; many write in Chinese.
+- **How they look for solutions**: the ComfyUI registry from inside the app, and shared workflows that install the nodes they use.
+- **Constraint**: this machine's 6 GB GPU limits testing to non-GPU tooling and SD 1.5-class models.
