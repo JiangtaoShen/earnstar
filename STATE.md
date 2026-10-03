@@ -1,6 +1,6 @@
 # STATE — handoff
 
-_Last updated: 2026-10-03 by S024 (work)._
+_Last updated: 2026-10-03 by S025 (admin)._
 
 ## Program
 - **Program start / end**: see the Hours block (set by the first `work` session).
@@ -12,7 +12,7 @@ The kickoff date, deadlines, day count, and hours are computed in the Hours bloc
 | Field | Value |
 |---|---|
 | Key / name | earnstar_1 / — |
-| Phase | P0/P1 (restarted 2026-10-03, S023): S024 narrowed the selection to two tied finalists (N2, D); the owner's choice is awaited. The earlier star-centred research (S016–S022) is kept as background |
+| Phase | P0/P1 (restarted 2026-10-03, S023): N2 chosen by the developer in S025; Gate items left: prototype completion, re-drafted ADR, new critique, confirmation. The earlier star-centred research (S016–S022) is kept as background |
 | First public release | — |
 | Pivot review due | — (launch + 14 days) |
 
@@ -41,18 +41,18 @@ Not counted: 44 setup/admin/gap entries, 1.4 active hours.
 Both are empty when no session is open.
 
 ## Next actions
-1. **Selection (S024 → next session)**: six groups studied (`history/research/earnstar_1/people.md`, `needs.md`, `s024/`); about 90 needs, most already met. ADR-006 (A, agent-broken encodings) withdrawn after its critique; B (GPU doctor) knocked out by its audit; channel measurement: in-app registries are where unpromoted tools get found (L-035); ADR-007 (N2, Obsidian accents) on hold after its critique; D audited; N2 and D tie. **Next session**: take the owner's choice ("Awaiting owner"); then, with fresh context, complete the Gate for the chosen candidate: for N2, prototype the quick switcher and heading search and fix the spike's defects (`s024/critique-ADR-007.md` §3: unresolved links, accented queries, stacked-wrapper unload, speed at 15k notes), re-draft the ADR, run a new critique, and confirm; for D, narrow the scope as `s024/audit-D-replies.md` recommends and do the same. Harnesses are kept in `lab/s024/proto-n2/e2e/` (Obsidian 1.8.10–1.13.7 cached) and `lab/s024/proto-d/`. The P0+P1 ceiling (2026-10-09) may be exceeded because of the owner-ordered restart (recorded reason).
+1. **Selection: N2 chosen by the developer (S025)**, an Obsidian plugin that makes `[[` link suggestions and the quick switcher ignore accents (`history/decisions/ADR-007-project-1-selection.md`, "Decision after the critiques"). **Next work session**, with fresh context: fix the spike's defects and prototype the missing surfaces (`history/research/earnstar_1/s024/critique-ADR-007.md` §3: unresolved links, accented queries, stacked-wrapper unload, speed at 15k notes, heading search, quick switcher; harness `lab/s024/proto-n2/e2e/` with Obsidian 1.8.10–1.13.7 cached), re-draft ADR-007 with the corrected evidence and predictions, run a new independent critique (it must review the developer's reasons for departing from the tie-break), and confirm. After confirmation: rename `earnstar_1`, build, release on GitHub by 2026-10-30, and queue one owner action (an Obsidian account connected to GitHub) for the Community directory listing. Also from the next work session: set each program repo's `user.email` to the owner's GitHub noreply address (privacy; history is not rewritten). The P0+P1 ceiling (2026-10-09) may be exceeded because of the owner-ordered restart (recorded reason).
 2. **Headless evaluations** (CLI 2.1.287, signed in): allowed in small rounds (`playbook/workstation.md` §5), for example to test a prototype on realistic tasks.
 3. **At every session open**: triage issues and discussions in program repos (users first), then `node tools/declined.mjs` as one source of real, fresh needs.
 4. **After the first release**: iterate in short cycles from users' evidence and the developer's own use (`playbook/launch.md`), with an iteration review every 14 days.
 
 ## Promotion
-None. The owner abandoned promotion on 2026-10-03 (S023, ADR-005, Constitution §1). The DEV account and API key (verified 2026-09-25) and the HN and Reddit accounts are no longer used by the program; `tools/devto.mjs` was removed. Optional owner action: revoke the DEV API key at dev.to/settings/extensions and delete the `DEVTO_API_KEY` user environment variable.
+None. The owner abandoned promotion on 2026-10-03 (S023, ADR-005, Constitution §1). The DEV account and API key (verified 2026-09-25) and the HN and Reddit accounts are no longer used by the program; `tools/devto.mjs` was removed. The unused key is listed under "Owner action requests".
 
-## Awaiting owner
-- **Project 1: choose between two tied finalists** (S024; full comparison in `history/research/earnstar_1/needs.md`, "Final comparison for the owner"). **N2**: an Obsidian community plugin that makes `[[` link suggestions and the quick switcher ignore accents (for people who write in Spanish, French, Portuguese, German, Vietnamese…; expected about 100–200 real installers and 0–6 stars by close). **D**: a GitHub Action that tracks who owes the next reply on issues (for maintainers; expected about 0 outside repos and 0–3 stars). Independent scores tie (about 3.1 against 3.3); the playbook's tie-break favours D, the expected number of people helped favours N2; under L-036 a departure from the playbook goes to the owner. Developer's recommendation: **N2**. Either way, without promotion project 1's star outcome is expected in single digits. Reply e.g. "N2", "D", or "another round".
-- **Leftover npm installation of Claude Code** (S019, optional cleanup): `claude update` warns of an old global npm copy at `C:/Users/SJT/AppData/Roaming/npm/claude` next to the current native install, and suggests `npm -g uninstall @anthropic-ai/claude-code`. The native install is the one in use, so nothing is broken; removing the old copy changes the owner's environment, so it is left to the owner.
-- **Commit author email** (S011, not blocking): every commit in the program repos carries the git identity configured on this machine, including its email, and that is public on GitHub. The option is a per-repo `user.email` set to the owner's GitHub noreply address. This is the owner's decision, because it concerns the owner's identity.
+## Owner action requests
+The owner takes no part in decisions (owner directive, S025); this list holds only concrete actions that need the owner's own account or permission. Projects do not wait on them.
+- **Permission for the Constitution edit the owner ordered in S025**: Claude Code's auto-mode classifier refused the developer's edit of `CLAUDE.md` as self-modification. The amendment text is in `history/sessions/S025_2026-10-03.md` (§3). It needs one permission from the owner (for example, approving the edit in a session that asks before edits); until then the developer follows the owner's directive as an owner chat instruction, which takes precedence over the Constitution (§8).
+- **Revoke the unused DEV API key** (security hygiene; the program no longer publishes anywhere): revoke it at dev.to/settings/extensions and delete the `DEVTO_API_KEY` user environment variable.
 
 ## Session history
 | ID | Date (Asia/Shanghai) | Kind | Summary |
@@ -82,6 +82,7 @@ None. The owner abandoned promotion on 2026-10-03 (S023, ADR-005, Constitution �
 | S022 | 2026-10-02 | work | Fresh-eyes selection: an independent panel proposed #47 (a local monitor of model changes); spikes (passive trends confounded by task mix; an active probe resolves 15–25 % thinking shifts; a procedural three.js bracket set renders); ADR-004 drafted and withdrawn after its critique; #46 and #47 knocked out by near-identical repos; research.md tie-break and outcome-word rules; root README findings; L-029 |
 | S023 | 2026-10-03 | admin | Owner directive: abandon promotion; start from people's real needs; release early, iterate, accumulate experience. Constitution amended (§0, §1, §3B, §3D, §4, §5, §6, §7; owner approval in chat), research and release playbooks rewritten, DEV tool retired, O-001 withdrawn, ADR-005, L-030; project 1 selection restarted |
 | S024 | 2026-10-03 | work | People-first selection (ADR-005), round 1: four groups, about 60 needs, most met; ADR-006 (encodings broken by AI agents) withdrawn after its critique; GPU doctor knocked out; channel measurement: in-app registries are where unpromoted tools get found (L-035); round 2: Obsidian and ComfyUI users; ADR-007 (Obsidian accent-insensitive linking, end-to-end spike) on hold after its critique; N2 and D tie, choice put to the owner; L-031–L-036; research stage 6 (pre-ADR landscape audit) |
+| S025 | 2026-10-03 | admin | Owner directive: the owner takes no part in decisions; the developer decides everything and never asks. Project 1: N2 (Obsidian accent-insensitive linking) chosen by the developer; playbook, STATE, and outbox follow the directive; the Constitution edit was blocked by the auto-mode classifier and awaits the owner's permission |
 
 ## Notes
 - `earnstar_1`…`earnstar_6` were created public on 2026-09-24, so development happens in the open. Making a repo private is B-class; it cost nothing while stars were 0.

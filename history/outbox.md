@@ -1,12 +1,8 @@
 # Outbox
 
-This queue holds the actions that need owner approval (Constitution §3B).
-- The owner decides in chat by ID, e.g. `approve O-003` or `reject O-003`.
-- **Status flow**: `pending` → `approved` / `rejected` → `done` or `expired`.
-- **Executed by**: `developer` or `owner`.
-- A DEV article item links its package in `history/promo/<project>/<ID>-devto/`. `tools/devto.mjs` publishes it only while the item's status is `approved`.
-- When an article or PR goes live, it is registered in `history/channels.json` and its `C-NNN` ID goes in the Result column.
-- Items without a package (e.g., an awesome-list PR) have their full draft below the table, under their ID.
+This queue holds requests for actions that only the owner can perform with the owner's own account or permission (the owner's directive in S025; the matching Constitution amendment is pending, see STATE). They are tasks, never choices: the owner takes no part in decisions, and projects do not wait on them.
+- **Status flow**: `pending` → `done` (the owner did it) or `withdrawn` (no longer needed).
+- Until S024 this file held B-class approval requests; O-001 below is from that period.
 
 | ID | Created | Type | Target | Summary | Status | Decided | Executed by | Result |
 |---|---|---|---|---|---|---|---|---|

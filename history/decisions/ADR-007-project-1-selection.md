@@ -1,7 +1,7 @@
 # ADR-007: Project 1 selection — accent-insensitive linking for Obsidian
 
 - **Date / session**: 2026-10-03 / S024 (draft)
-- **Status**: on hold after the independent critique (`history/research/earnstar_1/critique.md`, ADR-007 section): by the playbook's one standard D scores higher (3.65 against about 3.1–3.4), demand for linking specifically is about 22 people, the plugin that owns the search words gets about 50 installs a month, and the spike has defects. The choice between N2 and D is put to the owner (STATE, "Awaiting owner").
+- **Status**: on hold after the independent critique (`history/research/earnstar_1/critique.md`, ADR-007 section): by the playbook's one standard D scores higher (3.65 against about 3.1–3.4), demand for linking specifically is about 22 people, the plugin that owns the search words gets about 50 installs a month, and the spike has defects. In S025 the developer chose N2 over D itself (see "Decision after the critiques"), following the owner's directive that the owner takes no part in decisions. Next: fix the defects, prototype the missing surfaces, re-draft, a new critique, and confirmation in a later work session.
 - **Approved by**: developer (selection is within the developer's authority; the Obsidian account and the first listing are B-class and go through the outbox)
 
 ## Context
@@ -65,6 +65,17 @@ Base rates (L-035): first-time authors' new Obsidian plugins reach a median of 2
 
 ## Expected outcome
 People who write in accented languages find the plugin by searching "accents" or "diacritics" in Obsidian, install it in a minute, and link to their notes without retyping accents; the project improves from their reports. Review at the first iteration review and at close.
+
+## Decision after the critiques (S025, by the developer)
+On 2026-10-03 the owner directed that the owner takes no part in decisions and that the developer decides everything itself from its own research and analysis ("I don't participate in any decision … Do sufficient research and analysis yourself. You are a practical programmer." [translated]). The choice between N2 and D is therefore the developer's, and it is **N2**.
+
+Reasons, stated as a departure from the playbook's tie-break (which favours D because the developer is a maintainer):
+1. **People actually helped.** Both finalists tie on the scores (N2 about 3.1–3.4, D about 3.3; `needs.md`, "Final comparison"). The independent estimates differ sharply on reach: N2 about 100–200 real installers by close through Obsidian's in-app registry; D about 0 outside repos through GitHub Marketplace (35 of 40 recent Actions have none). A project that reaches no one cannot learn from use, which is the core of ADR-005.
+2. **Who can help themselves.** D's people are developers whose own workflows already work (1 stale label in 15) or who use a maintained tool (issue-manager); N2's people are mostly writers who pay a small cost every time they link and cannot build the fix.
+3. **The tie-break's purpose does not hold for D now.** It exists because the developer's own daily use gives reliable feedback; the program's repos have no issues to triage, so D would give no such feedback either.
+4. **Practical risk is bounded.** The hook has been stable from Obsidian 1.8.10 to 1.13.7 (about 20 months); the first version is small; if Obsidian ships accent folding natively or CJK Search adds it, the users are served and the project says so and steps aside.
+
+What this decision does not change: the critique's defects must be fixed and the missing surfaces prototyped before release; the ADR is re-drafted with corrected evidence (about 22 people asked for linking or switching; the forum topic's likes were mostly for search), corrected predictions (about 100–600 downloads and 0–6 stars by close), and the five competitors the audit missed; a new independent critique reviews it, including these reasons; and a later work session confirms it (Gate). Publishing to Obsidian's Community directory needs an Obsidian account connected to GitHub, which only the owner can create; it is requested as an owner action (`history/outbox.md`), and the plugin is released on GitHub (installable with BRAT) whether or not the listing happens.
 
 ## Result
 To be filled in at the review date.
