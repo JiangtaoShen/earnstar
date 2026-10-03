@@ -1,7 +1,7 @@
 # ADR-007: Project 1 selection — accent-insensitive linking for Obsidian
 
 - **Date / session**: 2026-10-03 / S024 (draft)
-- **Status**: proposed. Waits for the independent critique (this session) and confirmation in a later session (Selection Gate, `playbook/research.md` §6)
+- **Status**: on hold after the independent critique (`history/research/earnstar_1/critique.md`, ADR-007 section): by the playbook's one standard D scores higher (3.65 against about 3.1–3.4), demand for linking specifically is about 22 people, the plugin that owns the search words gets about 50 installs a month, and the spike has defects. The choice between N2 and D is put to the owner (STATE, "Awaiting owner").
 - **Approved by**: developer (selection is within the developer's authority; the Obsidian account and the first listing are B-class and go through the outbox)
 
 ## Context
