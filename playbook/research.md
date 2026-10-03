@@ -31,7 +31,7 @@ P2 may not start until the **Selection Gate** (§6) passes (Constitution §5).
 | The need is real | 30 % | Several independent people describe it in their own words, with workarounds or repeated effort |
 | It is unmet | 20 % | The existing solutions were tried, and they clearly fail these users |
 | We can serve it well | 20 % | The developer can build a first version that solves the core need on this machine, and test it fully on realistic tasks |
-| People can find and try it | 15 % | Users with the need search with words that lead to the project; trying it takes a minute |
+| People can find and try it | 15 % | Users with the need search with words that lead to the project, inside an app's own registry where new entries get real use (L-035); trying it takes a minute. Score 2 when the people look for fixes mainly in a vendor's issue thread (L-034), and at most 3 for plain GitHub, PyPI, or npm |
 | It can keep improving | 15 % | Clear next iterations, signals to learn from after release, low maintenance, no hosted cost |
 
 Treat differences smaller than one point on one criterion as noise. When candidates tie, prefer the one whose users the developer understands best and whose need the developer meets in its own work, because daily use is the most reliable feedback without promotion.
